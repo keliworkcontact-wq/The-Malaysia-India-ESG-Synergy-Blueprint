@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import LandingHero from './sections/LandingHero';
 import PresentationLayout from './layouts/PresentationLayout';
 import ProcessLog from './sections/ProcessLog';
+import AuditDashboard from './sections/AuditDashboard';
 
 type PageState = 'landing' | 'report' | 'log';
 
@@ -84,14 +85,14 @@ export default function App() {
               </section>
 
               <section id="audit" className="section-container bg-stone-50">
-                <div className="max-w-6xl w-full">
-                  <h2 className="text-4xl font-bold mb-8 text-corporate-blue">Benchmark Audit: HUL ESG Performance</h2>
-                  <div className="bg-white p-12 rounded-3xl shadow-sm border border-stone-200">
-                    <p className="text-center text-stone-400 italic">Data visualization placeholder (Recharts implementation pending CSV parsing)</p>
-                    <div className="h-96 mt-8 bg-stone-50 rounded-xl border border-dashed border-stone-300 flex items-center justify-center">
-                      <span className="text-stone-400">ESG Trend Chart Area</span>
-                    </div>
+                <div className="max-w-7xl w-full">
+                  <div className="text-center mb-12">
+                    <h2 className="text-4xl font-bold text-corporate-blue mb-4">Section 2: Comprehensive ESG Audit Dashboard</h2>
+                    <p className="text-stone-500 max-w-2xl mx-auto">
+                      A deep-dive into HUL's 5-year sustainability performance, benchmarking environmental impact against social governance metrics.
+                    </p>
                   </div>
+                  <AuditDashboard />
                 </div>
               </section>
 
