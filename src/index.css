@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-sustainability-green: #2D5A27;
+  --color-corporate-blue: #1B365D;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-stone-900 bg-stone-50;
+  }
+}
+
+.section-container {
+  @apply min-h-screen flex flex-col items-center justify-center p-8;
+}
