@@ -38,13 +38,19 @@ export default function AuditDashboard() {
     const currentTotal = lastPoint.scope1 + lastPoint.scope2;
     const step = currentTotal / 4;
 
-    const forecast = forecastYears.map((year, i) => ({
-      year,
-      scope1: Math.max(0, lastPoint.scope1 - (step * (i + 1)) * 0.8),
-      scope2: Math.max(0, lastPoint.scope2 - (step * (i + 1)) * 0.2),
-      scope3: lastPoint.scope3 * (1 - (i + 1) * 0.15), // Slower reduction for Scope 3
-      isForecast: true,
-    }));
+    const forecast = forecastYears.map((year, i) => {
+      const s1 = lastPoint.scope1 !== null ? Math.max(0, lastPoint.scope1 - (step * (i + 1)) * 0.8) : null;
+      const s2 = lastPoint.scope2 !== null ? Math.max(0, lastPoint.scope2 - (step * (i + 1)) * 0.2) : null;
+      const s3 = lastPoint.scope3 !== null ? lastPoint.scope3 * (1 - (i + 1) * 0.15) : null;
+
+      return {
+        year,
+        scope1: s1,
+        scope2: s2,
+        scope3: s3,
+        isForecast: true,
+      };
+    });
 
     return [...data, ...forecast];
   }, [data, showForecast]);
@@ -83,30 +89,33 @@ export default function AuditDashboard() {
                   dataKey="year" 
                   axisLine={false} 
                   tickLine={false} 
-                  tick={{ fill: '#888', fontSize: 12 }}
+                  tick={{ fill: '#888', fontSize: 10 }}
                   dy={10}
                 />
                 <YAxis 
                   axisLine={false} 
                   tickLine={false} 
-                  tick={{ fill: '#888', fontSize: 12 }}
+                  tick={{ fill: '#888', fontSize: 10 }}
+                  tickFormatter={(val) => val >= 1000000 ? `${(val/1000000).toFixed(1)}M` : val.toLocaleString()}
                 />
                 <Tooltip 
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                  formatter={(val: number) => [val?.toLocaleString(), '']}
                 />
                 <Legend verticalAlign="top" align="right" iconType="circle" />
                 
                 <Line 
                   name="Scopes 1 & 2 (Direct)" 
                   type="monotone" 
-                  dataKey={(d) => d.scope1 + d.scope2} 
+                  dataKey={(d) => (d.scope1 !== null && d.scope2 !== null) ? d.scope1 + d.scope2 : null} 
                   stroke="#2D5A27" 
                   strokeWidth={3}
                   dot={{ r: 4, fill: '#2D5A27' }}
                   activeDot={{ r: 6 }}
+                  connectNulls={false}
                   strokeDasharray={d => d.isForecast ? "5 5" : "0"}
                 />
-                {data.some(d => d.scope3 > 0) && (
+                {data.some(d => d.scope3 !== null && d.scope3 > 0) && (
                   <Line 
                     name="Scope 3 (Supply Chain)" 
                     type="monotone" 
@@ -115,12 +124,13 @@ export default function AuditDashboard() {
                     strokeWidth={3}
                     dot={{ r: 4, fill: '#1B365D' }}
                     activeDot={{ r: 6 }}
+                    connectNulls={false}
                     strokeDasharray={d => d.isForecast ? "5 5" : "0"}
                   />
                 )}
 
                 {/* Warning Dot for Scope 3 Rebound - Only if data exists */}
-                {!showForecast && data.some(d => d.scope3 > 0) && (
+                {!showForecast && data.some(d => d.scope3 !== null && d.scope3 > 0) && (
                   <ReferenceDot 
                     x="FY 2024-25" 
                     y={data.find(d => d.year === 'FY 2024-25')?.scope3 || 0} 

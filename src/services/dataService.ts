@@ -2,50 +2,85 @@ import Papa from 'papaparse';
 
 export interface ESGDataPoint {
   year: string;
-  scope1: number;
-  scope2: number;
-  scope3: number;
-  womenPercentage: number;
+  scope1: number | null;
+  scope2: number | null;
+  scope3: number | null;
+  womenPercentage: number | null;
   fines: number;
+  isForecast?: boolean;
 }
 
-export const fetchESGData = async (): Promise<ESGDataPoint[]> => {
-  const years = ['FY 2020-21', 'FY 2021-22', 'FY 2022-23', 'FY 2023-24', 'FY 2024-25'];
+const parseValue = (val: string | undefined): number | null => {
+  if (!val || val.trim() === '' || val.toLowerCase().includes('not in source')) return null;
   
-  const [climateRes, peopleRes, finesRes] = await Promise.all([
-    fetch('/data/hul-sustainability-performance-data-climate.csv').then(r => r.text()),
-    fetch('/data/people-performance-metrics.csv').then(r => r.text()),
+  const parts = val.split('|').map(p => p.trim());
+  const numbers = parts.map(p => {
+    // Extract base number
+    const match = p.match(/[-+]?[0-9]*\.?[0-9]+/);
+    if (!match) return NaN;
+    
+    let num = parseFloat(match[0]);
+    if (p.toLowerCase().includes('million')) {
+      num *= 1000000;
+    }
+    return num;
+  }).filter(n => !isNaN(n));
+  
+  if (numbers.length === 0) return null;
+  return Math.min(...numbers);
+};
+
+export const fetchESGData = async (): Promise<ESGDataPoint[]> => {
+  // Chronological order for the chart
+  const yearHeaders = ['FY_2020', 'FY_2021', 'FY_2022', 'FY_2023', 'FY_2024', 'FY_2024-25'];
+  const displayLabels: { [key: string]: string } = {
+    'FY_2020': 'FY 2019-20',
+    'FY_2021': 'FY 2020-21',
+    'FY_2022': 'FY 2021-22',
+    'FY_2023': 'FY 2022-23',
+    'FY_2024': 'FY 2023-24',
+    'FY_2024-25': 'FY 2024-25'
+  };
+  
+  const [table1Res, finesRes] = await Promise.all([
+    fetch('/data/Table_1.csv').then(r => r.text()),
     fetch('/data/environmental-fines-and-prosecution.csv').then(r => r.text())
   ]);
 
-  const climateData = Papa.parse(climateRes, { header: true, skipEmptyLines: true }).data as any[];
-  const peopleData = Papa.parse(peopleRes, { header: true, skipEmptyLines: true }).data as any[];
+  const table1Data = Papa.parse(table1Res, { header: true, skipEmptyLines: true }).data as any[];
   const finesData = Papa.parse(finesRes, { header: true, skipEmptyLines: true }).data as any[];
 
-  const getVal = (data: any[], metric: string, year: string) => {
-    const row = data.find(r => r.Metric && r.Metric.trim().includes(metric));
-    if (!row) return 0;
-    const val = row[year];
-    if (!val || val.trim() === '-' || val.trim() === 'N/A') return 0;
-    // Remove quotes, spaces, commas, and percentage signs
-    return parseFloat(val.replace(/[%"\s,]/g, '')) || 0;
+  const getRow = (data: any[], param: string) => {
+    return data.find(r => r['ESG Parameter'] && r['ESG Parameter'].trim() === param);
   };
 
-  return years.map(year => {
-    const s1 = getVal(climateData, 'Scope 1', year);
-    const s2 = getVal(climateData, 'Scope 2', year);
+  const scope1Row = getRow(table1Data, 'GHG Emissions (Scope 1)');
+  const scope2Row = getRow(table1Data, 'GHG Emissions (Scope 2)');
+  const scope3Row = getRow(table1Data, 'GHG Emissions (Scope 3)');
+  const genderRow = getRow(table1Data, 'Gender diversity in management');
+
+  return yearHeaders.map(header => {
+    // Fines data uses slightly different year format, mapping it
+    const finesYearMap: { [key: string]: string } = {
+      'FY_2020': 'FY 2019-20',
+      'FY_2021': 'FY 2020-21',
+      'FY_2021-22': 'FY 2021-22',
+      'FY_2022': 'FY 2021-22',
+      'FY_2023': 'FY 2022-23',
+      'FY_2024': 'FY 2023-24',
+      'FY_2024-25': 'FY 2024-25'
+    };
     
+    const finesRow = finesData.find(r => r.Metric && r.Metric.includes('Environmental prosecutions'));
+    const finesVal = finesRow ? (parseFloat(finesRow[finesYearMap[header]] || '0') || 0) : 0;
+
     return {
-      year,
-      scope1: s1,
-      scope2: s2,
-      // Scope 3 was not found in the provided actual data dump, 
-      // using a placeholder 0 or we could omit it. 
-      // For the chart to still show the "rebound risk" concept if needed, 
-      // we'll keep it at 0 for now unless provided.
-      scope3: 0, 
-      womenPercentage: getVal(peopleData, 'Total workforce', year),
-      fines: getVal(finesData, 'Environmental prosecutions', year),
+      year: displayLabels[header],
+      scope1: parseValue(scope1Row?.[header]),
+      scope2: parseValue(scope2Row?.[header]),
+      scope3: parseValue(scope3Row?.[header]),
+      womenPercentage: parseValue(genderRow?.[header]),
+      fines: finesVal,
     };
   });
 };
