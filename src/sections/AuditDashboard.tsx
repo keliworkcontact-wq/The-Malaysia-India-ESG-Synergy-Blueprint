@@ -106,19 +106,21 @@ export default function AuditDashboard() {
                   activeDot={{ r: 6 }}
                   strokeDasharray={d => d.isForecast ? "5 5" : "0"}
                 />
-                <Line 
-                  name="Scope 3 (Supply Chain)" 
-                  type="monotone" 
-                  dataKey="scope3" 
-                  stroke="#1B365D" 
-                  strokeWidth={3}
-                  dot={{ r: 4, fill: '#1B365D' }}
-                  activeDot={{ r: 6 }}
-                  strokeDasharray={d => d.isForecast ? "5 5" : "0"}
-                />
+                {data.some(d => d.scope3 > 0) && (
+                  <Line 
+                    name="Scope 3 (Supply Chain)" 
+                    type="monotone" 
+                    dataKey="scope3" 
+                    stroke="#1B365D" 
+                    strokeWidth={3}
+                    dot={{ r: 4, fill: '#1B365D' }}
+                    activeDot={{ r: 6 }}
+                    strokeDasharray={d => d.isForecast ? "5 5" : "0"}
+                  />
+                )}
 
-                {/* Warning Dot for Scope 3 Rebound */}
-                {!showForecast && (
+                {/* Warning Dot for Scope 3 Rebound - Only if data exists */}
+                {!showForecast && data.some(d => d.scope3 > 0) && (
                   <ReferenceDot 
                     x="FY 2024-25" 
                     y={data.find(d => d.year === 'FY 2024-25')?.scope3 || 0} 

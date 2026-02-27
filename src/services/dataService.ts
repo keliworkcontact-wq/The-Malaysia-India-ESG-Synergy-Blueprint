@@ -18,23 +18,34 @@ export const fetchESGData = async (): Promise<ESGDataPoint[]> => {
     fetch('/data/environmental-fines-and-prosecution.csv').then(r => r.text())
   ]);
 
-  const climateData = Papa.parse(climateRes, { header: true }).data as any[];
-  const peopleData = Papa.parse(peopleRes, { header: true }).data as any[];
-  const finesData = Papa.parse(finesRes, { header: true }).data as any[];
+  const climateData = Papa.parse(climateRes, { header: true, skipEmptyLines: true }).data as any[];
+  const peopleData = Papa.parse(peopleRes, { header: true, skipEmptyLines: true }).data as any[];
+  const finesData = Papa.parse(finesRes, { header: true, skipEmptyLines: true }).data as any[];
 
   const getVal = (data: any[], metric: string, year: string) => {
-    const row = data.find(r => r.Metric?.includes(metric) || r.Category?.includes(metric));
+    const row = data.find(r => r.Metric && r.Metric.trim().includes(metric));
     if (!row) return 0;
     const val = row[year];
-    return typeof val === 'string' ? parseFloat(val.replace(/,/g, '')) || 0 : val || 0;
+    if (!val || val.trim() === '-' || val.trim() === 'N/A') return 0;
+    // Remove quotes, spaces, commas, and percentage signs
+    return parseFloat(val.replace(/[%"\s,]/g, '')) || 0;
   };
 
-  return years.map(year => ({
-    year,
-    scope1: getVal(climateData, 'Scope 1', year),
-    scope2: getVal(climateData, 'Scope 2', year),
-    scope3: getVal(climateData, 'Scope 3', year),
-    womenPercentage: getVal(peopleData, 'Total workforce', year),
-    fines: getVal(finesData, 'Environmental prosecutions', year),
-  }));
+  return years.map(year => {
+    const s1 = getVal(climateData, 'Scope 1', year);
+    const s2 = getVal(climateData, 'Scope 2', year);
+    
+    return {
+      year,
+      scope1: s1,
+      scope2: s2,
+      // Scope 3 was not found in the provided actual data dump, 
+      // using a placeholder 0 or we could omit it. 
+      // For the chart to still show the "rebound risk" concept if needed, 
+      // we'll keep it at 0 for now unless provided.
+      scope3: 0, 
+      womenPercentage: getVal(peopleData, 'Total workforce', year),
+      fines: getVal(finesData, 'Environmental prosecutions', year),
+    };
+  });
 };
