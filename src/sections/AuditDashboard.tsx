@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
   ReferenceDot,
   Cell,
+  Label,
 } from 'recharts';
 import { ShieldCheck, AlertTriangle, TrendingDown, ToggleLeft, ToggleRight } from 'lucide-react';
 import { fetchESGData, ESGDataPoint } from '../services/dataService';
@@ -35,7 +36,7 @@ export default function AuditDashboard() {
     const forecastYears = ['FY 2025-26', 'FY 2030-31', 'FY 2040-41', '2050 (Net Zero)'];
     
     // Simple linear projection to zero for Scopes 1&2
-    const currentTotal = lastPoint.scope1 + lastPoint.scope2;
+    const currentTotal = (lastPoint.scope1 || 0) + (lastPoint.scope2 || 0);
     const step = currentTotal / 4;
 
     const forecast = forecastYears.map((year, i) => {
@@ -68,7 +69,7 @@ export default function AuditDashboard() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h3 className="text-2xl font-bold text-corporate-blue">Climate Risk Audit</h3>
-              <p className="text-stone-500 text-sm">GHG Emissions Trend (Metric Tonnes CO2)</p>
+              <p className="text-stone-500 text-sm">GHG Emissions Trend (Metric Tonnes CO2e)</p>
             </div>
             <button 
               onClick={() => setShowForecast(!showForecast)}
@@ -81,9 +82,9 @@ export default function AuditDashboard() {
             </button>
           </div>
 
-          <div className="h-[400px] w-full">
+          <div className="h-[450px] w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={forecastData}>
+              <LineChart data={forecastData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
                 <XAxis 
                   dataKey="year" 
@@ -92,12 +93,42 @@ export default function AuditDashboard() {
                   tick={{ fill: '#888', fontSize: 10 }}
                   dy={10}
                 />
+                {/* Left Axis for Scope 1 & 2 */}
                 <YAxis 
+                  yAxisId="left"
+                  orientation="left"
                   axisLine={false} 
                   tickLine={false} 
-                  tick={{ fill: '#888', fontSize: 10 }}
-                  tickFormatter={(val) => val >= 1000000 ? `${(val/1000000).toFixed(1)}M` : val.toLocaleString()}
-                />
+                  tick={{ fill: '#2D5A27', fontSize: 10 }}
+                  domain={[0, 'auto']}
+                >
+                  <Label 
+                    value="MT CO2e (Operations)" 
+                    angle={-90} 
+                    position="insideLeft" 
+                    style={{ textAnchor: 'middle', fill: '#2D5A27', fontSize: 10, fontWeight: 600 }}
+                    offset={-10}
+                  />
+                </YAxis>
+                {/* Right Axis for Scope 3 */}
+                <YAxis 
+                  yAxisId="right"
+                  orientation="right"
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{ fill: '#1B365D', fontSize: 10 }}
+                  domain={[0, 12000000]}
+                  tickFormatter={(val) => `${(val/1000000).toFixed(1)}M`}
+                >
+                  <Label 
+                    value="MT CO2e (Value Chain)" 
+                    angle={90} 
+                    position="insideRight" 
+                    style={{ textAnchor: 'middle', fill: '#1B365D', fontSize: 10, fontWeight: 600 }}
+                    offset={-10}
+                  />
+                </YAxis>
+                
                 <Tooltip 
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
                   formatter={(val: number) => [val?.toLocaleString(), '']}
@@ -105,6 +136,7 @@ export default function AuditDashboard() {
                 <Legend verticalAlign="top" align="right" iconType="circle" />
                 
                 <Line 
+                  yAxisId="left"
                   name="Scopes 1 & 2 (Direct)" 
                   type="monotone" 
                   dataKey={(d) => (d.scope1 !== null && d.scope2 !== null) ? d.scope1 + d.scope2 : null} 
@@ -117,6 +149,7 @@ export default function AuditDashboard() {
                 />
                 {data.some(d => d.scope3 !== null && d.scope3 > 0) && (
                   <Line 
+                    yAxisId="right"
                     name="Scope 3 (Supply Chain)" 
                     type="monotone" 
                     dataKey="scope3" 
@@ -132,6 +165,7 @@ export default function AuditDashboard() {
                 {/* Warning Dot for Scope 3 Rebound - Only if data exists */}
                 {!showForecast && data.some(d => d.scope3 !== null && d.scope3 > 0) && (
                   <ReferenceDot 
+                    yAxisId="right"
                     x="FY 2024-25" 
                     y={data.find(d => d.year === 'FY 2024-25')?.scope3 || 0} 
                     r={8} 
