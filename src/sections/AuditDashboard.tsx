@@ -1,7 +1,5 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import {
-  LineChart,
-  Line,
   BarChart,
   Bar,
   XAxis,
@@ -10,248 +8,217 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  ReferenceDot,
   Cell,
   Label,
 } from 'recharts';
-import { ShieldCheck, AlertTriangle, TrendingDown, ToggleLeft, ToggleRight } from 'lucide-react';
-import { fetchESGData, ESGDataPoint } from '../services/dataService';
+import { ShieldCheck, Recycle, HardHat, AlertCircle, Info } from 'lucide-react';
+import { fetchComplianceData, ComplianceMetrics } from '../services/dataService';
+
+const chartData = [
+  { 
+    cycle: "Cycle 2023", 
+    s12: 20165, 
+    s3: 8719253, 
+    s3Note: "Data Period: Oct 2022 - Sep 2023" 
+  },
+  { 
+    cycle: "Cycle 2024", 
+    s12: 14718, 
+    s3: 9962535, 
+    s3Note: "Data Period: Jan 2024 - Dec 2024" 
+  },
+  { 
+    cycle: "Cycle 2025", 
+    s12: 8944, 
+    s3: null, 
+    s3Note: "Status: Awaiting Supplier Disclosure" 
+  }
+];
+
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    const data = payload[0].payload;
+    return (
+      <div className="bg-white p-4 rounded-xl shadow-xl border border-stone-200">
+        <p className="font-bold text-corporate-blue mb-2">{label}</p>
+        <div className="space-y-1 text-sm">
+          <p className="flex justify-between gap-4">
+            <span className="text-stone-500">Scope 1&2:</span>
+            <span className="font-mono font-bold text-[#004e92]">{data.s12?.toLocaleString()} MT</span>
+          </p>
+          <p className="flex justify-between gap-4">
+            <span className="text-stone-500">Scope 3:</span>
+            <span className="font-mono font-bold text-[#f57c00]">
+              {data.s3 ? `${data.s3.toLocaleString()} MT` : 'N/A'}
+            </span>
+          </p>
+          <div className="mt-3 pt-2 border-top border-stone-100 flex items-start gap-2 text-[10px] text-stone-400 italic">
+            <Info size={12} className="shrink-0 mt-0.5" />
+            <span>{data.s3Note}</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return null;
+};
 
 export default function AuditDashboard() {
-  const [data, setData] = useState<ESGDataPoint[]>([]);
-  const [showForecast, setShowForecast] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [compliance, setCompliance] = useState<ComplianceMetrics | null>(null);
 
   useEffect(() => {
-    fetchESGData().then((res) => {
-      setData(res);
-      setLoading(false);
-    });
+    fetchComplianceData().then(setCompliance);
   }, []);
 
-  const forecastData = useMemo(() => {
-    if (!data.length || !showForecast) return data;
-    
-    const lastPoint = data[data.length - 1];
-    const forecastYears = ['FY 2025-26', 'FY 2030-31', 'FY 2040-41', '2050 (Net Zero)'];
-    
-    // Simple linear projection to zero for Scopes 1&2
-    const currentTotal = (lastPoint.scope1 || 0) + (lastPoint.scope2 || 0);
-    const step = currentTotal / 4;
-
-    const forecast = forecastYears.map((year, i) => {
-      const s1 = lastPoint.scope1 !== null ? Math.max(0, lastPoint.scope1 - (step * (i + 1)) * 0.8) : null;
-      const s2 = lastPoint.scope2 !== null ? Math.max(0, lastPoint.scope2 - (step * (i + 1)) * 0.2) : null;
-      const s3 = lastPoint.scope3 !== null ? lastPoint.scope3 * (1 - (i + 1) * 0.15) : null;
-
-      return {
-        year,
-        scope1: s1,
-        scope2: s2,
-        scope3: s3,
-        isForecast: true,
-      };
-    });
-
-    return [...data, ...forecast];
-  }, [data, showForecast]);
-
-  const zeroFines = data.every(d => d.fines === 0);
-
-  if (loading) return <div className="h-96 flex items-center justify-center text-stone-400">Loading Audit Data...</div>;
-
   return (
-    <div className="max-w-7xl mx-auto w-full px-4 py-12" id="audit-dashboard">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* Climate Risk Chart - Spans 2 columns */}
-        <div className="lg:col-span-2 bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h3 className="text-2xl font-bold text-corporate-blue">Climate Risk Audit</h3>
-              <p className="text-stone-500 text-sm">GHG Emissions Trend (Metric Tonnes CO2e)</p>
-            </div>
-            <button 
-              onClick={() => setShowForecast(!showForecast)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                showForecast ? 'bg-sustainability-green text-white' : 'bg-stone-100 text-stone-600'
-              }`}
-            >
-              {showForecast ? <ToggleRight size={20} /> : <ToggleLeft size={20} />}
-              2050 Forecast
-            </button>
+    <div className="max-w-7xl mx-auto w-full px-4 py-12 space-y-12" id="audit-dashboard">
+      
+      {/* Technical Block: Reporting Cycle Chart */}
+      <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+        <div className="flex items-center justify-between mb-10">
+          <div>
+            <h3 className="text-2xl font-bold text-corporate-blue">ESG Audit: Emissions Reporting Cycle</h3>
+            <p className="text-stone-500 text-sm">Dual-Axis Analysis of Operational vs. Value Chain Impact</p>
           </div>
-
-          <div className="h-[450px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={forecastData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                <XAxis 
-                  dataKey="year" 
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#888', fontSize: 10 }}
-                  dy={10}
-                />
-                {/* Left Axis for Scope 1 & 2 */}
-                <YAxis 
-                  yAxisId="left"
-                  orientation="left"
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#004e92', fontSize: 10 }}
-                  domain={[0, 'auto']}
-                >
-                  <Label 
-                    value="MT CO2e (Operations)" 
-                    angle={-90} 
-                    position="insideLeft" 
-                    style={{ textAnchor: 'middle', fill: '#004e92', fontSize: 10, fontWeight: 600 }}
-                    offset={-10}
-                  />
-                </YAxis>
-                {/* Right Axis for Scope 3 */}
-                <YAxis 
-                  yAxisId="right"
-                  orientation="right"
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#f57c00', fontSize: 10 }}
-                  domain={[0, 12000000]}
-                  tickFormatter={(val) => `${(val/1000000).toFixed(1)}M`}
-                >
-                  <Label 
-                    value="MT CO2e (Value Chain)" 
-                    angle={90} 
-                    position="insideRight" 
-                    style={{ textAnchor: 'middle', fill: '#f57c00', fontSize: 10, fontWeight: 600 }}
-                    offset={-10}
-                  />
-                </YAxis>
-                
-                <Tooltip 
-                  contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
-                  formatter={(val: number) => [val?.toLocaleString(), '']}
-                />
-                <Legend verticalAlign="top" align="right" iconType="circle" />
-                
-                <Line 
-                  yAxisId="left"
-                  name="Scope 1 (Direct)" 
-                  type="monotone" 
-                  dataKey="scope1" 
-                  stroke="#004e92" 
-                  strokeWidth={3}
-                  dot={{ r: 4, fill: '#004e92' }}
-                  activeDot={{ r: 6 }}
-                  connectNulls={false}
-                  strokeDasharray={d => d.isForecast ? "5 5" : "0"}
-                />
-                <Line 
-                  yAxisId="left"
-                  name="Scope 2 (Indirect)" 
-                  type="monotone" 
-                  dataKey="scope2" 
-                  stroke="#00a8cc" 
-                  strokeWidth={3}
-                  dot={{ r: 4, fill: '#00a8cc' }}
-                  activeDot={{ r: 6 }}
-                  connectNulls={false}
-                  strokeDasharray={d => d.isForecast ? "5 5" : "0"}
-                />
-                {data.some(d => d.scope3 !== null && d.scope3 > 0) && (
-                  <Line 
-                    yAxisId="right"
-                    name="Scope 3 (Value Chain)" 
-                    type="monotone" 
-                    dataKey="scope3" 
-                    stroke="#f57c00" 
-                    strokeWidth={3}
-                    dot={{ r: 4, fill: '#f57c00' }}
-                    activeDot={{ r: 6 }}
-                    connectNulls={false}
-                    strokeDasharray={d => d.isForecast ? "5 5" : "5 5"}
-                  />
-                )}
-
-                {/* Warning Dot for Scope 3 Rebound - Only if data exists */}
-                {!showForecast && data.some(d => d.scope3 !== null && d.scope3 > 0) && (
-                  <ReferenceDot 
-                    yAxisId="right"
-                    x="FY 2024-25" 
-                    y={data.find(d => d.year === 'FY 2024-25')?.scope3 || 0} 
-                    r={8} 
-                    fill="#ef4444" 
-                    stroke="none"
-                  >
-                    <Tooltip content={() => <div className="bg-red-500 text-white p-2 rounded shadow text-xs">Emission Rebound Risk</div>} />
-                  </ReferenceDot>
-                )}
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="mt-6 flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
-            <AlertTriangle className="text-red-500 shrink-0" size={20} />
-            <p className="text-xs text-red-800 leading-relaxed">
-              <strong>Audit Insight:</strong> Scope 3 emissions show a rebound risk in FY 2024-25. This highlights the critical need for the "Regenerative Agriculture Platform" to de-risk the supply chain.
-            </p>
-          </div>
-        </div>
-
-        {/* Social & Governance Pill */}
-        <div className="space-y-8">
-          {/* Compliance Badge */}
-          <div className="bg-corporate-blue text-white p-6 rounded-3xl shadow-lg relative overflow-hidden">
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-4">
-                <ShieldCheck className="text-sustainability-green" size={28} />
-                <h4 className="font-bold text-lg">Governance Audit</h4>
-              </div>
-              <div className="text-3xl font-bold mb-2">100%</div>
-              <p className="text-white/70 text-sm">Regulatory Compliance</p>
-              <div className="mt-4 inline-block px-3 py-1 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                Audit Result: Zero Fines
-              </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-[#004e92] rounded-sm" />
+              <span className="text-xs font-medium text-stone-600">Scope 1&2</span>
             </div>
-            <div className="absolute -right-4 -bottom-4 opacity-10">
-              <ShieldCheck size={120} />
-            </div>
-          </div>
-
-          {/* Social Trend Chart */}
-          <div className="bg-white p-6 rounded-3xl shadow-sm border border-stone-200">
-            <div className="mb-6">
-              <h4 className="font-bold text-corporate-blue">Social Impact</h4>
-              <p className="text-stone-500 text-xs">% Women in Workforce</p>
-            </div>
-            <div className="h-48 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={data}>
-                  <XAxis dataKey="year" hide />
-                  <Tooltip 
-                    cursor={{ fill: '#f8f8f8' }}
-                    contentStyle={{ borderRadius: '8px', border: 'none', fontSize: '12px' }}
-                  />
-                  <Bar dataKey="womenPercentage" radius={[4, 4, 0, 0]}>
-                    {data.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={index === data.length - 1 ? '#2D5A27' : '#1B365D'} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="mt-4 flex items-center justify-between">
-              <div className="flex items-center gap-2 text-sustainability-green">
-                <TrendingDown className="rotate-180" size={16} />
-                <span className="text-sm font-bold">+{((data[data.length-1]?.womenPercentage - data[0]?.womenPercentage) || 0).toFixed(1)}%</span>
-              </div>
-              <span className="text-stone-400 text-[10px] uppercase font-bold tracking-widest">5-Year Growth</span>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-[#f57c00] rounded-sm" />
+              <span className="text-xs font-medium text-stone-600">Scope 3</span>
             </div>
           </div>
         </div>
 
+        <div className="h-[500px] w-full relative">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={chartData} margin={{ top: 20, right: 60, left: 40, bottom: 40 }}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+              <XAxis 
+                dataKey="cycle" 
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fill: '#888', fontSize: 12, fontWeight: 500 }}
+                dy={15}
+              >
+                <Label value="Reporting Cycle" offset={-20} position="insideBottom" style={{ fill: '#888', fontSize: 12 }} />
+              </XAxis>
+              
+              {/* Left Axis: Scope 1&2 */}
+              <YAxis 
+                yAxisId="left"
+                orientation="left"
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fill: '#004e92', fontSize: 11 }}
+                domain={[0, 25000]}
+              >
+                <Label 
+                  value="Scope 1&2 (MT CO2e)" 
+                  angle={-90} 
+                  position="insideLeft" 
+                  style={{ textAnchor: 'middle', fill: '#004e92', fontSize: 11, fontWeight: 600 }}
+                  offset={-25}
+                />
+              </YAxis>
+
+              {/* Right Axis: Scope 3 */}
+              <YAxis 
+                yAxisId="right"
+                orientation="right"
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fill: '#f57c00', fontSize: 11 }}
+                domain={[0, 12000000]}
+                tickFormatter={(val) => `${(val/1000000).toFixed(1)}M`}
+              >
+                <Label 
+                  value="Scope 3 (MT CO2e)" 
+                  angle={90} 
+                  position="insideRight" 
+                  style={{ textAnchor: 'middle', fill: '#f57c00', fontSize: 11, fontWeight: 600 }}
+                  offset={-25}
+                />
+              </YAxis>
+
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: '#f8fafc', opacity: 0.4 }} />
+              
+              <Bar yAxisId="left" dataKey="s12" fill="#004e92" radius={[4, 4, 0, 0]} barSize={40} />
+              <Bar yAxisId="right" dataKey="s3" fill="#f57c00" radius={[4, 4, 0, 0]} barSize={40}>
+                {chartData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.s3 === null ? 'transparent' : '#f57c00'} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+
+          {/* Data Gap Indicator for Cycle 2025 */}
+          <div className="absolute bottom-[100px] right-[12%] flex flex-col items-center gap-2 pointer-events-none">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-stone-100 rounded-lg border border-stone-200 text-stone-400">
+              <AlertCircle size={14} />
+              <span className="text-[10px] font-bold uppercase tracking-wider">Data Gap</span>
+            </div>
+            <div className="w-px h-12 bg-dashed border-l border-dashed border-stone-300" />
+          </div>
+        </div>
       </div>
+
+      {/* Integrated Compliance Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Circularity Card */}
+        <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200 hover:border-sustainability-green transition-all group">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-emerald-50 text-sustainability-green rounded-2xl group-hover:scale-110 transition-transform">
+              <Recycle size={24} />
+            </div>
+            <h4 className="font-bold text-corporate-blue">Circularity</h4>
+          </div>
+          <div className="text-4xl font-mono font-bold text-sustainability-green mb-2">
+            {compliance?.recyclability || 74}%
+          </div>
+          <p className="text-stone-500 text-sm leading-relaxed">
+            Technically recyclable plastic packaging in HUL portfolio (FY 24-25).
+          </p>
+        </div>
+
+        {/* Governance Card */}
+        <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200 hover:border-corporate-blue transition-all group">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-blue-50 text-corporate-blue rounded-2xl group-hover:scale-110 transition-transform">
+              <ShieldCheck size={24} />
+            </div>
+            <h4 className="font-bold text-corporate-blue">Governance</h4>
+          </div>
+          <div className="text-4xl font-mono font-bold text-corporate-blue mb-2">
+            {compliance?.fines || 0}
+          </div>
+          <p className="text-stone-500 text-sm leading-relaxed">
+            Environmental prosecutions and fines recorded in the audit period.
+          </p>
+          <div className="mt-4 inline-block px-3 py-1 bg-blue-50 text-corporate-blue rounded-full text-[10px] font-bold uppercase tracking-wider">
+            100% Regulatory Compliance
+          </div>
+        </div>
+
+        {/* Safety Card */}
+        <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200 hover:border-red-500 transition-all group">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-red-50 text-red-500 rounded-2xl group-hover:scale-110 transition-transform">
+              <HardHat size={24} />
+            </div>
+            <h4 className="font-bold text-corporate-blue">Safety</h4>
+          </div>
+          <div className="text-4xl font-mono font-bold text-red-500 mb-2">
+            {compliance?.fatalities || 0}
+          </div>
+          <p className="text-stone-500 text-sm leading-relaxed">
+            Total fatal accidents recorded across all HUL operations (FY 24-25).
+          </p>
+        </div>
+      </div>
+
     </div>
   );
 }

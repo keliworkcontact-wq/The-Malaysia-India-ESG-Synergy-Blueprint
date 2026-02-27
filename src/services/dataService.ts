@@ -62,11 +62,9 @@ export const fetchESGData = async (): Promise<ESGDataPoint[]> => {
   const genderRow = getRow(table1Data, 'Gender diversity in management');
 
   return yearHeaders.map(header => {
-    // Fines data uses slightly different year format, mapping it
     const finesYearMap: { [key: string]: string } = {
       'FY_2020': 'FY 2019-20',
       'FY_2021': 'FY 2020-21',
-      'FY_2021-22': 'FY 2021-22',
       'FY_2022': 'FY 2021-22',
       'FY_2023': 'FY 2022-23',
       'FY_2024': 'FY 2023-24',
@@ -85,4 +83,36 @@ export const fetchESGData = async (): Promise<ESGDataPoint[]> => {
       fines: finesVal,
     };
   });
+};
+
+export interface ComplianceMetrics {
+  recyclability: number;
+  fines: number;
+  fatalities: number;
+}
+
+export const fetchComplianceData = async (): Promise<ComplianceMetrics> => {
+  const [packagingRes, finesRes, safetyRes] = await Promise.all([
+    fetch('/data/hul-other-packaging-material.csv').then(r => r.text()),
+    fetch('/data/environmental-fines-and-prosecution.csv').then(r => r.text()),
+    fetch('/data/hul-safety-at-work.csv').then(r => r.text())
+  ]);
+
+  const packagingData = Papa.parse(packagingRes, { header: true, skipEmptyLines: true }).data as any[];
+  const finesData = Papa.parse(finesRes, { header: true, skipEmptyLines: true }).data as any[];
+  const safetyData = Papa.parse(safetyRes, { header: true, skipEmptyLines: true }).data as any[];
+
+  const getMetricVal = (data: any[], metric: string, year: string = 'FY 2024-25') => {
+    const row = data.find(r => r.Metric && r.Metric.trim().includes(metric));
+    if (!row) return 0;
+    const val = row[year];
+    if (!val || val.trim() === '-' || val.trim() === 'N/A') return 0;
+    return parseFloat(val.replace(/[%"\s,]/g, '')) || 0;
+  };
+
+  return {
+    recyclability: getMetricVal(packagingData, 'technically recyclable'),
+    fines: getMetricVal(finesData, 'Environmental prosecutions'),
+    fatalities: getMetricVal(safetyData, 'Fatal accidents total'),
+  };
 };
