@@ -99,14 +99,14 @@ export default function AuditDashboard() {
                   orientation="left"
                   axisLine={false} 
                   tickLine={false} 
-                  tick={{ fill: '#2D5A27', fontSize: 10 }}
+                  tick={{ fill: '#004e92', fontSize: 10 }}
                   domain={[0, 'auto']}
                 >
                   <Label 
                     value="MT CO2e (Operations)" 
                     angle={-90} 
                     position="insideLeft" 
-                    style={{ textAnchor: 'middle', fill: '#2D5A27', fontSize: 10, fontWeight: 600 }}
+                    style={{ textAnchor: 'middle', fill: '#004e92', fontSize: 10, fontWeight: 600 }}
                     offset={-10}
                   />
                 </YAxis>
@@ -116,7 +116,7 @@ export default function AuditDashboard() {
                   orientation="right"
                   axisLine={false} 
                   tickLine={false} 
-                  tick={{ fill: '#1B365D', fontSize: 10 }}
+                  tick={{ fill: '#f57c00', fontSize: 10 }}
                   domain={[0, 12000000]}
                   tickFormatter={(val) => `${(val/1000000).toFixed(1)}M`}
                 >
@@ -124,7 +124,7 @@ export default function AuditDashboard() {
                     value="MT CO2e (Value Chain)" 
                     angle={90} 
                     position="insideRight" 
-                    style={{ textAnchor: 'middle', fill: '#1B365D', fontSize: 10, fontWeight: 600 }}
+                    style={{ textAnchor: 'middle', fill: '#f57c00', fontSize: 10, fontWeight: 600 }}
                     offset={-10}
                   />
                 </YAxis>
@@ -137,12 +137,24 @@ export default function AuditDashboard() {
                 
                 <Line 
                   yAxisId="left"
-                  name="Scopes 1 & 2 (Direct)" 
+                  name="Scope 1 (Direct)" 
                   type="monotone" 
-                  dataKey={(d) => (d.scope1 !== null && d.scope2 !== null) ? d.scope1 + d.scope2 : null} 
-                  stroke="#2D5A27" 
+                  dataKey="scope1" 
+                  stroke="#004e92" 
                   strokeWidth={3}
-                  dot={{ r: 4, fill: '#2D5A27' }}
+                  dot={{ r: 4, fill: '#004e92' }}
+                  activeDot={{ r: 6 }}
+                  connectNulls={false}
+                  strokeDasharray={d => d.isForecast ? "5 5" : "0"}
+                />
+                <Line 
+                  yAxisId="left"
+                  name="Scope 2 (Indirect)" 
+                  type="monotone" 
+                  dataKey="scope2" 
+                  stroke="#00a8cc" 
+                  strokeWidth={3}
+                  dot={{ r: 4, fill: '#00a8cc' }}
                   activeDot={{ r: 6 }}
                   connectNulls={false}
                   strokeDasharray={d => d.isForecast ? "5 5" : "0"}
@@ -150,15 +162,15 @@ export default function AuditDashboard() {
                 {data.some(d => d.scope3 !== null && d.scope3 > 0) && (
                   <Line 
                     yAxisId="right"
-                    name="Scope 3 (Supply Chain)" 
+                    name="Scope 3 (Value Chain)" 
                     type="monotone" 
                     dataKey="scope3" 
-                    stroke="#1B365D" 
+                    stroke="#f57c00" 
                     strokeWidth={3}
-                    dot={{ r: 4, fill: '#1B365D' }}
+                    dot={{ r: 4, fill: '#f57c00' }}
                     activeDot={{ r: 6 }}
                     connectNulls={false}
-                    strokeDasharray={d => d.isForecast ? "5 5" : "0"}
+                    strokeDasharray={d => d.isForecast ? "5 5" : "5 5"}
                   />
                 )}
 

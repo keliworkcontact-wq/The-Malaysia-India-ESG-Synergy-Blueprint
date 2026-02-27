@@ -15,8 +15,10 @@ const parseValue = (val: string | undefined): number | null => {
   
   const parts = val.split('|').map(p => p.trim());
   const numbers = parts.map(p => {
+    // Strip commas first
+    const cleanStr = p.replace(/,/g, '');
     // Extract base number
-    const match = p.match(/[-+]?[0-9]*\.?[0-9]+/);
+    const match = cleanStr.match(/[-+]?[0-9]*\.?[0-9]+/);
     if (!match) return NaN;
     
     let num = parseFloat(match[0]);
