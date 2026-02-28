@@ -4,6 +4,7 @@ import LandingHero from './sections/LandingHero';
 import PresentationLayout from './layouts/PresentationLayout';
 import ProcessLog from './sections/ProcessLog';
 import AuditDashboard from './sections/AuditDashboard';
+import RoadmapSection from './sections/RoadmapSection';
 
 type PageState = 'landing' | 'report' | 'log';
 
@@ -97,17 +98,7 @@ export default function App() {
               </section>
 
               <section id="localization" className="section-container bg-white">
-                <div className="max-w-6xl w-full">
-                  <h2 className="text-4xl font-bold mb-8 text-corporate-blue">Localization: Malaysia ESG Roadmap</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {['Smart Rainwater Harvesting', 'Digital TVET', 'Regenerative Agriculture'].map((title) => (
-                      <div key={title} className="p-8 bg-stone-50 rounded-2xl border border-stone-200 hover:border-sustainability-green transition-colors">
-                        <h3 className="text-xl font-bold mb-4">{title}</h3>
-                        <p className="text-stone-600 text-sm">Strategic proposal for Malaysia's 2050 Net Zero alignment.</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <RoadmapSection />
               </section>
 
               <section id="conclusion" className="section-container bg-corporate-blue text-white">
