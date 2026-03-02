@@ -353,12 +353,6 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                   <Info size={16} />
                   <span className="text-[10px] font-bold uppercase tracking-widest">Full Strategic Blueprint</span>
                 </div>
-                <button 
-                  className="flex items-center gap-2 px-3 py-1.5 bg-white border border-stone-200 rounded-lg text-[10px] font-bold text-stone-600 hover:bg-stone-100 transition-colors"
-                  onClick={() => alert("Downloading Full Strategic Blueprint (PDF Simulation)...")}
-                >
-                  Download Full PDF
-                </button>
               </div>
 
               <div className="space-y-10">
