@@ -24,7 +24,9 @@ import {
 interface AuditNote {
   constructiveness: string;
   risksAndGaps: string;
+  recommendation?: string;
   disclaimer?: string;
+  stakeholderValue?: string[];
 }
 
 interface RoadmapItem {
@@ -35,6 +37,10 @@ interface RoadmapItem {
   operation: string;
   auditNote: AuditNote;
   type: 'standard' | 'shakti' | 'rap';
+  fullBlueprint: {
+    section: string;
+    content: string | string[];
+  }[];
 }
 
 // --- Data ---
@@ -43,55 +49,110 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
   E: [
     {
       id: 'water',
-      title: 'Smart Water Management: From Consumption to Circularity',
+      title: 'Smart Water Management',
       icon: Droplets,
-      idea: "Drawing on HUL’s 'Water Neutral' and Zero Liquid Discharge (ZLD) technologies, I propose a Smart Rainwater Harvesting System for Malaysian industrial zones.",
-      operation: "Utilizing IoT sensors to monitor water quality in real-time, the system redirects harvested rainwater for industrial cooling and non-potable use, significantly reducing the strain on state water supplies and lowering operational costs for enterprises.",
+      idea: "Inspired by HUL’s water-neutral and ZLD practices, this proposal introduces smart rainwater harvesting systems across industrial zones.",
+      operation: "Utilizing IoT sensors to monitor water quality in real-time, the system redirects harvested rainwater for industrial cooling and non-potable use.",
       auditNote: {
-        constructiveness: "This represents a Leapfrog Transition, transforming industrial zones from 'Resource Consumers' into 'Circular Recyclers' to mitigate climate-driven water scarcity.",
-        risksAndGaps: "Without significant carbon taxes or water subsidies, companies lack the financial incentive for ZLD upgrades. I suggest introducing 'Green Finance' instruments under the CSP framework to offset initial capital expenditure."
+        constructiveness: "Enables a structural shift from resource consumption to circular resource management.",
+        risksAndGaps: "Long CAPEX payback without policy incentives.",
+        recommendation: "Deploy green financing tools under CSP framework."
       },
-      type: 'standard'
+      type: 'standard',
+      fullBlueprint: [
+        { section: "The Idea", content: "Inspired by HUL’s water-neutral and ZLD practices, this proposal introduces smart rainwater harvesting systems across industrial zones." },
+        { section: "Operation", content: "Utilizing IoT sensors to monitor water quality in real-time, the system redirects harvested rainwater for industrial cooling and non-potable use." }
+      ]
     },
     {
       id: 'plastic',
-      title: 'Digital Plastic Recovery: AI-Driven Traceability',
+      title: 'Digital Plastic Recycling System',
       icon: Recycle,
-      idea: "I propose a Blockchain-based Digital Traceability System that integrates HUL’s AI-sorting technology with Malaysia’s Extended Producer Responsibility (EPR) policy.",
-      operation: "By deploying AI sorting at local recovery centers, we ensure every gram of plastic waste is identified, categorized, and tracked from collection to the recycling plant on an immutable blockchain ledger.",
+      idea: "A blockchain traceability platform integrated with AI sorting to support Malaysia’s EPR rollout.",
+      operation: "AI sorting at local recovery centers ensures every gram of plastic waste is identified, categorized, and tracked on an immutable blockchain ledger.",
       auditNote: {
-        constructiveness: "This system turns 'Physical Recycling' into 'Digital Compliance Evidence,' providing companies with audit-grade data to meet upcoming EPR mandates.",
-        risksAndGaps: "The success of the blockchain depends on the adoption of AI hardware; smaller vendors may struggle with the initial CAPEX, creating potential data silos.",
-        disclaimer: "Quantifiable Proof Gap: Due to the current lack of baseline data on plastic flow in Malaysia, I cannot precisely calculate the percentage increase in 'Food-grade Recycled Plastic' output resulting from AI sorting."
+        constructiveness: "Turns recycling into audit-grade compliance assets; Improves material purity and resale value; Enhances regulatory transparency.",
+        risksAndGaps: "Limited adoption among smaller recyclers; Dependence on EPR enforcement strength.",
+        disclaimer: "Lack of baseline waste-flow data: Due to the current lack of baseline data on plastic flow in Malaysia, I cannot precisely calculate the percentage increase in 'Food-grade Recycled Plastic' output."
       },
-      type: 'standard'
+      type: 'standard',
+      fullBlueprint: [
+        { section: "The Idea", content: "A blockchain traceability platform integrated with AI sorting to support Malaysia’s EPR rollout." },
+        { section: "Constructiveness", content: "Operation: By deploying AI sorting at local recovery centers, we ensure every gram of plastic waste is identified, categorized, and tracked from collection to the recycling plant on an immutable blockchain ledger." }
+      ]
     }
   ],
   S: [
     {
       id: 'tvet',
-      title: 'Digital TVET Training: Developing "Industry 4.0 Architects"',
+      title: 'Digital TVET Training System',
       icon: GraduationCap,
-      idea: "I propose a virtual simulation training system based on HUL’s Digital Discovery Factory (DDF). Malaysian technicians can master high-end digital management in local labs via digital twins and simulation, bypassing the need for overseas travel.",
-      operation: "Funding & Execution: Apply to HRD Corp for listing; establish a 'Malaysia-India Digital Manufacturing Scholarship'; use corporate sponsorship from large manufacturers in exchange for priority hiring rights.",
+      idea: "Using DDF simulation architecture, Malaysian technicians can train locally through immersive digital environments to become Industry 4.0 architects rather than operators.",
+      operation: "Funding Pathways: Recommend MyMahir apply to HRD Corp; Establish Malaysia-India Digital Manufacturing Scholarship; Corporate sponsorship for equipment in exchange for priority hiring rights.",
       auditNote: {
-        constructiveness: "This pivots from training 'Operators' to developing 'Industry 4.0 Architects,' fast-tracking Malaysia’s manufacturing talent supply chain.",
-        risksAndGaps: "The digital models from India’s DDF require 'Local Calibration' to ensure they align with the specific hardware used in Malaysian factories."
+        constructiveness: "Long-term assetisation: Although the initial cost of building a virtual twin platform is high, digital assets do not wear out and are highly scalable. Once built, the marginal cost of training ten thousand learners will be far lower than setting up traditional physical labs. Feasibility of Ecological Financing: This strategy no longer relies solely on government grants. By combining HRD Corp support, transnational scholarships and corporate sponsorship, the costs are shared with the beneficiaries, which offers strong commercial sustainability. ESG Integration: The training process itself is digital and low-carbon, and the core curriculum includes how to achieve precise carbon reduction through Industry 4.0 technologies. This makes trained talent the company's future 'green transformation drivers'.",
+        risksAndGaps: "Cost and calibration challenges: The initial costs for architecture setup and expert consultancy are a significant financial burden. Furthermore, if the Indian models are not fully compatible with Malaysian hardware, the cost of secondary development could exceed the budget. Risk of Simulation Distortion: If the virtual environment fails to synchronise with real production parameters promptly, those trained as 'architects' may struggle when facing physical production lines."
       },
-      type: 'standard'
+      type: 'standard',
+      fullBlueprint: [
+        { section: "The Idea", content: "Using DDF simulation architecture, Malaysian technicians can train locally through immersive digital environments to become Industry 4.0 architects rather than operators." },
+        { section: "Funding Pathways", content: [
+          "Operation:",
+          "1. Develop a high-precision digital base (digital twin architecture). Implementation actions: Invest dedicated funds and invite HUL DDF architects to collaborate with local system integrators in developing customised digital twin platforms for Malaysia's key industries, such as semiconductors and food processing. Technical details: Build virtual production line models and integrate real-time production data to allow trainees to access cutting-edge industrial standards in a virtual environment.",
+          "2. Malaysia-India Expert 'Cloud Mentorship' (Remote Expert Mentorship). Implementation actions: Hire senior engineers from HUL India as 'digital mentors' to provide remote mentorship through simulation systems. Operational logic: Although expert consultation fees are expensive, cloud collaboration avoids the travel costs associated with large-scale personnel movements between Malaysia and India.",
+          "3. Virtual Sandbox & Stress Testing: Implementation actions: Trainees simulate extreme situations in the virtual system, such as equipment wear warnings and production scheduling optimisation. Core value: The virtual system enables trainees to experiment without damaging expensive physical assets (CAPEX) and gain experience in handling complex industrial logic.",
+          "4. Localisation & Train-the-Trainer Implementation actions: Adapting mature Indian models to Malaysian local factory hardware (e.g. different brands of PLC controllers). The long-term goal is to cultivate the first batch of local 'digital trainers' to ensure the training system can iterate independently.",
+          "________________________________________",
+          "Funding and financing strategy",
+          "To hedge against the high initial construction costs (CAPEX), I recommend the following three channels of ecological financing:",
+          "1. Government Fund Support (HRD Corp): MyMahir should actively apply to have this project included in HRD Corp's approved training list. Funds can be recirculated from training levies paid by enterprises, thereby reducing the direct financial burden on participating companies.",
+          "2. Bilateral scholarships: Based on the 11 Memoranda of Understanding (MoUs) signed between Malaysia and India, the governments of both countries are recommended to jointly establish the \"Malaysia-India Digital Manufacturing Scholarship\", specifically to subsidise high software licensing and Indian expert consultancy fees.",
+          "3. Corporate Sponsorship & Talent Loop: Large manufacturing companies in Malaysia (such as semiconductor and FMCG giants) should be attracted to sponsor hardware equipment or digital model construction costs. In return, sponsoring companies will gain priority hiring rights for these 'Industry 4.0 architects', creating a virtuous cycle of funds and talent."
+        ]}
+      ]
     },
     {
       id: 'shakti',
-      title: 'Shakti 2.0: Community Green Service Network',
+      title: 'Shakti 2.0: Community Circular Service Network',
       icon: Network,
-      idea: "In Malaysia’s highly urbanized market, retail giants like 99 Speedmart dominate distribution. Therefore, HUL’s original retail-based Shakti model has no room to grow. I have redesigned this into a 'Circular Service' model to solve the 'Last-Mile Recycling' gap.",
-      operation: "Front-end: B40 Women (Education & Sorting). Middle-end: Lorry Botol (Digital Logistics). Back-end: Supermarkets/Recyclers (Return Logistics). Digital Core: Mobile 'Green Audit Platform'.",
+      idea: "Redesigned into a Circular Service framework targeting the last-mile recycling gap rather than retail distribution, as retail giants dominate the Malaysian market.",
+      operation: "B40 women act as 'Digital Resource Managers' and 'ESG Ambassadors', managing community collection points and providing household diagnostic services.",
       auditNote: {
-        constructiveness: "This is a Social Governance Upgrade, formalizing the informal 'Lorry Botol' sector and empowering B40 women with digital identities as 'ESG Ambassadors.'",
-        risksAndGaps: "These remain logical deductions rather than empirical certainties.",
-        disclaimer: "Baseline Data Gap: Due to a lack of primary survey data on the B40 community’s daily constraints and current carbon footprints of informal collectors, I cannot yet prove the exact percentage of emission reduction or the quantifiable improvement in quality of life."
+        constructiveness: "Identity Transformation: Informal collectors become certified logistics partners; B40 women become digital resource managers. Internalized Incentive Mechanism via LC-SF.",
+        risksAndGaps: "Baseline Data Gap: Lack of historical carbon footprint data limits quantification. Policy Overlap Risk: Potential conflicts with state initiatives like Negeri Sembilan’s KITARecycle.",
+        stakeholderValue: [
+          "B40 Women: Digital skills, social recognition, flexible income",
+          "Logistics Partners: Transition to formal green logistics careers",
+          "Corporations: Access to traceable recycled inputs",
+          "Government: Faster progress toward Net Zero"
+        ]
       },
-      type: 'shakti'
+      type: 'shakti',
+      fullBlueprint: [
+        { section: "Context Premise", content: [
+          "Residents bring pre-sorted household waste — particularly high-value recyclables (e.g., aluminium cans) and low-value but highly polluting waste (e.g., multi-layer plastic packaging).",
+          "Waste is delivered either to the B40 member’s home, or a designated community micro-collection point.",
+          "This premise establishes the physical entry point of materials into the Shakti ecosystem."
+        ]},
+        { section: "Scenario 1: Community Collection", content: [
+          "Digital Weighing & Verification: B40 female members use Bluetooth-connected smart scales; Data automatically recorded in the Shakti App.",
+          "Household ESG Diagnostic Service: The App analyzes historical disposal data. Members proactively provide 'Green Diagnostic Advice' (e.g., bulk purchasing instead of small packaging)."
+        ]},
+        { section: "Scenario 2: Logistics Integration", content: [
+          "Inventory Trigger: When stock reaches predefined threshold (e.g., 50 kg), system automatically generates a pickup order for contracted collectors.",
+          "Efficient Collection: App navigation directs collectors precisely to the micro-center; Pre-sorted waste allows immediate loading.",
+          "Premium Settlement: Materials command higher resale prices; Incremental profit shared among platform, collectors, and B40 members."
+        ]},
+        { section: "Scenario 3: Financial Incentives", content: [
+          "Carbon Reduction Data Generation: Emission reductions recorded for global ESG compliance.",
+          "Dividend Injection via LC-SF Mechanism: Exchange-rate savings from Malaysia–India trade channeled into the Shakti 2.0 Incentive Fund.",
+          "End-User Benefits: Residents earn recycling points redeemable for green products at double discounts."
+        ]},
+        { section: "Core Revenue Mechanisms", content: [
+          "B40 Members: Management Commission (volume-based fee), Digital Consulting Fee (ESG diagnostics), Retail Margin (group buying).",
+          "Independent Collectors: Efficiency Incentive (reduced search time), Compliance Subsidy (LC-SF supply-chain financing), Backend Premium (pre-sorted waste)."
+        ]}
+      ]
     }
   ],
   G: [
@@ -99,25 +160,35 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       id: 'lcsf',
       title: 'LC-SF Supply Chain Optimization',
       icon: TrendingUp,
-      idea: "I propose a 'Green Exchange Rate Premium' mechanism using the Local Currency Settlement (LC-SF) framework.",
-      operation: "Agricultural products (e.g., Palm Oil) meeting high ESG standards (RSPO/MSPO) are granted more favorable exchange rates. This uses financial tools to drive environmental compliance despite yield fluctuations.",
+      idea: "Introduce a 'Green Exchange Rate Premium' mechanism under the Local Currency Settlement (LC-SF) framework.",
+      operation: "Commodities meeting high ESG standards (RSPO/MSPO) receive preferential exchange rates, using financial incentives to drive compliance despite yield volatility.",
       auditNote: {
-        constructiveness: "Provides a 'De-dollarized Green Dividend' that incentivizes high ESG standards via direct financial benefits.",
-        risksAndGaps: "It may not fully offset raw material price spikes if regional production continues to decline."
+        constructiveness: "De-Dollarization Green Dividend: Links local-currency settlement benefits directly with ESG certification (RSPO / MSPO).",
+        risksAndGaps: "Production Volatility Risk: Declining agricultural output could offset exchange-rate savings; Raw material price increases may erode benefits."
       },
-      type: 'standard'
+      type: 'standard',
+      fullBlueprint: [
+        { section: "The Idea", content: "Introduce a Green Exchange Rate Premium under the Local Currency Settlement framework." },
+        { section: "Strategy", content: "Commodities meeting high ESG standards (RSPO/MSPO) receive preferential exchange rates, using financial incentives to drive compliance despite yield volatility." }
+      ]
     },
     {
       id: 'rap',
       title: 'Digital Regenerative Agriculture Platform (RAP)',
       icon: Sprout,
-      idea: "I propose a four-step ecosystem designed to solve the 'Smallholder ESG Dilemma'—where farmers want to comply with MSPO but lack the technology and incentives.",
-      operation: "A comprehensive platform integrating IoT soil sensors, AI agronomists via WhatsApp, LC-SF incentive linkages, and automated MSPO auditing.",
+      idea: "A four-step ecosystem addressing the Smallholder ESG Dilemma—where farmers seek compliance but lack technology and incentives.",
+      operation: "Collaborate with MPOB to deploy IoT sensors and satellite sensing, delivering precision advisory via WhatsApp and linking to LC-SF incentives.",
       auditNote: {
-        constructiveness: "The 'MSPO Automated Audit' is the cornerstone, turning a high-barrier certification process into a 'By-product' of daily farming.",
-        risksAndGaps: "Initial hardware deployment costs for IoT sensors remain a barrier for smallholders without large-scale government subsidies. Early-stage AI models may also face accuracy risks."
+        constructiveness: "Compliance Automation: MSPO auditing becomes a by-product of daily operations. Appropriate Technology Deployment: WhatsApp-based instructions bypass learning barriers.",
+        risksAndGaps: "Hardware Deployment Cost: IoT installation requires upfront capital. Prediction Accuracy Risk: AI models depend on localized soil data."
       },
-      type: 'rap'
+      type: 'rap',
+      fullBlueprint: [
+        { section: "Step 1: Data Assetization", content: "Collaborate with MPOB; Deploy low-cost IoT sensors (soil pH, moisture, NPK); Use satellite remote sensing to detect vegetation coverage gaps." },
+        { section: "Step 2: Precision Advisory System", content: "Build AI prediction models; Deliver recommendations via WhatsApp (e.g., fertilizer timing or harvest delay suggestions)." },
+        { section: "Step 3: LC-SF Linked Incentives", content: "Integrate platform with local-currency settlement mechanism; Farmers meeting regenerative standards receive exchange-saving-based bonuses." },
+        { section: "Step 4: Automated MSPO Compliance", content: "Platform generates digital production records; One-click export for certification; Significantly lowers compliance cost and barriers." }
+      ]
     }
   ]
 };
@@ -128,19 +199,19 @@ const ShaktiSlider = () => {
   const [current, setCurrent] = useState(0);
   const scenarios = [
     {
-      actor: "B40 Women",
-      action: "Act as 'Digital Resource Managers' using Bluetooth scales to weigh waste.",
-      benefit: "Residents receive 'Green Credits' (Unilever discounts) funded by LC-SF savings."
+      actor: "B40 ESG Ambassadors",
+      action: "Use Bluetooth scales for digital weighing & verification. Provide 'Green Diagnostic Advice' based on disposal data.",
+      benefit: "Residents earn 'Green Credits' (double discounts on Indian-sourced green products) via LC-SF savings."
     },
     {
-      actor: "Lorry Botol",
-      action: "App sends 'Pickup Order' when hub reaches 50kg threshold.",
-      benefit: "Eliminates aimless 'street-sweeping', reducing fuel costs and increasing purity price."
+      actor: "Lorry Botol (Logistics)",
+      action: "Inventory thresholds (50kg) trigger pickup orders. App navigation directs collectors to micro-centers.",
+      benefit: "Efficient collection eliminates 'street-sweeping'. Premium settlement shared among platform, collectors, and B40."
     },
     {
-      actor: "Corporate Loop",
-      action: "Carbon reduction data recorded for ESG compliance.",
-      benefit: "LC-SF savings injected into 'Shakti 2.0 Incentive Fund' for commissions and bonuses."
+      actor: "Financial Dividend",
+      action: "Carbon reduction data recorded for ESG compliance. LC-SF exchange savings injected into Incentive Fund.",
+      benefit: "B40 members receive management commissions; Collectors receive efficiency subsidies."
     }
   ];
 
@@ -199,10 +270,10 @@ const ShaktiSlider = () => {
 
 const RAPTimeline = () => {
   const steps = [
-    { title: "Data Assetization", desc: "IoT sensors monitor soil health; Satellite sensing identifies yield gaps." },
-    { title: "Precision Instructions", desc: "AI models push instructions via WhatsApp (e.g., 'Rain expected; fertilize now')." },
-    { title: "LC-SF Incentive Linkage", desc: "Farmers receive subsidies derived from LC-SF exchange rate savings." },
-    { title: "MSPO Automated Audit", desc: "One-click data export for certification, eliminating manual record-keeping." }
+    { title: "Foundational Data Assetization", desc: "Collaborate with MPOB; Deploy IoT sensors (pH, NPK); Satellite sensing for vegetation gaps." },
+    { title: "Precision Advisory System", desc: "AI prediction models deliver recommendations via WhatsApp (e.g., fertilizer timing)." },
+    { title: "LC-SF Linked Incentives", desc: "Farmers meeting regenerative standards receive exchange-saving-based bonuses." },
+    { title: "Automated MSPO Compliance", desc: "Platform generates digital records; One-click export significantly lowers barriers." }
   ];
 
   return (
@@ -225,7 +296,10 @@ const RAPTimeline = () => {
   );
 };
 
-const AuditNote = ({ note, isOpen, onClose }: { note: AuditNote; isOpen: boolean; onClose: () => void }) => {
+const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen: boolean; onClose: () => void }) => {
+  if (!item) return null;
+  const note = item.auditNote;
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -240,27 +314,52 @@ const AuditNote = ({ note, isOpen, onClose }: { note: AuditNote; isOpen: boolean
             initial={{ scale: 0.9, y: 20 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
-            className="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row"
+            className="bg-white w-full max-w-5xl rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row h-[90vh]"
             onClick={e => e.stopPropagation()}
           >
-            {/* Left Side: The Blueprint Placeholder */}
-            <div className="md:w-1/2 p-8 bg-stone-50 border-r border-stone-100">
-              <div className="flex items-center gap-2 mb-6 text-stone-400">
-                <Info size={16} />
-                <span className="text-[10px] font-bold uppercase tracking-widest">The Blueprint</span>
+            {/* Left Side: The Blueprint (Full Details) */}
+            <div className="md:w-3/5 p-8 bg-stone-50 border-r border-stone-100 overflow-y-auto">
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-2 text-stone-400">
+                  <Info size={16} />
+                  <span className="text-[10px] font-bold uppercase tracking-widest">Full Strategic Blueprint</span>
+                </div>
+                <button 
+                  className="flex items-center gap-2 px-3 py-1.5 bg-white border border-stone-200 rounded-lg text-[10px] font-bold text-stone-600 hover:bg-stone-100 transition-colors"
+                  onClick={() => alert("Downloading Full Strategic Blueprint (PDF Simulation)...")}
+                >
+                  Download Full PDF
+                </button>
               </div>
-              <div className="h-64 rounded-2xl border-2 border-dashed border-stone-200 flex items-center justify-center text-stone-300 italic text-sm text-center px-6">
-                Visual process flow diagram representing the localized HUL framework.
+
+              <div className="space-y-10">
+                {item.fullBlueprint.map((bp, i) => (
+                  <div key={i} className="space-y-3">
+                    <h5 className="font-serif text-lg text-slate-900 border-b border-stone-200 pb-2">{bp.section}</h5>
+                    {Array.isArray(bp.content) ? (
+                      <ul className="space-y-3">
+                        {bp.content.map((line, j) => (
+                          <li key={j} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
+                            <div className="w-1.5 h-1.5 rounded-full bg-corporate-blue mt-2 shrink-0" />
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm text-slate-600 leading-relaxed">{bp.content}</p>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Right Side: The Audit Note */}
-            <div className="md:w-1/2 p-8 relative">
+            <div className="md:w-2/5 p-8 relative overflow-y-auto">
               <div className="absolute top-6 right-6 opacity-10 rotate-12">
                 <div className="border-4 border-amber-500 text-amber-500 px-4 py-1 font-black text-2xl rounded-lg uppercase">Audit</div>
               </div>
               
-              <h4 className="font-serif text-2xl text-slate-900 mb-6">I - Analyst's Insight</h4>
+              <h4 className="font-serif text-2xl text-slate-900 mb-6 underline decoration-stone-200 underline-offset-8 decoration-1">Analyst's Insight</h4>
               
               <div className="space-y-6">
                 <div className="space-y-2">
@@ -278,6 +377,30 @@ const AuditNote = ({ note, isOpen, onClose }: { note: AuditNote; isOpen: boolean
                   </div>
                   <p className="text-sm text-slate-600 leading-relaxed italic">"{note.risksAndGaps}"</p>
                 </div>
+
+                {note.recommendation && (
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-corporate-blue">
+                      <ArrowRight size={18} />
+                      <span className="font-bold text-xs uppercase tracking-wider">Recommendation</span>
+                    </div>
+                    <p className="text-sm text-slate-600 leading-relaxed italic">"{note.recommendation}"</p>
+                  </div>
+                )}
+
+                {note.stakeholderValue && (
+                  <div className="space-y-3 pt-4 border-t border-stone-100">
+                    <span className="font-bold text-xs uppercase tracking-wider text-stone-400">Stakeholder Value</span>
+                    <ul className="space-y-2">
+                      {note.stakeholderValue.map((val, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs text-slate-500">
+                          <div className="w-1 h-1 rounded-full bg-stone-300 mt-1.5 shrink-0" />
+                          {val}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {note.disclaimer && (
                   <div className="p-4 bg-amber-50 rounded-xl border border-amber-100">
@@ -359,7 +482,7 @@ export default function RoadmapSection() {
                 className="bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow"
               >
                 <div className="p-8 md:p-10">
-                  <div className="flex flex-col md:flex-row gap-8">
+                  <div className="flex flex-col md:flex-row gap-8 items-center">
                     {/* Left: Info */}
                     <div className="flex-1 space-y-6">
                       <div className="flex items-center gap-4">
@@ -374,35 +497,15 @@ export default function RoadmapSection() {
                           <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">The Idea</span>
                           <p className="text-slate-600 leading-relaxed">{item.idea}</p>
                         </div>
-                        <div className="space-y-1">
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Operation</span>
-                          <p className="text-slate-600 leading-relaxed">{item.operation}</p>
-                        </div>
                       </div>
 
                       <button 
                         onClick={() => setSelectedItem(item)}
                         className="flex items-center gap-2 text-sm font-bold text-slate-900 group"
                       >
-                        View Analyst’s Risk Assessment
+                        Full Strategic Blueprint & Analyst's Insight
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                       </button>
-                    </div>
-
-                    {/* Right: Specialized Layouts */}
-                    <div className="md:w-1/3 shrink-0">
-                      {item.type === 'shakti' && <ShaktiSlider />}
-                      {item.type === 'rap' && <RAPTimeline />}
-                      {item.type === 'standard' && (
-                        <div className="h-full min-h-[200px] bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-6">
-                          <img 
-                            src={`https://images.unsplash.com/photo-1518173946687-a4c8a9b746f5?auto=format&fit=crop&q=80&w=400`} 
-                            alt={item.title}
-                            className="w-full h-full object-cover rounded-xl opacity-80 grayscale hover:grayscale-0 transition-all"
-                            referrerPolicy="no-referrer"
-                          />
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -414,7 +517,7 @@ export default function RoadmapSection() {
 
       {/* Audit Note Modal */}
       <AuditNote 
-        note={selectedItem?.auditNote as AuditNote} 
+        item={selectedItem} 
         isOpen={!!selectedItem} 
         onClose={() => setSelectedItem(null)} 
       />
