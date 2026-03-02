@@ -22,8 +22,8 @@ import {
 // --- Types ---
 
 interface AuditNote {
-  constructiveness: string;
-  risksAndGaps: string;
+  constructiveness: string | string[];
+  risksAndGaps: string | string[];
   recommendation?: string;
   disclaimer?: string;
   stakeholderValue?: string[];
@@ -54,8 +54,8 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       idea: "Inspired by HUL’s water-neutral and ZLD practices, this proposal introduces smart rainwater harvesting systems across industrial zones.",
       operation: "Utilizing IoT sensors to monitor water quality in real-time, the system redirects harvested rainwater for industrial cooling and non-potable use.",
       auditNote: {
-        constructiveness: "Enables a structural shift from resource consumption to circular resource management.",
-        risksAndGaps: "Long CAPEX payback without policy incentives.",
+        constructiveness: ["Enables a structural shift from resource consumption to circular resource management."],
+        risksAndGaps: ["Long CAPEX payback without policy incentives."],
         recommendation: "Deploy green financing tools under CSP framework."
       },
       type: 'standard',
@@ -71,8 +71,15 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       idea: "A blockchain traceability platform integrated with AI sorting to support Malaysia’s EPR rollout.",
       operation: "AI sorting at local recovery centers ensures every gram of plastic waste is identified, categorized, and tracked on an immutable blockchain ledger.",
       auditNote: {
-        constructiveness: "Turns recycling into audit-grade compliance assets; Improves material purity and resale value; Enhances regulatory transparency.",
-        risksAndGaps: "Limited adoption among smaller recyclers; Dependence on EPR enforcement strength.",
+        constructiveness: [
+          "Turns recycling into audit-grade compliance assets",
+          "Improves material purity and resale value",
+          "Enhances regulatory transparency"
+        ],
+        risksAndGaps: [
+          "Limited adoption among smaller recyclers",
+          "Dependence on EPR enforcement strength"
+        ],
         disclaimer: "Lack of baseline waste-flow data: Due to the current lack of baseline data on plastic flow in Malaysia, I cannot precisely calculate the percentage increase in 'Food-grade Recycled Plastic' output."
       },
       type: 'standard',
@@ -90,20 +97,26 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       idea: "Using DDF simulation architecture, Malaysian technicians can train locally through immersive digital environments to become Industry 4.0 architects rather than operators.",
       operation: "Funding Pathways: Recommend MyMahir apply to HRD Corp; Establish Malaysia-India Digital Manufacturing Scholarship; Corporate sponsorship for equipment in exchange for priority hiring rights.",
       auditNote: {
-        constructiveness: "Long-term assetisation: Although the initial cost of building a virtual twin platform is high, digital assets do not wear out and are highly scalable. Once built, the marginal cost of training ten thousand learners will be far lower than setting up traditional physical labs. Feasibility of Ecological Financing: This strategy no longer relies solely on government grants. By combining HRD Corp support, transnational scholarships and corporate sponsorship, the costs are shared with the beneficiaries, which offers strong commercial sustainability. ESG Integration: The training process itself is digital and low-carbon, and the core curriculum includes how to achieve precise carbon reduction through Industry 4.0 technologies. This makes trained talent the company's future 'green transformation drivers'.",
-        risksAndGaps: "Cost and calibration challenges: The initial costs for architecture setup and expert consultancy are a significant financial burden. Furthermore, if the Indian models are not fully compatible with Malaysian hardware, the cost of secondary development could exceed the budget. Risk of Simulation Distortion: If the virtual environment fails to synchronise with real production parameters promptly, those trained as 'architects' may struggle when facing physical production lines."
+        constructiveness: [
+          "Long-term assetisation: Although the initial cost of building a virtual twin platform is high, digital assets do not wear out and are highly scalable. Once built, the marginal cost of training ten thousand learners will be far lower than setting up traditional physical labs.",
+          "Feasibility of Ecological Financing: This strategy no longer relies solely on government grants. By combining HRD Corp support, transnational scholarships and corporate sponsorship, the costs are shared with the beneficiaries, which offers strong commercial sustainability.",
+          "ESG Integration: The training process itself is digital and low-carbon, and the core curriculum includes how to achieve precise carbon reduction through Industry 4.0 technologies. This makes trained talent the company's future 'green transformation drivers'."
+        ],
+        risksAndGaps: [
+          "Cost and calibration challenges: The initial costs for architecture setup and expert consultancy are a significant financial burden. Furthermore, if the Indian models are not fully compatible with Malaysian hardware, the cost of secondary development could exceed the budget.",
+          "Risk of Simulation Distortion: If the virtual environment fails to synchronise with real production parameters promptly, those trained as 'architects' may struggle when facing physical production lines."
+        ]
       },
       type: 'standard',
       fullBlueprint: [
         { section: "The Idea", content: "Using DDF simulation architecture, Malaysian technicians can train locally through immersive digital environments to become Industry 4.0 architects rather than operators." },
-        { section: "Funding Pathways", content: [
-          "Operation:",
+        { section: "Operation", content: [
           "1. Develop a high-precision digital base (digital twin architecture). Implementation actions: Invest dedicated funds and invite HUL DDF architects to collaborate with local system integrators in developing customised digital twin platforms for Malaysia's key industries, such as semiconductors and food processing. Technical details: Build virtual production line models and integrate real-time production data to allow trainees to access cutting-edge industrial standards in a virtual environment.",
           "2. Malaysia-India Expert 'Cloud Mentorship' (Remote Expert Mentorship). Implementation actions: Hire senior engineers from HUL India as 'digital mentors' to provide remote mentorship through simulation systems. Operational logic: Although expert consultation fees are expensive, cloud collaboration avoids the travel costs associated with large-scale personnel movements between Malaysia and India.",
           "3. Virtual Sandbox & Stress Testing: Implementation actions: Trainees simulate extreme situations in the virtual system, such as equipment wear warnings and production scheduling optimisation. Core value: The virtual system enables trainees to experiment without damaging expensive physical assets (CAPEX) and gain experience in handling complex industrial logic.",
-          "4. Localisation & Train-the-Trainer Implementation actions: Adapting mature Indian models to Malaysian local factory hardware (e.g. different brands of PLC controllers). The long-term goal is to cultivate the first batch of local 'digital trainers' to ensure the training system can iterate independently.",
-          "________________________________________",
-          "Funding and financing strategy",
+          "4. Localisation & Train-the-Trainer Implementation actions: Adapting mature Indian models to Malaysian local factory hardware (e.g. different brands of PLC controllers). The long-term goal is to cultivate the first batch of local 'digital trainers' to ensure the training system can iterate independently."
+        ]},
+        { section: "Funding and Financing Strategy", content: [
           "To hedge against the high initial construction costs (CAPEX), I recommend the following three channels of ecological financing:",
           "1. Government Fund Support (HRD Corp): MyMahir should actively apply to have this project included in HRD Corp's approved training list. Funds can be recirculated from training levies paid by enterprises, thereby reducing the direct financial burden on participating companies.",
           "2. Bilateral scholarships: Based on the 11 Memoranda of Understanding (MoUs) signed between Malaysia and India, the governments of both countries are recommended to jointly establish the \"Malaysia-India Digital Manufacturing Scholarship\", specifically to subsidise high software licensing and Indian expert consultancy fees.",
@@ -118,21 +131,22 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       idea: "Redesigned into a Circular Service framework targeting the last-mile recycling gap rather than retail distribution, as retail giants dominate the Malaysian market.",
       operation: "B40 women act as 'Digital Resource Managers' and 'ESG Ambassadors', managing community collection points and providing household diagnostic services.",
       auditNote: {
-        constructiveness: "Identity Transformation: Informal collectors become certified logistics partners; B40 women become digital resource managers. Internalized Incentive Mechanism via LC-SF.",
-        risksAndGaps: "Baseline Data Gap: Lack of historical carbon footprint data limits quantification. Policy Overlap Risk: Potential conflicts with state initiatives like Negeri Sembilan’s KITARecycle.",
-        stakeholderValue: [
-          "B40 Women: Digital skills, social recognition, flexible income",
-          "Logistics Partners: Transition to formal green logistics careers",
-          "Corporations: Access to traceable recycled inputs",
-          "Government: Faster progress toward Net Zero"
+        constructiveness: [
+          "Identity Transformation: Informal collectors become certified logistics partners; B40 women become digital resource managers.",
+          "Internalized Incentive Mechanism via LC-SF."
+        ],
+        risksAndGaps: [
+          "Baseline Data Gap: Lack of historical carbon footprint data limits quantification.",
+          "Policy Overlap Risk: Potential conflicts with state initiatives like Negeri Sembilan’s KITARecycle."
         ]
       },
       type: 'shakti',
       fullBlueprint: [
+        { section: "The Idea", content: "In Malaysia’s highly urbanized market, retail giants such as 99 Speedmart dominate distribution channels. As a result, HUL’s original retail-based Shakti model has no structural space to scale. To address this, the model is redesigned into a Circular Service framework targeting the last-mile recycling gap rather than retail distribution." },
         { section: "Context Premise", content: [
+          "Before the operational workflow begins, the model assumes an active participation loop from residents as below, this premise establishes the physical entry point of materials into the Shakti ecosystem:",
           "Residents bring pre-sorted household waste — particularly high-value recyclables (e.g., aluminium cans) and low-value but highly polluting waste (e.g., multi-layer plastic packaging).",
-          "Waste is delivered either to the B40 member’s home, or a designated community micro-collection point.",
-          "This premise establishes the physical entry point of materials into the Shakti ecosystem."
+          "Waste is delivered either to the B40 member’s home, or a designated community micro-collection point."
         ]},
         { section: "Scenario 1: Community Collection", content: [
           "Digital Weighing & Verification: B40 female members use Bluetooth-connected smart scales; Data automatically recorded in the Shakti App.",
@@ -151,6 +165,12 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
         { section: "Core Revenue Mechanisms", content: [
           "B40 Members: Management Commission (volume-based fee), Digital Consulting Fee (ESG diagnostics), Retail Margin (group buying).",
           "Independent Collectors: Efficiency Incentive (reduced search time), Compliance Subsidy (LC-SF supply-chain financing), Backend Premium (pre-sorted waste)."
+        ]},
+        { section: "Stakeholder Value", content: [
+          "B40 Women: Digital skills, social recognition, flexible income",
+          "Logistics Partners: Transition to formal green logistics careers",
+          "Corporations: Access to traceable recycled inputs",
+          "Government: Faster progress toward Net Zero"
         ]}
       ]
     }
@@ -163,8 +183,11 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       idea: "Introduce a 'Green Exchange Rate Premium' mechanism under the Local Currency Settlement (LC-SF) framework.",
       operation: "Commodities meeting high ESG standards (RSPO/MSPO) receive preferential exchange rates, using financial incentives to drive compliance despite yield volatility.",
       auditNote: {
-        constructiveness: "De-Dollarization Green Dividend: Links local-currency settlement benefits directly with ESG certification (RSPO / MSPO).",
-        risksAndGaps: "Production Volatility Risk: Declining agricultural output could offset exchange-rate savings; Raw material price increases may erode benefits."
+        constructiveness: ["De-Dollarization Green Dividend: Links local-currency settlement benefits directly with ESG certification (RSPO / MSPO)."],
+        risksAndGaps: [
+          "Production Volatility Risk: Declining agricultural output could offset exchange-rate savings.",
+          "Raw material price increases may erode benefits."
+        ]
       },
       type: 'standard',
       fullBlueprint: [
@@ -179,8 +202,14 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       idea: "A four-step ecosystem addressing the Smallholder ESG Dilemma—where farmers seek compliance but lack technology and incentives.",
       operation: "Collaborate with MPOB to deploy IoT sensors and satellite sensing, delivering precision advisory via WhatsApp and linking to LC-SF incentives.",
       auditNote: {
-        constructiveness: "Compliance Automation: MSPO auditing becomes a by-product of daily operations. Appropriate Technology Deployment: WhatsApp-based instructions bypass learning barriers.",
-        risksAndGaps: "Hardware Deployment Cost: IoT installation requires upfront capital. Prediction Accuracy Risk: AI models depend on localized soil data."
+        constructiveness: [
+          "Compliance Automation: MSPO auditing becomes a by-product of daily operations.",
+          "Appropriate Technology Deployment: WhatsApp-based instructions bypass learning barriers."
+        ],
+        risksAndGaps: [
+          "Hardware Deployment Cost: IoT installation requires upfront capital.",
+          "Prediction Accuracy Risk: AI models depend on localized soil data."
+        ]
       },
       type: 'rap',
       fullBlueprint: [
@@ -337,14 +366,20 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                   <div key={i} className="space-y-3">
                     <h5 className="font-serif text-lg text-slate-900 border-b border-stone-200 pb-2">{bp.section}</h5>
                     {Array.isArray(bp.content) ? (
-                      <ul className="space-y-3">
-                        {bp.content.map((line, j) => (
-                          <li key={j} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
-                            <div className="w-1.5 h-1.5 rounded-full bg-corporate-blue mt-2 shrink-0" />
-                            {line}
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="space-y-3">
+                        {bp.content.map((line, j) => {
+                          const isIntro = line.endsWith(":") || line.includes("________________________________________");
+                          if (isIntro) {
+                            return <p key={j} className="text-sm text-slate-600 leading-relaxed">{line}</p>;
+                          }
+                          return (
+                            <div key={j} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
+                              <div className="w-1.5 h-1.5 rounded-full bg-corporate-blue mt-2 shrink-0" />
+                              <span>{line}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
                     ) : (
                       <p className="text-sm text-slate-600 leading-relaxed">{bp.content}</p>
                     )}
@@ -367,7 +402,14 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                     <CheckCircle2 size={18} />
                     <span className="font-bold text-xs uppercase tracking-wider">Constructiveness</span>
                   </div>
-                  <p className="text-sm text-slate-600 leading-relaxed italic">"{note.constructiveness}"</p>
+                  <div className="space-y-2">
+                    {(Array.isArray(note.constructiveness) ? note.constructiveness : [note.constructiveness]).map((point, i) => (
+                      <div key={i} className="flex items-start gap-2 text-sm text-slate-600 leading-relaxed italic">
+                        <div className="w-1 h-1 rounded-full bg-[#10B981] mt-2 shrink-0" />
+                        <span>"{point}"</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="space-y-2">
@@ -375,7 +417,14 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                     <Search size={18} />
                     <span className="font-bold text-xs uppercase tracking-wider">Risks & Gaps</span>
                   </div>
-                  <p className="text-sm text-slate-600 leading-relaxed italic">"{note.risksAndGaps}"</p>
+                  <div className="space-y-2">
+                    {(Array.isArray(note.risksAndGaps) ? note.risksAndGaps : [note.risksAndGaps]).map((point, i) => (
+                      <div key={i} className="flex items-start gap-2 text-sm text-slate-600 leading-relaxed italic">
+                        <div className="w-1 h-1 rounded-full bg-[#F59E0B] mt-2 shrink-0" />
+                        <span>"{point}"</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {note.recommendation && (
