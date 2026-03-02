@@ -110,9 +110,18 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       type: 'standard',
       fullBlueprint: [
         { section: "The Idea", content: "Using DDF simulation architecture, Malaysian technicians can train locally through immersive digital environments to become Industry 4.0 architects rather than operators." },
-        { section: "Step 1: Develop a high-precision digital base (digital twin architecture)", content: "Implementation actions: Invest dedicated funds and invite HUL DDF architects to collaborate with local system integrators in developing customised digital twin platforms for Malaysia's key industries, such as semiconductors and food processing. Technical details: Build virtual production line models and integrate real-time production data to allow trainees to access cutting-edge industrial standards in a virtual environment." },
-        { section: "Step 2: Malaysia-India Expert 'Cloud Mentorship' (Remote Expert Mentorship)", content: "Implementation actions: Hire senior engineers from HUL India as 'digital mentors' to provide remote mentorship through simulation systems. Operational logic: Although expert consultation fees are expensive, cloud collaboration avoids the travel costs associated with large-scale personnel movements between Malaysia and India." },
-        { section: "Step 3: Virtual Sandbox & Stress Testing", content: "Implementation actions: Trainees simulate extreme situations in the virtual system, such as equipment wear warnings and production scheduling optimisation. Core value: The virtual system enables trainees to experiment without damaging expensive physical assets (CAPEX) and gain experience in handling complex industrial logic." },
+        { section: "Step 1: Develop a high-precision digital base (digital twin architecture)", content: [
+          "Implementation actions: Invest dedicated funds and invite HUL DDF architects to collaborate with local system integrators in developing customised digital twin platforms for Malaysia's key industries, such as semiconductors and food processing.",
+          "Technical details: Build virtual production line models and integrate real-time production data to allow trainees to access cutting-edge industrial standards in a virtual environment."
+        ]},
+        { section: "Step 2: Malaysia-India Expert 'Cloud Mentorship' (Remote Expert Mentorship)", content: [
+          "Implementation actions: Hire senior engineers from HUL India as 'digital mentors' to provide remote mentorship through simulation systems.",
+          "Operational logic: Although expert consultation fees are expensive, cloud collaboration avoids the travel costs associated with large-scale personnel movements between Malaysia and India."
+        ]},
+        { section: "Step 3: Virtual Sandbox & Stress Testing", content: [
+          "Implementation actions: Trainees simulate extreme situations in the virtual system, such as equipment wear warnings and production scheduling optimisation.",
+          "Core value: The virtual system enables trainees to experiment without damaging expensive physical assets (CAPEX) and gain experience in handling complex industrial logic."
+        ]},
         { section: "Step 4: Localisation & Train-the-Trainer", content: "Implementation actions: Adapting mature Indian models to Malaysian local factory hardware (e.g. different brands of PLC controllers). The long-term goal is to cultivate the first batch of local 'digital trainers' to ensure the training system can iterate independently." },
         { section: "Funding and Financing Strategy", content: [
           "To hedge against the high initial construction costs (CAPEX), I recommend the following three channels of ecological financing:",
@@ -197,24 +206,34 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       id: 'rap',
       title: 'Digital Regenerative Agriculture Platform (RAP)',
       icon: Sprout,
-      idea: "A four-step ecosystem addressing the Smallholder ESG Dilemma—where farmers seek compliance but lack technology and incentives.",
+      idea: "A four-step ecosystem addressing the Smallholder ESG Dilemma — farmers seek compliance but lack technology and incentives.",
       operation: "Collaborate with MPOB to deploy IoT sensors and satellite sensing, delivering precision advisory via WhatsApp and linking to LC-SF incentives.",
       auditNote: {
         constructiveness: [
-          "Compliance Automation: MSPO auditing becomes a by-product of daily operations.",
-          "Appropriate Technology Deployment: WhatsApp-based instructions bypass learning barriers."
+          "Compliance automation: The 'MSPO Automated Compliance Audit' feature in the four-step strategy is brilliant. It transforms the originally high-threshold certification process into a 'by-product' of daily production, greatly lowering the entry barrier for small farmers.",
+          "Technology penetration: By providing precise instructions via WhatsApp, the complex app learning curve is bypassed, representing a typical application of 'appropriate technology'."
         ],
         risksAndGaps: [
-          "Hardware Deployment Cost: IoT installation requires upfront capital.",
-          "Prediction Accuracy Risk: AI models depend on localized soil data."
+          "Hardware deployment cost: Deploying IoT sensors on pilot smallholder plots requires an initial capital investment. Without large-scale government subsidies, the financial model puts pressure on small farmers.",
+          "Agricultural forecast accuracy: The accuracy of AI agricultural advisors' predictions depends on localised soil models, and there may be errors in the early stages of the project."
         ]
       },
       type: 'rap',
       fullBlueprint: [
-        { section: "Step 1: Data Assetization", content: "Collaborate with MPOB; Deploy low-cost IoT sensors (soil pH, moisture, NPK); Use satellite remote sensing to detect vegetation coverage gaps." },
-        { section: "Step 2: Precision Advisory System", content: "Build AI prediction models; Deliver recommendations via WhatsApp (e.g., fertilizer timing or harvest delay suggestions)." },
-        { section: "Step 3: LC-SF Linked Incentives", content: "Integrate platform with local-currency settlement mechanism; Farmers meeting regenerative standards receive exchange-saving-based bonuses." },
-        { section: "Step 4: Automated MSPO Compliance", content: "Platform generates digital production records; One-click export for certification; Significantly lowers compliance cost and barriers." }
+        { section: "The Idea", content: "The establishment of a 'Digital Regenerative Agriculture Platform' should be a collaborative effort between Malaysia and India. The core of this platform is not merely a mobile app, but an ecosystem of 'technology empowerment + benefit bundling,' which utilises HUL's Regenerative Agriculture technology to address the low yield and compliance difficulties (MSPO) faced by Malaysian palm oil smallholders." },
+        { section: "Step 1 : Assetisation of underlying data (sensors + remote sensing)", content: [
+          "Implementation: Collaborate with the Malaysian Palm Oil Board (MPOB) to install low-cost IoT sensors on selected pilot smallholder plots to monitor soil pH, moisture and the content of nitrogen, phosphorus and potassium.",
+          "HUL technology introduction: Introduce the Regenerative Agriculture Principles (RAP) model mentioned in HUL reports, using satellite remote sensing to monitor vegetation coverage and identify yield gap points caused by soil degradation."
+        ]},
+        { section: "Step 2: Precision agriculture command system (AI agricultural technician)", content: [
+          "Implementation: Build AI prediction models. Based on sensor feedback, the platform will directly send 'precision instructions' to smallholders via WhatsApp or a simple app. These instructions will be in the form of recommendations such as: 'It will rain within the next 48 hours. It is recommended that you fertilise today to maximise the efficiency of the fertiliser.' or 'Based on soil moisture levels, it is recommended that you delay harvesting to improve the oil content.'",
+          "Constructive impact: This solves the problem of smallholders 'planting based on experience', reducing resource waste and increasing yield."
+        ]},
+        { section: "Step 3: Local Currency Settlement (LC-SF) Linked to Incentives", content: "Implementation Action: Connect the platform to Malaysia's local currency settlement mechanism. Farmers who meet the standards for regenerative agriculture (for example, using bio-fertilisers and achieving carbon sequestration targets) can get an exchange rate bonus subsidy based on savings from LC-SF when they sell their palm fruit (FFB) to factories." },
+        { section: "Step 4: MSPO Automated Compliance Audit", content: [
+          "Implementation action: The platform automatically generates digital production records. When applying for MSPO certification, small farmers no longer need cumbersome handwritten ledgers and can export data with one click, significantly reducing certification costs and thresholds.",
+          "Value proposition: This platform addresses the issue for small farmers of wanting to engage in ESG activities but lacking the necessary technology or receiving no rewards for doing so."
+        ]}
       ]
     }
   ]
