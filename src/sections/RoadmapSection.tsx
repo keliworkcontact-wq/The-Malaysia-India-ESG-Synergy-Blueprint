@@ -110,12 +110,10 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       type: 'standard',
       fullBlueprint: [
         { section: "The Idea", content: "Using DDF simulation architecture, Malaysian technicians can train locally through immersive digital environments to become Industry 4.0 architects rather than operators." },
-        { section: "Operation", content: [
-          "1. Develop a high-precision digital base (digital twin architecture). Implementation actions: Invest dedicated funds and invite HUL DDF architects to collaborate with local system integrators in developing customised digital twin platforms for Malaysia's key industries, such as semiconductors and food processing. Technical details: Build virtual production line models and integrate real-time production data to allow trainees to access cutting-edge industrial standards in a virtual environment.",
-          "2. Malaysia-India Expert 'Cloud Mentorship' (Remote Expert Mentorship). Implementation actions: Hire senior engineers from HUL India as 'digital mentors' to provide remote mentorship through simulation systems. Operational logic: Although expert consultation fees are expensive, cloud collaboration avoids the travel costs associated with large-scale personnel movements between Malaysia and India.",
-          "3. Virtual Sandbox & Stress Testing: Implementation actions: Trainees simulate extreme situations in the virtual system, such as equipment wear warnings and production scheduling optimisation. Core value: The virtual system enables trainees to experiment without damaging expensive physical assets (CAPEX) and gain experience in handling complex industrial logic.",
-          "4. Localisation & Train-the-Trainer Implementation actions: Adapting mature Indian models to Malaysian local factory hardware (e.g. different brands of PLC controllers). The long-term goal is to cultivate the first batch of local 'digital trainers' to ensure the training system can iterate independently."
-        ]},
+        { section: "Step 1: Develop a high-precision digital base (digital twin architecture)", content: "Implementation actions: Invest dedicated funds and invite HUL DDF architects to collaborate with local system integrators in developing customised digital twin platforms for Malaysia's key industries, such as semiconductors and food processing. Technical details: Build virtual production line models and integrate real-time production data to allow trainees to access cutting-edge industrial standards in a virtual environment." },
+        { section: "Step 2: Malaysia-India Expert 'Cloud Mentorship' (Remote Expert Mentorship)", content: "Implementation actions: Hire senior engineers from HUL India as 'digital mentors' to provide remote mentorship through simulation systems. Operational logic: Although expert consultation fees are expensive, cloud collaboration avoids the travel costs associated with large-scale personnel movements between Malaysia and India." },
+        { section: "Step 3: Virtual Sandbox & Stress Testing", content: "Implementation actions: Trainees simulate extreme situations in the virtual system, such as equipment wear warnings and production scheduling optimisation. Core value: The virtual system enables trainees to experiment without damaging expensive physical assets (CAPEX) and gain experience in handling complex industrial logic." },
+        { section: "Step 4: Localisation & Train-the-Trainer", content: "Implementation actions: Adapting mature Indian models to Malaysian local factory hardware (e.g. different brands of PLC controllers). The long-term goal is to cultivate the first batch of local 'digital trainers' to ensure the training system can iterate independently." },
         { section: "Funding and Financing Strategy", content: [
           "To hedge against the high initial construction costs (CAPEX), I recommend the following three channels of ecological financing:",
           "1. Government Fund Support (HRD Corp): MyMahir should actively apply to have this project included in HRD Corp's approved training list. Funds can be recirculated from training levies paid by enterprises, thereby reducing the direct financial burden on participating companies.",
@@ -358,7 +356,7 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
               <div className="space-y-10">
                 {item.fullBlueprint.map((bp, i) => (
                   <div key={i} className="space-y-3">
-                    <h5 className="font-serif text-lg text-slate-900 border-b border-stone-200 pb-2">{bp.section}</h5>
+                    <h5 className="font-sans font-bold text-lg text-corporate-blue border-b border-stone-200 pb-2">{bp.section}</h5>
                     {Array.isArray(bp.content) ? (
                       <div className="space-y-3">
                         {bp.content.map((line, j) => {
@@ -388,7 +386,7 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                 <div className="border-4 border-amber-500 text-amber-500 px-4 py-1 font-black text-2xl rounded-lg uppercase">Audit</div>
               </div>
               
-              <h4 className="font-serif text-2xl text-slate-900 mb-6 underline decoration-stone-200 underline-offset-8 decoration-1">Analyst's Insight</h4>
+              <h4 className="font-sans font-bold text-2xl text-corporate-blue mb-6 underline decoration-stone-200 underline-offset-8 decoration-1">Analyst's Insight</h4>
               
               <div className="space-y-6">
                 <div className="space-y-2">
@@ -485,7 +483,7 @@ export default function RoadmapSection() {
   return (
     <div className="max-w-6xl mx-auto w-full px-4 py-20">
       <div className="text-center mb-16">
-        <h2 className="font-serif text-4xl md:text-5xl text-slate-900 mb-6">Section 3: Malaysia ESG Roadmap</h2>
+        <h2 className="font-sans font-bold text-4xl md:text-5xl text-corporate-blue mb-6">Section 3: Malaysia ESG Roadmap</h2>
         <p className="max-w-2xl mx-auto text-slate-500 leading-relaxed">
           In this section, I translate the <span className="text-corporate-blue font-bold">"India Experience"</span> into <span className="text-sustainability-green font-bold">"Malaysian Solutions."</span> My objective is to demonstrate how HUL’s proven frameworks can be localized within the CSP to drive real ESG impact.
         </p>
@@ -532,7 +530,7 @@ export default function RoadmapSection() {
                         <div className={`p-3 rounded-2xl ${tabs.find(t => t.id === activeTab)?.bg} ${tabs.find(t => t.id === activeTab)?.color}`}>
                           <item.icon size={28} />
                         </div>
-                        <h3 className="font-serif text-2xl text-slate-900">{item.title}</h3>
+                        <h3 className="font-sans font-bold text-2xl text-corporate-blue">{item.title}</h3>
                       </div>
                       
                       <div className="space-y-4">
