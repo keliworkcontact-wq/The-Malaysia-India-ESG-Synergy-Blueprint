@@ -87,11 +87,15 @@ export default function App() {
 
               <section id="audit" className="section-container bg-stone-50">
                 <div className="max-w-7xl w-full">
-                  <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-corporate-blue mb-4">Section 2: Comprehensive ESG Audit Dashboard</h2>
-                    <p className="text-stone-500 max-w-2xl mx-auto">
-                      A deep-dive into HUL's 5-year sustainability performance, benchmarking environmental impact against social governance metrics.
+                  <div className="text-center mb-16">
+                    <h2 className="text-4xl font-bold text-corporate-blue mb-4">Section 2: Benchmark Audit</h2>
+                    <h3 className="text-2xl font-semibold text-stone-700 mb-6">HUL ESG Performance, Risk Signals, and Forward Projections</h3>
+                    <p className="text-stone-500 max-w-3xl mx-auto text-lg">
+                      This section analyzes the core strategies and technological innovations driving Hindustan Unilever Limited’s (HUL) growth and sustainability performance for the 2023-25 period.
                     </p>
+                    <div className="mt-4 text-sm font-medium text-stone-400 uppercase tracking-widest">
+                      Data foundation: HUL disclosures (2023–2025) and three years of official datasets.
+                    </div>
                   </div>
                   <AuditDashboard />
                 </div>
