@@ -502,7 +502,8 @@ export default function RoadmapSection() {
   return (
     <div className="max-w-6xl mx-auto w-full px-4 py-20">
       <div className="text-center mb-16">
-        <h2 className="font-sans font-bold text-4xl md:text-5xl text-corporate-blue mb-6">Section 3: Malaysia ESG Roadmap</h2>
+        <h2 className="font-sans font-bold text-4xl md:text-5xl text-corporate-blue mb-4">Section 3: Localization</h2>
+        <h3 className="text-2xl font-semibold text-stone-700 mb-6">Malaysia ESG Roadmap</h3>
         <p className="max-w-2xl mx-auto text-slate-500 leading-relaxed">
           In this section, I translate the <span className="text-corporate-blue font-bold">"India Experience"</span> into <span className="text-sustainability-green font-bold">"Malaysian Solutions."</span> My objective is to demonstrate how HUL’s proven frameworks can be localized within the CSP to drive real ESG impact.
         </p>

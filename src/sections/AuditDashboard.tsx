@@ -185,18 +185,18 @@ export default function AuditDashboard() {
               </div>
               <div className="pt-4 border-t border-stone-100">
                 <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider mb-2">Results & Effectiveness</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="p-3 bg-blue-50 rounded-xl">
-                    <div className="text-xl font-bold text-corporate-blue">55.56%</div>
-                    <div className="text-[10px] text-stone-500 uppercase font-bold">Independent Directors</div>
+                <div className="space-y-3">
+                  <div className="flex gap-3 items-start text-sm text-stone-600">
+                    <div className="w-1.5 h-1.5 bg-corporate-blue rounded-full mt-1.5 shrink-0" />
+                    <p><span className="font-bold text-stone-800">Board Composition:</span> Achieved 55.56% independent directors on the Board and 67% on the ESG Committee.</p>
                   </div>
-                  <div className="p-3 bg-emerald-50 rounded-xl">
-                    <div className="text-xl font-bold text-emerald-600">42%</div>
-                    <div className="text-[10px] text-stone-500 uppercase font-bold">Female Managers</div>
+                  <div className="flex gap-3 items-start text-sm text-stone-600">
+                    <div className="w-1.5 h-1.5 bg-corporate-blue rounded-full mt-1.5 shrink-0" />
+                    <p><span className="font-bold text-stone-800">Diversity:</span> Female representation has reached 22.2% on the Board and 42% at the managerial level.</p>
                   </div>
-                  <div className="p-3 bg-stone-50 rounded-xl">
-                    <div className="text-xl font-bold text-stone-700">93%</div>
-                    <div className="text-[10px] text-stone-500 uppercase font-bold">Employee Pride</div>
+                  <div className="flex gap-3 items-start text-sm text-stone-600">
+                    <div className="w-1.5 h-1.5 bg-corporate-blue rounded-full mt-1.5 shrink-0" />
+                    <p><span className="font-bold text-stone-800">Organizational Trust:</span> The "UniVoice" survey indicated that 93% of employees are proud to work at HUL, with an overall engagement score of 82%.</p>
                   </div>
                 </div>
               </div>
@@ -217,7 +217,7 @@ export default function AuditDashboard() {
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200 space-y-6">
             <div className="flex items-center gap-3 text-corporate-blue">
               <Factory size={24} />
-              <h3 className="text-xl font-bold">2-A) Doom Dooma Factory (DDF) Lighthouse Factory</h3>
+              <h3 className="text-xl font-bold">2-A) Doom Dooma Factory (DDF)</h3>
             </div>
             <div className="space-y-4">
               <div>
@@ -235,17 +235,17 @@ export default function AuditDashboard() {
               <div className="pt-4 border-t border-stone-100">
                 <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider mb-2">Results & Effectiveness</h4>
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center p-3 bg-stone-50 rounded-xl">
-                    <span className="text-sm font-medium text-stone-600">Agility (Changeover Time)</span>
-                    <span className="text-lg font-bold text-corporate-blue">-85%</span>
+                  <div className="flex gap-3 items-start text-sm text-stone-600">
+                    <div className="w-1.5 h-1.5 bg-corporate-blue rounded-full mt-1.5 shrink-0" />
+                    <p><span className="font-bold text-stone-800">Agility:</span> Achieved 85% faster changeover times between product lines.</p>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-emerald-50 rounded-xl">
-                    <span className="text-sm font-medium text-stone-600">Sustainability (Virgin Plastic)</span>
-                    <span className="text-lg font-bold text-emerald-600">-21%</span>
+                  <div className="flex gap-3 items-start text-sm text-stone-600">
+                    <div className="w-1.5 h-1.5 bg-corporate-blue rounded-full mt-1.5 shrink-0" />
+                    <p><span className="font-bold text-stone-800">Sustainability:</span> Reduced virgin plastic usage by 21% and packaging trial times by 84%.</p>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-blue-50 rounded-xl">
-                    <span className="text-sm font-medium text-stone-600">Labor Productivity</span>
-                    <span className="text-lg font-bold text-corporate-blue">+400%</span>
+                  <div className="flex gap-3 items-start text-sm text-stone-600">
+                    <div className="w-1.5 h-1.5 bg-corporate-blue rounded-full mt-1.5 shrink-0" />
+                    <p><span className="font-bold text-stone-800">Productivity:</span> AI-driven task allocation boosted labor productivity by 400%.</p>
                   </div>
                 </div>
               </div>
@@ -572,7 +572,7 @@ export default function AuditDashboard() {
                   Linear Operational Transition (S1 & 2)
                 </h5>
                 <p className="text-stone-600 text-xs leading-relaxed">
-                  The model utilizes a <span className="font-bold">Linear Decay</span> based on HUL’s 2023-2025 performance. Given that direct operations are project-driven (e.g., renewable energy procurement), the steady year-on-year reduction is treated as a high-certainty internal KPI. Achieving Net Zero by 2030 is technically feasible through continuous capital expenditure.
+                  The model utilizes a <span className="font-bold">Linear Decay ($E_t = E_0 - mt$)</span> based on HUL’s 2023-2025 performance. Given that direct operations are project-driven (e.g., renewable energy procurement), the steady year-on-year reduction is treated as a high-certainty internal KPI. Achieving Net Zero by 2030 is technically feasible through continuous capital expenditure.
                 </p>
               </div>
               <div className="p-6 bg-amber-50 rounded-2xl border border-amber-100">
@@ -581,10 +581,10 @@ export default function AuditDashboard() {
                   The "S-Curve" of Value Chain Reform (S3)
                 </h5>
                 <p className="text-stone-600 text-xs leading-relaxed">
-                  Unlike direct operations, Scope 3 follows an <span className="font-bold">Exponential Decay</span>. This reflects the <span className="font-bold">Network Effect</span> within HUL’s vast supplier ecosystem.
+                  Unlike direct operations, Scope 3 follows an <span className="font-bold">Exponential Decay ($E_t = E_{'2025'} \cdot e^{'-rt'}$)</span>. This reflects the <span className="font-bold">Network Effect</span> within HUL’s vast supplier ecosystem.
                 </p>
                 <div className="mt-4 p-3 bg-white/50 rounded-lg border border-amber-200 italic text-[10px] text-stone-500">
-                  <span className="font-bold">Analyst Note:</span> Much like a digital payment network (e.g., DuitNow), the system's value is marginal when only a few participate. Once a "critical mass" adopts green technology, shared infrastructure becomes standardized and unit costs plummet.
+                  <span className="font-bold">Analyst Note on Network Effect:</span> Much like a digital payment network (e.g., DuitNow or UPI), the system's value is marginal when only a few participate. However, once a "critical mass" of tier-1 and tier-2 suppliers adopts green technology, the shared infrastructure becomes standardized and the unit cost of sustainable materials plummets. This creates a tipping point where the entire ecosystem shifts simultaneously, transforming sustainability from a "premium choice" into the "default industry standard."
                 </div>
               </div>
             </div>
@@ -630,19 +630,18 @@ export default function AuditDashboard() {
               <div className="space-y-3">
                 <h3 className="text-2xl font-bold text-corporate-blue">Strategic Transferability: From India’s Scale to Malaysia’s Growth</h3>
                 <p className="text-stone-600 leading-relaxed">
-                  HUL’s proven frameworks offer high-value lessons for Malaysia’s industrial roadmap. Specifically, HUL’s model of <span className="font-bold">"Digital-led Sustainability"</span>—where virtual simulation and AI diagnostics drive resource efficiency—aligns perfectly with Malaysia’s NIMP 2030 and TVET transformation goals.
+                  HUL’s proven frameworks offer several high-value lessons for Malaysia’s own industrial and ESG roadmap. Specifically, HUL’s model of <span className="font-bold">"Digital-led Sustainability"</span>—where virtual simulation and AI diagnostics drive resource efficiency—aligns perfectly with Malaysia’s NIMP 2030 and TVET transformation goals. HUL’s success in achieving plastic and water neutrality at scale demonstrates that large-cap companies can lead ecosystem-wide shifts through standardized, audit-grade frameworks.
                 </p>
               </div>
 
-              <div className="p-8 bg-corporate-blue text-white rounded-2xl space-y-4">
-                <h3 className="text-2xl font-bold">Transition: From Benchmark to Local Action</h3>
-                <p className="text-white/80 leading-relaxed">
-                  While Section 2 confirms the efficacy of these digital and governance frameworks in the Indian market, the next phase of this analysis moves from <span className="font-bold text-white">Audit to Adaptation</span>.
+              <div className="space-y-3">
+                <h3 className="text-2xl font-bold text-corporate-blue">Transition: From Benchmark to Local Action</h3>
+                <p className="text-stone-600 leading-relaxed">
+                  While Section 2 confirms the efficacy of these digital and governance frameworks in the Indian market, the next phase of this analysis moves from <span className="font-bold">Audit to Adaptation</span>.
                 </p>
-                <div className="flex items-center gap-2 text-emerald-400 font-bold">
-                  <span>Proceed to Section 3: Local Transformation</span>
-                  <ArrowRight size={20} />
-                </div>
+                <p className="text-stone-600 leading-relaxed">
+                  In <span className="font-bold">Section 3 — Localization</span>, I will detail how these HUL-pioneered methodologies—such as the DDF simulation architecture and circular resource management—can be strategically localized within the <span className="font-bold">Malaysia–India Comprehensive Strategic Partnership (CSP)</span>. By integrating these benchmarks with local bilateral enablers like the Local Currency Setlement (LC-SF) and HRD Corp frameworks, we can chart a pragmatic ESG roadmap tailored for the Malaysian landscape.
+                </p>
               </div>
             </div>
           </div>

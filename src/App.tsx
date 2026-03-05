@@ -12,6 +12,40 @@ export default function App() {
   const [page, setPage] = useState<PageState>('landing');
   const [activeSection, setActiveSection] = useState('macro');
 
+  useEffect(() => {
+    if (page !== 'report') return;
+
+    const handleScroll = () => {
+      const sections = ['macro', 'audit', 'localization', 'conclusion'];
+      let currentSection = '';
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // If the section occupies the middle of the viewport
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            currentSection = id;
+            break;
+          }
+        }
+      }
+
+      if (currentSection && currentSection !== activeSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check with a small delay to ensure layout is settled
+    const timer = setTimeout(handleScroll, 100);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
+  }, [page, activeSection]);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -50,9 +84,10 @@ export default function App() {
               onHomeClick={() => setPage('landing')}
             >
               <section id="macro" className="section-container bg-white">
-                <div className="max-w-6xl w-full">
-                  <h2 className="text-4xl font-bold mb-8 text-corporate-blue">Macro Background: Malaysia-India CSP</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="max-w-6xl w-full text-center">
+                  <h2 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-4">Section 1: Macro Background</h2>
+                  <h3 className="text-2xl font-semibold text-stone-700 mb-8">Malaysia-India CSP</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
                     <div className="space-y-6">
                       <p className="text-lg text-stone-600 leading-relaxed">
                         The Malaysia-India Comprehensive Strategic Partnership (CSP) serves as the bedrock for our ESG localization strategy. With 11 MoUs focusing on semiconductor chains and TVET, the synergy is clear.
@@ -88,13 +123,13 @@ export default function App() {
               <section id="audit" className="section-container bg-stone-50">
                 <div className="max-w-7xl w-full">
                   <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-corporate-blue mb-4">Section 2: Benchmark Audit</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-4">Section 2: Benchmark Audit</h2>
                     <h3 className="text-2xl font-semibold text-stone-700 mb-6">HUL ESG Performance, Risk Signals, and Forward Projections</h3>
                     <p className="text-stone-500 max-w-3xl mx-auto text-lg">
                       This section analyzes the core strategies and technological innovations driving Hindustan Unilever Limited’s (HUL) growth and sustainability performance for the 2023-25 period.
                     </p>
                     <div className="mt-4 text-sm font-medium text-stone-400 uppercase tracking-widest">
-                      Data foundation: HUL disclosures (2023–2025) and three years of official datasets.
+                      Data foundation: HUL disclosures (2023–2025) and three years of official datasets. (<a href="https://www.hul.co.in/sustainability/sustainability-reporting-centre/" target="_blank" rel="noopener noreferrer" className="hover:text-corporate-blue transition-colors underline decoration-dotted">https://www.hul.co.in/sustainability/sustainability-reporting-centre/</a>)
                     </div>
                   </div>
                   <AuditDashboard />
@@ -107,7 +142,7 @@ export default function App() {
 
               <section id="conclusion" className="section-container bg-corporate-blue text-white">
                 <div className="max-w-4xl w-full text-center">
-                  <h2 className="text-4xl font-bold mb-8">Conclusion & Roadmap</h2>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-8">Conclusion & Roadmap</h2>
                   <p className="text-xl text-white/70 mb-12">
                     From short-term data sharing to long-term decentralized green trade, the path forward is built on mutual sustainability goals.
                   </p>
