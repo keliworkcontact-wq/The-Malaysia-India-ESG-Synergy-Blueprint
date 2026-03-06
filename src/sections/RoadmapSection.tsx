@@ -51,41 +51,80 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       id: 'water',
       title: 'Smart Water Management',
       icon: Droplets,
-      idea: "Inspired by HUL’s water-neutral and ZLD practices, this proposal introduces smart rainwater harvesting systems across industrial zones.",
-      operation: "Utilizing IoT sensors to monitor water quality in real-time, the system redirects harvested rainwater for industrial cooling and non-potable use.",
+      idea: "A pragmatic framework utilizing IoT harvesting and ZLD technologies to transform tropical rainfall into a circular industrial asset, enabling Malaysian manufacturers to decouple production from municipal water reliance while generating audit-grade ESG data.",
+      operation: "A four-step circular asset cycle: Smart catchment with IoT sensing, AI-driven automated tiered filtration, closed-loop reuse with ZLD integration, and digital water footprint auditing for ESG reporting.",
       auditNote: {
-        constructiveness: ["Enables a structural shift from resource consumption to circular resource management."],
-        risksAndGaps: ["Long CAPEX payback without policy incentives."],
-        recommendation: "Deploy green financing tools under CSP framework."
+        constructiveness: [
+          "Structural Shift in Resource Models: Enterprises transition from mere 'consumers' of water to 'collectors and circulators', enhancing resilience during dry seasons.",
+          "Audit-grade ESG Performance: Provides real-time IoT data for global supply chain audits, meeting high standards required by major corporations like HUL."
+        ],
+        risksAndGaps: [
+          "Long CAPEX Payback Period: Significant upfront expenditure may cause resistance from SMEs if payback exceeds five years without subsidies.",
+          "Technical Maintenance Barriers: Smart systems require regular professional maintenance; risk of 'technological waste' if local talent is lacking."
+        ],
+        recommendation: "The logic is remarkably pure—transforming Malaysia’s abundant rainfall into an auditable ESG asset while bypassing complex interstate policy disputes."
       },
       type: 'standard',
       fullBlueprint: [
-        { section: "The Idea", content: "Inspired by HUL’s water-neutral and ZLD practices, this proposal introduces smart rainwater harvesting systems across industrial zones." },
-        { section: "Operation", content: "Utilizing IoT sensors to monitor water quality in real-time, the system redirects harvested rainwater for industrial cooling and non-potable use." }
+        { section: "The Idea", content: "Inspired by HUL’s 'Water Neutral' and Zero Liquid Discharge (ZLD) practices, this proposal aims to transform rainwater from 'wasted runoff' into a 'controlled industrial asset'.\n\nThe core objective is to establish an intelligent rainwater harvesting and reuse system across Malaysian industrial zones. By integrating harvested rainwater into industrial cooling and cleaning cycles, companies can significantly reduce their reliance on municipal water supplies. This not only lowers operational costs but also utilizes technological intervention to enable a structural shift from 'resource consumption' to 'circular resource management'." },
+        { section: "Blueprint Operation: The Circular Asset Cycle", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle:" },
+        { section: "Step 1: Smart Catchment & Sensing", content: [
+          "Action: Install high-capacity rainwater harvesting arrays on industrial rooftops, equipped with IoT (Internet of Things) sensors.",
+          "Logic: Sensors provide real-time monitoring of storage tank levels and initial water quality, ensuring maximum capture efficiency during Malaysia’s high-rainfall seasons."
+        ] },
+        { section: "Step 2: Automated Tiered Filtration", content: [
+          "Action: Captured rainwater passes through an AI-driven filtration system that automatically diverts water based on real-time purity levels.",
+          "Logic: High-purity water is routed to industrial cooling towers, while secondary-grade water is used for cleaning or landscape irrigation, achieving 'quality-on-demand' and minimizing treatment costs."
+        ] },
+        { section: "Step 3: Closed-loop Reuse & ZLD Integration", content: [
+          "Action: Integrate HUL’s ZLD logic to perform secondary treatment on industrial wastewater.",
+          "Logic: Treated water is re-pumped back into the harvesting system. This 'rainwater replenishment + internal circulation' model creates a small-scale, self-sufficient water ecosystem within the industrial zone."
+        ] },
+        { section: "Step 4: Digital Water Footprint Auditing", content: [
+          "Action: All water-saving data is uploaded via the cloud to the corporate ESG dashboard.",
+          "Logic: Every cubic meter of displaced municipal water is recorded as a 'water asset,' providing audit-grade evidence for companies to apply for green financing or tax incentives under the CSP framework."
+        ] }
       ]
     },
     {
       id: 'plastic',
       title: 'Digital Plastic Recycling System',
       icon: Recycle,
-      idea: "A blockchain traceability platform integrated with AI sorting to support Malaysia’s EPR rollout.",
-      operation: "AI sorting at local recovery centers ensures every gram of plastic waste is identified, categorized, and tracked on an immutable blockchain ledger.",
+      idea: "This scheme integrates blockchain traceability and AI precision sorting to support Malaysia’s EPR rollout. By converting recycling efforts into audit-grade digital assets and linking the Shakti 2.0 network with financial incentives, it establishes a transparent and efficient closed-loop circular economy.",
+      operation: "A four-step circular verification loop: Digital traceability entry (linked with Shakti 2.0), AI-driven precision sorting, tokenization of compliance into 'Plastic Credits,' and EPR settlement via the LC-SF engine.",
       auditNote: {
         constructiveness: [
-          "Turns recycling into audit-grade compliance assets",
-          "Improves material purity and resale value",
-          "Enhances regulatory transparency"
+          "Audit-Grade Compliance Assets: Utilizing blockchain to turn fragmented recycling activities into verifiable evidence gives Malaysian enterprises a competitive edge when facing international ESG standards.",
+          "Value Chain Premium: AI sorting drastically improves material purity, allowing recycled plastic to enter premium markets like food-grade packaging, increasing income for B40 collectors.",
+          "Regulatory Transparency: Provides a real-time dashboard for regulators to accurately monitor national waste flows, significantly reducing monitoring costs."
         ],
         risksAndGaps: [
-          "Limited adoption among smaller recyclers",
-          "Dependence on EPR enforcement strength"
+          "Participation Barriers for Small Recyclers: Small-scale recyclers may lack the digital hardware and technical expertise required, potentially polarizing the industry.",
+          "Dependency on EPR Enforcement: Business model relies on mandatory government enforcement; lax enforcement diminishes the incentive for brands to purchase 'Compliance Assets'.",
+          "Baseline Data Gap: Lack of comprehensive national baseline data on waste flows makes it challenging to precisely quantify initial recycling rate increases."
         ],
-        disclaimer: "Lack of baseline waste-flow data: Due to the current lack of baseline data on plastic flow in Malaysia, I cannot precisely calculate the percentage increase in 'Food-grade Recycled Plastic' output."
+        recommendation: "The true value lies in transforming 'informal collectors' into 'digitally compliant partners,' using technology to solve the hardest part of EPR execution: verification."
       },
       type: 'standard',
       fullBlueprint: [
-        { section: "The Idea", content: "A blockchain traceability platform integrated with AI sorting to support Malaysia’s EPR rollout." },
-        { section: "Constructiveness", content: "Operation: By deploying AI sorting at local recovery centers, we ensure every gram of plastic waste is identified, categorized, and tracked from collection to the recycling plant on an immutable blockchain ledger." }
+        { section: "The Idea", content: "The core of this scheme is the establishment of a digital platform integrating Blockchain traceability and AI automated sorting to support the nationwide rollout of Malaysia’s Extended Producer Responsibility (EPR) policy.\n\nObjective: To address long-standing pain points in the recycling industry, such as low transparency and inconsistent material purity. By transforming plastic waste into audit-grade digital assets, the system enables producers (brands) to track the lifecycle of their packaging materials while ensuring the recycling process meets international ESG auditing standards. This is not merely an environmental project but a FinTech tool that converts 'waste' into 'high-value compliance assets.'" },
+        { section: "Blueprint Operation: The Circular Verification Loop", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle:" },
+        { section: "Step 1: Digital Traceability Entry (Linking with Shakti 2.0)", content: [
+          "Action: The system directly integrates with the Shakti 2.0 Community Green Service Network. When B40 members weigh collected waste using Bluetooth-enabled smart scales, data is uploaded to the blockchain in real-time.",
+          "Logic: A unique 'Digital ID' is assigned to the waste the moment it leaves the community, recording its source, type, and original weight to ensure the integrity of the foundational data."
+        ] },
+        { section: "Step 2: AI-Driven Precision Sorting & Purity Enhancement", content: [
+          "Action: Deploy AI optical sorting technology at centralized collection hubs to automatically identify different polymer types (e.g., rPET, HDPE).",
+          "Logic: Compared to manual sorting, AI significantly enhances the purity of recycled materials. High-purity recycled plastic commands a higher resale value in the market, directly increasing the profit margins across the entire supply chain."
+        ] },
+        { section: "Step 3: Tokenization of Compliance", content: [
+          "Action: Sorted and processed volumes are converted into 'Plastic Credits' or 'Digital Compliance Certificates.'",
+          "Logic: These certificates are recorded on an immutable blockchain. Brands (e.g., FMCG companies) purchase these credits as audited evidence of fulfilling their legal EPR obligations."
+        ] },
+        { section: "Step 4: EPR Settlement & Green Finance Incentives", content: [
+          "Action: Sync recycling data with the LC-SF (Local Currency Settlement Framework) engine.",
+          "Logic: Recyclers and B40 members can receive additional subsidies or green finance loans funded by LC-SF exchange rate savings, based on the volume of 'Compliance Assets' they contribute, creating a closed loop of capital and material."
+        ] }
       ]
     }
   ],
@@ -187,19 +226,44 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       id: 'lcsf',
       title: 'LC-SF Supply Chain Optimization',
       icon: TrendingUp,
-      idea: "Introduce a 'Green Exchange Rate Premium' mechanism under the Local Currency Settlement (LC-SF) framework.",
-      operation: "Commodities meeting high ESG standards (RSPO/MSPO) receive preferential exchange rates, using financial incentives to drive compliance despite yield volatility.",
+      idea: "A financial engine leveraging local-currency settlements to reward ESG compliance with exchange-rate premiums, driving a self-sustaining green trade corridor between Malaysia and India.",
+      operation: "A four-step circular incentive loop: Digital assetization of compliance, LC-SF trade execution (1-3% savings), 'Green Premium' injection via preferential rates, and dynamic re-investment into hardware subsidies.",
       auditNote: {
-        constructiveness: ["De-Dollarization Green Dividend: Links local-currency settlement benefits directly with ESG certification (RSPO / MSPO)."],
+        constructiveness: [
+          "Monetizing Compliance: Provides an immediate, tangible financial reward for MSPO/RSPO certification, solving the 'Smallholder ESG Dilemma'.",
+          "Systemic Synergy: Acts as the 'connective tissue' between agriculture and waste management by using a unified financial engine (LC-SF).",
+          "Resilience against Global Volatility: Shields small-scale producers from USD fluctuations, providing more stable income for B40 communities."
+        ],
         risksAndGaps: [
-          "Production Volatility Risk: Declining agricultural output could offset exchange-rate savings.",
-          "Raw material price increases may erode benefits."
-        ]
+          "Production Volatility Risk: If agricultural yields drop due to climate events, the total volume of LC-SF trade may shrink, reducing the 'Incentive Pool'.",
+          "Data Integrity Gap: System is only as good as the data from RAP and Shakti; requires rigorous digital auditing to prevent 'fake' green production.",
+          "Adoption Friction: Moving away from USD-based trade requires significant buy-in from commercial banks and procurement departments."
+        ],
+        recommendation: "This framework represents a shift from 'Punitive ESG' (fining those who fail) to 'Incentive ESG' (rewarding those who lead) by utilizing de-dollarization to fund the green transition."
       },
       type: 'standard',
       fullBlueprint: [
-        { section: "The Idea", content: "Introduce a Green Exchange Rate Premium under the Local Currency Settlement framework." },
-        { section: "Strategy", content: "Commodities meeting high ESG standards (RSPO/MSPO) receive preferential exchange rates, using financial incentives to drive compliance despite yield volatility." }
+        { section: "The Idea", content: "The core objective is to dismantle the 'Compliance vs. Cost' trade-off. Historically, ESG compliance (like MSPO or plastic tracing) adds costs that smallholders and SMEs cannot absorb.\n\nI propose a Green Exchange Rate Premium. By utilizing the Malaysia-India Local Currency Settlement (LC-SF) framework to bypass the US Dollar, the transaction savings (reduced hedging costs and exchange fees) are captured and redistributed as a 'De-dollarization Dividend.'\n\nThis dividend is paid exclusively to supply chain participants who meet verifiable ESG standards, essentially making 'Sustainability' a currency of its own." },
+        { section: "Blueprint Operation: The Circular Incentive Loop", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle that directly connects to the RAP and Shakti 2.0 data streams:" },
+        { section: "Step 1: Digital Assetization of Compliance (Input from RAP & Shakti)", content: [
+          "The system recognizes 'Green Assets' generated by the other two programs.",
+          "From RAP: Automated MSPO production records of palm oil smallholders.",
+          "From Shakti 2.0: Verified volumes of high-purity recycled plastic collected by B40 managers.",
+          "Action: These digital certificates are uploaded to a shared blockchain ledger between Malaysian and Indian trade banks."
+        ] },
+        { section: "Step 2: LC-SF Trade Execution (The Savings Catalyst)", content: [
+          "When an Indian corporation (e.g., HUL) purchases raw materials from a Malaysian supplier, the transaction is settled in MYR/INR via the LC-SF mechanism.",
+          "Action: By bypassing the USD intermediary, the transaction realizes a 1%–3% saving in conversion and administrative overhead."
+        ] },
+        { section: "Step 3: The 'Green Premium' Injection (The Incentive)", content: [
+          "The saved transaction costs are funneled into a Bilateral Green Fund.",
+          "Action: Suppliers who provided the 'Green Assets' from Step 1 receive a Preferential Exchange Rate or a direct Exchange Rate Subsidy.",
+          "For a palm oil farmer in the RAP program, this means receiving a higher MYR payout per ton compared to non-compliant neighbors."
+        ] },
+        { section: "Step 4: Dynamic Re-investment (The Circularity)", content: [
+          "A portion of the LC-SF savings is allocated to subsidize the IoT hardware costs for new farmers joining the RAP platform or smart scales for the Shakti 2.0 network.",
+          "Action: This reduces the CAPEX barrier for new participants, scaling the ESG network without relying on permanent government handouts."
+        ] }
       ]
     },
     {
@@ -392,7 +456,7 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                         })}
                       </div>
                     ) : (
-                      <p className="text-sm text-slate-600 leading-relaxed">{bp.content}</p>
+                      <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-wrap">{bp.content}</p>
                     )}
                   </div>
                 ))}
@@ -503,10 +567,43 @@ export default function RoadmapSection() {
     <div className="max-w-6xl mx-auto w-full px-4 py-20">
       <div className="text-center mb-16">
         <h2 className="font-sans font-bold text-4xl md:text-5xl text-corporate-blue mb-4">Section 3: Localization</h2>
-        <h3 className="text-2xl font-semibold text-stone-700 mb-6">Malaysia ESG Roadmap</h3>
-        <p className="max-w-2xl mx-auto text-slate-500 leading-relaxed">
-          In this section, I translate the <span className="text-corporate-blue font-bold">"India Experience"</span> into <span className="text-sustainability-green font-bold">"Malaysian Solutions."</span> My objective is to demonstrate how HUL’s proven frameworks can be localized within the CSP to drive real ESG impact.
-        </p>
+        <h3 className="text-2xl font-semibold text-stone-700 mb-6">Malaysia ESG Transformation Roadmap (E / S / G)</h3>
+        
+        <div className="max-w-3xl mx-auto space-y-8 text-slate-600 leading-relaxed">
+          <p>
+            Following the benchmark audit in Section 2, this section presents a series of localized ESG strategies tailored for the Malaysian landscape under the Malaysia-India Comprehensive Strategic Partnership (CSP).
+          </p>
+
+          <div className="space-y-4">
+            <h4 className="font-bold text-stone-900 text-lg">Categorization of Initiatives</h4>
+            <p>The proposed solutions are categorized into three core pillars:</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span><span className="font-bold">Environmental (E):</span> Resource Circularity</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-blue-500" />
+                <span><span className="font-bold">Social (S):</span> Community Empowerment</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-amber-500" />
+                <span><span className="font-bold">Governance (G):</span> Financial Innovation</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <h4 className="font-bold text-stone-900 text-lg">The ESG Ecosystem Loop</h4>
+            <p>
+              These initiatives are designed as an interconnected ecosystem rather than isolated projects. The digital data generated through the Environmental and Social platforms (such as recycling volumes and agricultural compliance) serves as the verification layer required to trigger the financial incentives within the Governance framework. This integration ensures that operational sustainability is directly reinforced by financial viability.
+            </p>
+          </div>
+
+          <p className="font-semibold text-corporate-blue pt-6 border-t border-stone-100">
+            You are invited to review the full details of these interlinked schemes to understand the complete structural logic of the proposed ESG roadmap.
+          </p>
+        </div>
       </div>
 
       {/* Tab Navigation */}
