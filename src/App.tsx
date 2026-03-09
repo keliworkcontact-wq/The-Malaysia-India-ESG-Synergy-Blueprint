@@ -5,6 +5,7 @@ import PresentationLayout from './layouts/PresentationLayout';
 import ProcessLog from './sections/ProcessLog';
 import AuditDashboard from './sections/AuditDashboard';
 import RoadmapSection from './sections/RoadmapSection';
+import MacroBackgroundSection from './sections/MacroBackgroundSection';
 
 type PageState = 'landing' | 'report' | 'log';
 
@@ -84,40 +85,7 @@ export default function App() {
               onHomeClick={() => setPage('landing')}
             >
               <section id="macro" className="section-container bg-white">
-                <div className="max-w-6xl w-full text-center">
-                  <h2 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-4">Section 1: Macro Background</h2>
-                  <h3 className="text-2xl font-semibold text-stone-700 mb-8">Malaysia-India CSP</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-                    <div className="space-y-6">
-                      <p className="text-lg text-stone-600 leading-relaxed">
-                        The Malaysia-India Comprehensive Strategic Partnership (CSP) serves as the bedrock for our ESG localization strategy. With 11 MoUs focusing on semiconductor chains and TVET, the synergy is clear.
-                      </p>
-                      <img 
-                        src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=1000" 
-                        alt="Macro Background" 
-                        className="rounded-2xl shadow-lg w-full h-64 object-cover"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-                    <div className="bg-stone-100 p-8 rounded-2xl border border-stone-200">
-                      <h3 className="text-xl font-semibold mb-4">Key Focus Areas</h3>
-                      <ul className="space-y-4 text-stone-600">
-                        <li className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-sustainability-green rounded-full" />
-                          Semiconductor Supply Chain Resilience
-                        </li>
-                        <li className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-sustainability-green rounded-full" />
-                          TVET & Digital Skill Upgradation
-                        </li>
-                        <li className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-sustainability-green rounded-full" />
-                          Local Currency Settlement (LC-SF)
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                <MacroBackgroundSection />
               </section>
 
               <section id="audit" className="section-container bg-stone-50">
