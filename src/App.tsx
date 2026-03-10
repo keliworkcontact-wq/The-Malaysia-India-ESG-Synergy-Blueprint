@@ -6,6 +6,7 @@ import ProcessLog from './sections/ProcessLog';
 import AuditDashboard from './sections/AuditDashboard';
 import RoadmapSection from './sections/RoadmapSection';
 import MacroBackgroundSection from './sections/MacroBackgroundSection';
+import ConclusionRoadmapSection from './sections/ConclusionRoadmapSection';
 
 type PageState = 'landing' | 'report' | 'log';
 
@@ -109,14 +110,11 @@ export default function App() {
               </section>
 
               <section id="conclusion" className="section-container bg-corporate-blue text-white">
-                <div className="max-w-4xl w-full text-center">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8">Conclusion & Roadmap</h2>
-                  <p className="text-xl text-white/70 mb-12">
-                    From short-term data sharing to long-term decentralized green trade, the path forward is built on mutual sustainability goals.
-                  </p>
+                <ConclusionRoadmapSection />
+                <div className="max-w-4xl w-full text-center mt-20">
                   <button 
                     onClick={() => setPage('landing')}
-                    className="px-8 py-4 bg-white text-corporate-blue rounded-full font-bold hover:bg-stone-100 transition-colors"
+                    className="px-8 py-4 bg-white text-corporate-blue rounded-full font-bold hover:bg-stone-100 transition-colors shadow-lg"
                   >
                     Back to Start
                   </button>
