@@ -90,7 +90,7 @@ export default function App() {
               </section>
 
               <section id="audit" className="section-container bg-stone-50">
-                <div className="max-w-7xl w-full">
+                <div className="max-w-7xl w-full py-20">
                   <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-4">Section 2: Benchmark Audit</h2>
                     <h3 className="text-2xl font-semibold text-stone-700 mb-6">HUL ESG Performance, Risk Signals, and Forward Projections</h3>

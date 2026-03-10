@@ -12,7 +12,7 @@ import {
 
 export default function MacroBackgroundSection() {
   return (
-    <div className="max-w-6xl mx-auto w-full">
+    <div className="max-w-6xl mx-auto w-full py-20">
       <div className="text-center mb-16">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ export default function MacroBackgroundSection() {
             className="relative"
           >
             <img 
-              src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=1000" 
+              src="/India and malaysia flag.png" 
               alt="Bilateral Relations" 
               className="rounded-3xl shadow-2xl w-full h-80 object-cover"
               referrerPolicy="no-referrer"

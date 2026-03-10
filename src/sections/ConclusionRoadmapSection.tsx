@@ -67,7 +67,7 @@ export default function ConclusionRoadmapSection() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto w-full">
+    <div className="max-w-6xl mx-auto w-full py-20">
       <div className="text-center mb-16">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
