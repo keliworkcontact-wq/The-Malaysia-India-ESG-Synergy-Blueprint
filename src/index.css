@@ -15,6 +15,18 @@
 @layer base {
   body {
     @apply font-sans text-stone-900 bg-stone-50;
+    /* Prevent text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide content when printing */
+  @media print {
+    body {
+      display: none !important;
+    }
   }
 }
 
