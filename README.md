@@ -3,6 +3,8 @@
 ### **Strategic Concept & Analysis by THAM KE LI**
 *Certified Data Analyst Associate | ESG Strategy Researcher*
 
+🔗 **[Connect with me via my Digital Business Card](https://dinq.me/keli)**
+
 ---
 
 ## Project Essence
