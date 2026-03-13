@@ -1,20 +1,44 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# The Malaysia–India ESG Synergy Blueprint: A Digital Roadmap for Net Zero 2050
 
-# Run and deploy your AI Studio app
+### **Strategic Concept & Analysis by THAM KE LI**
+*Certified Data Analyst Associate | ESG Strategy Researcher*
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/02406cbb-ba59-475f-9eee-a1f7388f4074
+## Project Essence
+This project is a **Strategic Blueprint** that bridges **Hindustan Unilever Limited’s (HUL)** digital ESG excellence with **Malaysia’s 2050 Net Zero goals**. 
 
-## Run Locally
-
-**Prerequisites:**  Node.js
+Triggered by the historic signing of 11 bilateral MoCs between Malaysia and India in early 2026, this report identifies a "Policy Window" to leverage India's ESG digitalization practices as a strategic shortcut for Malaysia’s industrial and social transformation.
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## The "Synergy" Framework: Beyond Auditing
+The core value of this blueprint lies in its **Localization Logic**. Rather than a static audit, it proposes an interconnected ecosystem:
+
+* **Environmental (E):** Digitized resource circularity focusing on Smart Rainwater Management and Plastic Recovery.
+* **Social (S):** Re-engineering the "Shakti" model into **Shakti 2.0**—a digital green service network adapted for Malaysia's urbanized landscape.
+* **Governance (G):** Utilizing the **Local Currency Settlement (LC-SF)** framework to drive financial incentives for green compliance.
+
+
+## Analyst’s Methodology & Data Integrity
+As the lead strategist, I utilized an **AI-augmented analytical workflow** while maintaining strict human oversight:
+* **Data Sourcing:** Verified HUL Digital BRSR Reports (2023-2025).
+* **Integrity Control:** Developed a custom **"Reporting Cycle" CSV** to mitigate AI hallucinations and ensure 2030 forecasts adhere to audit-grade logic.
+* **Strategic Pivot:** Applied critical thinking to determine market suitability (e.g., assessing Shakti model viability against Malaysian retail giants like 99 Speedmart).
+
+
+## View the Full Blueprint
+* **Interactive Web Report:** [Link to your AI Studio App]
+* **Detailed Process Log:** [Link to your PDF in GitHub]
+
+---
+
+## Intellectual Property & Licensing
+**© 2026 THAM KE LI. All Rights Reserved.**
+
+This repository is licensed under **CC BY-NC-ND 4.0**. 
+
+**Important Notice:**
+While the code serves as a functional vehicle for demonstration, the **Strategic Concepts, Architectural Logic, and Localization Frameworks** (RAP, Shakti 2.0, LC-SF Synergy) are the original intellectual property of the author. 
+
+- ✅ **Personal/Educational Use:** Encouraged.
+- ❌ **Commercial Redistribution:** Unauthorized use of these strategic frameworks for corporate consulting or for-profit application is strictly prohibited.
