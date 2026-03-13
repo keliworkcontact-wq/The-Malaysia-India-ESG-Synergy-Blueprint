@@ -28,7 +28,7 @@ As the lead strategist, I utilized an **AI-augmented analytical workflow** while
 
 ## View the Full Blueprint
 * **Interactive Web Report:** [Link to your AI Studio App]
-* **Detailed Process Log:** [Link to your PDF in GitHub]
+* **Detailed Process Log:** Report Process Log ENG v2 (13032026).pdf
 
 ---
 
