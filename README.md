@@ -28,7 +28,7 @@ As the lead strategist, I utilized an **AI-augmented analytical workflow** while
 
 ## View the Full Blueprint
 * **Interactive Web Report and Project Log:** [Link to your AI Studio App]
-* **Detailed Process Log:** [Report Process Log ENG v3 (13032026).pdf](https://github.com/keliworkcontact-wq/HUL-ESG-Malaysia-India-Strategic-Portfolio/blob/63072e85506d33da6748d6a7ad3dd5d3138004d8/Report%20Process%20Log%20ENG%20v3%20(13032026).pdf)
+* **Detailed Process Log:** [Tham_Ke_Li_Strategic_Project_Log.pdf](https://github.com/keliworkcontact-wq/HUL-ESG-Malaysia-India-Strategic-Portfolio/blob/93c2e6a4e42c896bc22f8a43be8f4e88b5d5c0d2/Tham_Ke_Li_Strategic_Project_Log.pdf)
 
 <img width="1875" height="845" alt="Screenshot (102)" src="https://github.com/user-attachments/assets/1bcfd967-e5c6-4134-9df2-919104ffa5c9" />
 <img width="1053" height="796" alt="Screenshot (106)" src="https://github.com/user-attachments/assets/7a18738c-d0d7-461a-aab8-1a387907332b" />
