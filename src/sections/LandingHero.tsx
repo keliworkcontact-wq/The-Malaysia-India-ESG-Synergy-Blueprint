@@ -45,6 +45,14 @@ export default function LandingHero({ onStart, onViewLog }: LandingHeroProps) {
             <p className="text-xs md:text-sm text-white/60 mt-1 uppercase tracking-widest">
               Certified Data Analyst Associate | ESG Strategy Researcher
             </p>
+            <a 
+              href="https://dinq.me/keli" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block mt-4 text-xs md:text-sm text-sustainability-green hover:text-sustainability-green/80 transition-colors font-medium"
+            >
+              🔗 Connect me via my Digital Business Card
+            </a>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
