@@ -135,8 +135,8 @@ export default function App() {
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center justify-between mb-12">
                 <div>
-                  <h1 className="text-4xl font-bold text-corporate-blue mb-2">Report Process Log</h1>
-                  <p className="text-stone-500">Interactive development timeline and strategic nodes.</p>
+                  <h1 className="text-4xl font-bold text-corporate-blue mb-2">Strategic Project Log</h1>
+                  <p className="text-stone-500">The Malaysia–India ESG Synergy Blueprint</p>
                 </div>
                 <button 
                   onClick={() => setPage('landing')}
