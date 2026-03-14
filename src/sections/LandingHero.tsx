@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight, History } from 'lucide-react';
+import CombinedNotice from '../components/CombinedNotice';
 
 interface LandingHeroProps {
   onStart: () => void;
@@ -80,12 +81,9 @@ export default function LandingHero({ onStart, onViewLog }: LandingHeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="max-w-4xl mx-auto border-t border-white/10 pt-8 mt-auto"
+          className="mt-auto"
         >
-          <p className="text-[10px] md:text-xs text-white/40 leading-relaxed text-center italic">
-            <span className="font-bold not-italic text-white/60 block mb-1">Note on Document Status:</span>
-            This report is a Strategic Pitching Blueprint developed for professional demonstration and portfolio purposes. While based on official HUL disclosures and Malaysia–India bilateral frameworks, it serves as an independent analytical proposal rather than an officially commissioned governmental or corporate document.
-          </p>
+          <CombinedNotice variant="dark" />
         </motion.div>
       </div>
     </div>
