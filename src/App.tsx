@@ -8,6 +8,7 @@ import RoadmapSection from './sections/RoadmapSection';
 import MacroBackgroundSection from './sections/MacroBackgroundSection';
 import ConclusionRoadmapSection from './sections/ConclusionRoadmapSection';
 import SecurityWrapper from './components/SecurityWrapper';
+import CombinedNotice from './components/CombinedNotice';
 
 type PageState = 'landing' | 'report' | 'log';
 
@@ -121,6 +122,9 @@ export default function App() {
                       Back to Start
                     </button>
                   </div>
+                  <div className="pb-12 w-full">
+                    <CombinedNotice variant="dark" />
+                  </div>
                 </section>
               </PresentationLayout>
             </motion.div>
@@ -148,6 +152,9 @@ export default function App() {
                   </button>
                 </div>
                 <ProcessLog />
+                <div className="mt-20 pb-12">
+                  <CombinedNotice variant="light" />
+                </div>
               </div>
             </motion.div>
           )}
