@@ -48,7 +48,7 @@ export default function MacroBackgroundSection() {
             </div>
             <h5 className="text-2xl font-bold text-stone-800">A Milestone in Bilateral Relations</h5>
             <p className="text-stone-600 leading-relaxed">
-              The landscape of Southeast Asian and South Asian economic relations reached a historic turning point on <span className="font-bold text-corporate-blue">9 February 2026</span>. As reported by <span className="italic">eNanyang</span>, the signing of <span className="font-bold">11 bilateral Memoranda of Cooperation (MoCs)</span> between Malaysia and India signals a profound institutional alignment under the <span className="font-bold">Comprehensive Strategic Partnership (CSP)</span> framework.
+              The landscape of Southeast Asian and South Asian economic relations reached a historic turning point on <span className="font-bold text-corporate-blue">9 February 2026</span>. As reported by <span className="italic">eNanyang</span>, the signing of <span className="font-bold">11 agreements and memoranda of understanding (MoUs)</span> between Malaysia and India signals a profound institutional alignment under the <span className="font-bold">Comprehensive Strategic Partnership (CSP)</span> framework.
             </p>
             <p className="text-stone-600 leading-relaxed">
               This milestone is more than a diplomatic formality; it is a manifestation of India’s growing confidence in the political and economic stability of Malaysia’s current administration. This "policy window" provides a rare, coordinated opportunity for both nations to move beyond traditional trade complementarity and toward high-level industrial and sustainability transformation.
@@ -68,7 +68,7 @@ export default function MacroBackgroundSection() {
             />
             <div className="absolute -bottom-6 -right-6 bg-sustainability-green text-white p-6 rounded-2xl shadow-xl hidden md:block">
               <p className="text-3xl font-bold">11</p>
-              <p className="text-sm font-medium uppercase tracking-wider">Bilateral MoCs</p>
+              <p className="text-sm font-medium uppercase tracking-wider">Bilateral Agreements & MoUs</p>
             </div>
           </motion.div>
         </section>
