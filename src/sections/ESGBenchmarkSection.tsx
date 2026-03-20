@@ -1,0 +1,416 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { 
+  Target, 
+  ShieldCheck, 
+  Factory, 
+  Zap, 
+  Users, 
+  Recycle, 
+  ArrowRight, 
+  ExternalLink,
+  CheckCircle2,
+  Info
+} from 'lucide-react';
+
+interface StrategyNode {
+  id: string;
+  title: string;
+  category: 'Governance' | 'Technology' | 'Value Chain';
+  icon: any;
+  intro: string;
+  execution: string[];
+  results: string[];
+  color: string;
+}
+
+const strategyNodes: StrategyNode[] = [
+  {
+    id: 'aspire',
+    title: 'ASPIRE Strategy',
+    category: 'Governance',
+    icon: Target,
+    color: 'bg-blue-600',
+    intro: '"ASPIRE: Unlocking a Billion Aspirations" is HUL’s primary business strategy designed to drive growth by meeting the evolving needs of an increasingly affluent and digital-native Indian population. It is underpinned by two foundational pillars: Sustainability and Culture.',
+    execution: [
+      'Focus: Segmenting the portfolio into Core, Future Core, and Market Makers to prioritize high-growth spaces.',
+      'Excel: Pivoting investments to five demand drivers, including digital-first marketing and specialty channels like premium beauty and health.',
+      'Accelerate: Strengthening "distinctive moats" through disruptive science and an AI-enabled supply chain.'
+    ],
+    results: [
+      'Market leadership in over 85% of its operating categories.',
+      '200 bps portfolio shift toward future-facing and premium segments.',
+      '99% reduction in operational (Scope 1 & 2) emissions compared to its 2008 baseline.'
+    ]
+  },
+  {
+    id: 'governance',
+    title: 'Governance Transparency',
+    category: 'Governance',
+    icon: ShieldCheck,
+    color: 'bg-blue-500',
+    intro: 'HUL’s governance strategy is built on the "One Unilever" model and is deeply rooted in the core values of Integrity, Respect, Responsibility, and Pioneering. The primary objective is to ensure long-term sustainable success by exceeding minimum legal standards to build enduring trust with all stakeholders.',
+    execution: [
+      'Multi-tiered governance structure including the Board of Directors, six specialized Board Committees, and a Management Committee.',
+      'Unbiased oversight: All Board Committees are chaired by Independent Directors.',
+      'Code of Business Principles (CoBP): Enforced through a robust digital compliance management tool for real-time tracking and a 24/7 anonymous whistle-blowing hotline.'
+    ],
+    results: [
+      'Board Composition: Achieved 55.56% independent directors on the Board and 67% on the ESG Committee.',
+      'Diversity: Female representation reached 22.2% on the Board and 42% at the managerial level.',
+      'Organizational Trust: 93% of employees are proud to work at HUL, with an overall engagement score of 82%.'
+    ]
+  },
+  {
+    id: 'ddf',
+    title: 'Doom Dooma Factory (DDF)',
+    category: 'Technology',
+    icon: Factory,
+    color: 'bg-emerald-600',
+    intro: 'Located in Assam, DDF is recognized by the World Economic Forum as an "End-to-End Digital Lighthouse" for its mastery of Fourth Industrial Revolution (4IR) technologies.',
+    execution: [
+      'Integration of AI, IoT, and Digital Twin technology across its end-to-end supply chain.',
+      '"Lights-off" (dark) manufacturing lines that operate with minimal manual intervention to maximize safety and efficiency.'
+    ],
+    results: [
+      'Agility: Achieved 85% faster changeover times between product lines.',
+      'Sustainability: Reduced virgin plastic usage by 21% and packaging trial times by 84%.',
+      'Productivity: AI-driven task allocation boosted labor productivity by 400%.'
+    ]
+  },
+  {
+    id: 'stratos',
+    title: 'Stratos Technology',
+    category: 'Technology',
+    icon: Zap,
+    color: 'bg-emerald-500',
+    intro: 'Stratos is a first-of-its-kind, patented revolutionary technology developed by HUL’s R&D team for its skin cleansing (soap) portfolio.',
+    execution: [
+      '"Smart structuring" to reformulate soap with plant-derived polysaccharides and vitamin blends.',
+      'Replaces non-functional Total Fatty Matter (TFM) with skin-health actives that provide better consumer benefits.'
+    ],
+    results: [
+      'Material Efficiency: Reduces TFM by up to 25%, significantly lowering the company\'s palm oil footprint.',
+      'Environmental Impact: Drastically reduces GHG emissions across the value chain.',
+      'Speed to Market: Combined with digital pilot plants, it helped reduce factory trials by 50%, enabling the technology to scale in record time.'
+    ]
+  },
+  {
+    id: 'shakti',
+    title: 'Project Shakti',
+    category: 'Value Chain',
+    icon: Users,
+    color: 'bg-amber-600',
+    intro: 'Project Shakti is executed as a specialized rural distribution model that transforms social empowerment into a sustainable business engine. HUL combines skills development (training) with market access (distribution integration), allowing rural women to build sustainable livelihoods.',
+    execution: [
+      'Comprehensive Entrepreneurship Training: Covers business basics, salesmanship, and digital literacy (Shikhar e-B2B app).',
+      'Integration into Distribution Network: Shakti Ammas act as micro-distributors, reaching households in remote areas.',
+      'Community Leadership: Transitioning from passive consumers to active economic agents and "change agents" within their society.'
+    ],
+    results: [
+      'Network: Over 200,000 women entrepreneurs active in the Shakti network.',
+      'Lives Impacted: Reached approximately 1,388,989 beneficiaries (FY 2024-25 data).',
+      'Vulnerability Focus: About 40% of beneficiaries are from vulnerable and marginalized groups.'
+    ]
+  },
+  {
+    id: 'circular',
+    title: 'Project Circular Bharat',
+    category: 'Value Chain',
+    icon: Recycle,
+    color: 'bg-amber-500',
+    intro: 'Project Circular Bharat is an end-to-end model designed to accelerate the circularity of waste in India. It serves as HUL’s blueprint for establishing viable, scalable, and socially inclusive circularity models.',
+    execution: [
+      'Behavior Change: Driving "Responsible Citizenship" to inspire waste segregation at the source.',
+      'Social Inclusion: Integrating informal waste workers (Safai Mitras/Safai Saathis) into the formal value chain.',
+      'Infrastructure: Setting up integrated Material Recovery Facilities (MRFs) for waste collection and processing (network of 20+ partners).'
+    ],
+    results: [
+      'Citizen Reach: Over 545,000 citizens inspired to segregate waste at the source.',
+      'Social Impact: More than 20,000 Safai Mitras gained access to government social protection schemes.',
+      'Compliance: HUL is 100% EPR (Extended Producer Responsibility) compliant, processing more plastic than it sells annually.'
+    ]
+  }
+];
+
+const StrategyTreeNode: React.FC<{ node: StrategyNode; onClick: () => void }> = ({ node, onClick }) => {
+  return (
+    <motion.button
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      onClick={onClick}
+      className="w-full group relative flex flex-col p-5 bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-lg hover:border-corporate-blue/20 transition-all text-left"
+    >
+      <div className="flex items-center gap-3 mb-3">
+        <div className={`w-8 h-8 ${node.color} text-white rounded-lg flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform`}>
+          <node.icon size={16} />
+        </div>
+        <h4 className="text-sm font-bold text-corporate-blue group-hover:text-sustainability-green transition-colors leading-tight">
+          {node.title}
+        </h4>
+      </div>
+      <p className="text-[11px] text-stone-500 line-clamp-2 mb-3 leading-relaxed">
+        {node.intro}
+      </p>
+      <div className="mt-auto flex items-center gap-1.5 text-[10px] font-bold text-corporate-blue uppercase tracking-widest">
+        View Details
+        <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+      </div>
+    </motion.button>
+  );
+};
+
+export default function ESGBenchmarkSection() {
+  const [selectedNode, setSelectedNode] = useState<StrategyNode | null>(null);
+
+  return (
+    <div className="w-full">
+      {/* 2.0 Purpose of the Benchmark Audit */}
+      <section className="max-w-7xl mx-auto px-8 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
+            Section 2.0: Purpose of the Benchmark Audit
+          </h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+            Analyzing HUL’s ESG Operational Architecture
+          </h1>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <p className="text-xl text-stone-600 leading-relaxed">
+                This section examines the ESG operational architecture of Hindustan Unilever Limited (HUL), one of the most advanced ESG-integrated corporations in emerging markets.
+              </p>
+              <p className="text-lg text-stone-500 leading-relaxed">
+                Its objective is to identify <span className="text-corporate-blue font-semibold">transferable sustainability mechanisms</span> that can inform Malaysia’s ESG transformation pathway under the Malaysia–India Comprehensive Strategic Partnership (CSP).
+              </p>
+              
+              <div className="pt-6">
+                <a 
+                  href="https://www.hul.co.in/sustainability/sustainability-reporting-centre/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-corporate-blue font-bold hover:underline group"
+                >
+                  <ExternalLink size={18} className="group-hover:scale-110 transition-transform" />
+                  Data Foundation: HUL Sustainability Reporting Centre
+                </a>
+                <p className="text-xs text-stone-400 mt-2 italic">
+                  Based on HUL disclosures (2023–2025) and three years of official datasets.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm">
+              <h3 className="text-lg font-bold text-corporate-blue mb-6 flex items-center gap-2">
+                <Info size={20} className="text-blue-500" />
+                Three Core Dimensions of Analysis
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { title: 'Governance Architecture', desc: 'The structural integrity and transparency models.' },
+                  { title: 'Technology-enabled Sustainability', desc: '4IR integration and R&D-driven efficiency.' },
+                  { title: 'Inclusive Value Chain Transformation', desc: 'Social empowerment and circular economy models.' }
+                ].map((dim, i) => (
+                  <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-stone-50 border border-stone-100">
+                    <div className="w-8 h-8 bg-corporate-blue text-white rounded-lg flex items-center justify-center font-bold shrink-0">
+                      {i + 1}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-corporate-blue">{dim.title}</h4>
+                      <p className="text-sm text-stone-500">{dim.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* 2.1 HUL ESG Operating Architecture */}
+      <section className="bg-stone-50 py-20 overflow-x-auto">
+        <div className="max-w-[1400px] mx-auto px-8 min-w-[1000px]">
+          <div className="text-center mb-20">
+            <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
+              Section 2.1: HUL ESG Operating Architecture
+            </h2>
+            <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">HUL ESG System Structure</h1>
+            <p className="text-xl text-stone-600 max-w-4xl mx-auto leading-relaxed">
+              The diagram below illustrates HUL’s ESG practices functioning as an integrated and scalable system. Select the strategy nodes to reveal detailed insights into the underlying mechanisms.
+            </p>
+          </div>
+
+          {/* Tree Diagram Implementation */}
+          <div className="relative flex flex-col items-center pb-12">
+            {/* Root Node */}
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative z-10 px-16 py-8 bg-amber-500 text-white rounded-2xl shadow-xl font-bold text-2xl border-4 border-white"
+            >
+              HUL ESG System
+            </motion.div>
+
+            {/* Vertical Line from Root */}
+            <div className="w-1 h-16 bg-stone-300" />
+
+            {/* Horizontal Connector for Layers */}
+            <div className="relative w-full flex justify-between">
+              <div className="absolute top-0 left-[16.6%] right-[16.6%] h-1 bg-stone-300" />
+              
+              {/* Layer 1: Corporate Strategy */}
+              <div className="flex-1 flex flex-col items-center">
+                <div className="w-1 h-12 bg-stone-300" />
+                <div className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold text-base mb-10 shadow-md">
+                  Corporate Strategy Layer
+                </div>
+                
+                {/* Nodes under Corporate Strategy */}
+                <div className="space-y-8 w-full px-6">
+                  {strategyNodes.filter(n => n.category === 'Governance').map(node => (
+                    <StrategyTreeNode key={node.id} node={node} onClick={() => setSelectedNode(node)} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Layer 2: Technology */}
+              <div className="flex-1 flex flex-col items-center">
+                <div className="w-1 h-12 bg-stone-300" />
+                <div className="px-8 py-4 bg-sustainability-green text-white rounded-xl font-bold text-base mb-10 shadow-md">
+                  Technology Layer
+                </div>
+                
+                {/* Nodes under Technology */}
+                <div className="space-y-8 w-full px-6">
+                  {strategyNodes.filter(n => n.category === 'Technology').map(node => (
+                    <StrategyTreeNode key={node.id} node={node} onClick={() => setSelectedNode(node)} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Layer 3: Value Chain */}
+              <div className="flex-1 flex flex-col items-center">
+                <div className="w-1 h-12 bg-stone-300" />
+                <div className="px-8 py-4 bg-amber-600 text-white rounded-xl font-bold text-base mb-10 shadow-md">
+                  Inclusive Value Chain
+                </div>
+                
+                {/* Nodes under Value Chain */}
+                <div className="space-y-8 w-full px-6">
+                  {strategyNodes.filter(n => n.category === 'Value Chain').map(node => (
+                    <StrategyTreeNode key={node.id} node={node} onClick={() => setSelectedNode(node)} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Modal Overlay */}
+      <AnimatePresence>
+        {selectedNode && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedNode(null)}
+              className="absolute inset-0 bg-corporate-blue/40 backdrop-blur-md"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col"
+            >
+              {/* Modal Header */}
+              <div className={`p-8 ${selectedNode.color} text-white flex items-center justify-between`}>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                    <selectedNode.icon size={28} />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-widest opacity-80">
+                      {selectedNode.category}
+                    </span>
+                    <h2 className="text-2xl font-bold">{selectedNode.title}</h2>
+                  </div>
+                </div>
+                {/* Exit button removed as per request */}
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-8 md:p-12 overflow-y-auto custom-scrollbar">
+                <div className="space-y-10">
+                  <section>
+                    <h3 className="text-lg font-bold text-corporate-blue mb-4 flex items-center gap-2">
+                      <Info size={20} className="text-blue-500" />
+                      Introduction
+                    </h3>
+                    <p className="text-stone-600 leading-relaxed text-lg">
+                      {selectedNode.intro}
+                    </p>
+                  </section>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <section>
+                      <h3 className="text-lg font-bold text-corporate-blue mb-6 flex items-center gap-2">
+                        <Zap size={20} className="text-amber-500" />
+                        Execution Strategy
+                      </h3>
+                      <div className="space-y-4">
+                        {selectedNode.execution.map((item, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <div className="mt-1.5 shrink-0">
+                              <ArrowRight size={14} className="text-amber-500" />
+                            </div>
+                            <p className="text-stone-600 text-sm leading-relaxed">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+
+                    <section>
+                      <h3 className="text-lg font-bold text-corporate-blue mb-6 flex items-center gap-2">
+                        <CheckCircle2 size={20} className="text-emerald-500" />
+                        Results & Effectiveness
+                      </h3>
+                      <div className="space-y-4">
+                        {selectedNode.results.map((item, i) => (
+                          <div key={i} className="flex items-start gap-3 p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
+                            <div className="mt-1 shrink-0">
+                              <CheckCircle2 size={16} className="text-emerald-600" />
+                            </div>
+                            <p className="text-emerald-900 text-sm font-medium leading-relaxed">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="p-6 bg-stone-50 border-t border-stone-100 flex justify-end">
+                <button 
+                  onClick={() => setSelectedNode(null)}
+                  className="px-8 py-2.5 bg-corporate-blue text-white rounded-full font-bold hover:bg-corporate-blue/90 transition-colors"
+                >
+                  Close Details
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}

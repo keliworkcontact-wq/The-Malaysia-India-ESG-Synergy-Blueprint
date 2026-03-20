@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import LandingHero from './sections/LandingHero';
 import PresentationLayout from './layouts/PresentationLayout';
 import ProcessLog from './sections/ProcessLog';
-import AuditDashboard from './sections/AuditDashboard';
+import ESGBenchmarkSection from './sections/ESGBenchmarkSection';
 import RoadmapSection from './sections/RoadmapSection';
 import MacroBackgroundSection from './sections/MacroBackgroundSection';
 import ConclusionRoadmapSection from './sections/ConclusionRoadmapSection';
@@ -15,11 +15,6 @@ type PageState = 'landing' | 'hub' | 'report' | 'log';
 export default function App() {
   const [page, setPage] = useState<PageState>('landing');
   const [activeSection, setActiveSection] = useState('macro');
-
-  const scrollToSection = (id: string) => {
-    setActiveSection(id);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const handleStartReading = () => {
     setPage('hub');
@@ -73,9 +68,6 @@ export default function App() {
               exit={{ opacity: 0 }}
             >
               <PresentationLayout 
-                activeSection={activeSection} 
-                onNavClick={scrollToSection}
-                onHomeClick={() => setPage('landing')}
                 onBackToHub={handleBackToHub}
               >
                 {activeSection === 'macro' && (
@@ -97,19 +89,7 @@ export default function App() {
                     animate={{ opacity: 1, y: 0 }}
                     className="section-container bg-stone-50"
                   >
-                    <div className="max-w-7xl w-full py-20">
-                      <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-4">Section 2: Corporate ESG Benchmark</h2>
-                        <h3 className="text-2xl font-semibold text-stone-700 mb-6">HUL ESG Performance, Risk Signals, and Forward Projections</h3>
-                        <p className="text-stone-500 max-w-3xl mx-auto text-lg">
-                          This section analyzes the core strategies and technological innovations driving Hindustan Unilever Limited’s (HUL) growth and sustainability performance for the 2023-25 period.
-                        </p>
-                        <div className="mt-4 text-sm font-medium text-stone-400 uppercase tracking-widest">
-                          Data foundation: HUL disclosures (2023–2025) and three years of official datasets. (<a href="https://www.hul.co.in/sustainability/sustainability-reporting-centre/" target="_blank" rel="noopener noreferrer" className="hover:text-corporate-blue transition-colors underline decoration-dotted">https://www.hul.co.in/sustainability/sustainability-reporting-centre/</a>)
-                        </div>
-                      </div>
-                      <AuditDashboard />
-                    </div>
+                    <ESGBenchmarkSection />
                     <div className="w-full mt-20">
                       <CombinedNotice variant="light" />
                     </div>
