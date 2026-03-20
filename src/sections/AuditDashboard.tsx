@@ -10,7 +10,12 @@ import {
   Label,
   Area,
   ComposedChart,
-  Dot
+  Dot,
+  BarChart,
+  Bar,
+  Legend,
+  AreaChart,
+  Cell
 } from 'recharts';
 import { 
   ShieldCheck, 
@@ -98,6 +103,133 @@ const CustomTooltip = ({ active, payload, label }: any) => {
               <span>{data.s3Note || data.note}</span>
             </div>
           )}
+        </div>
+      </div>
+    );
+  }
+  return null;
+};
+
+const transitionData = [
+  { year: '2023', historical: 8.72, realistic: null, netZero: null, gap: 0 },
+  { year: '2024', historical: 9.96, realistic: null, netZero: null, gap: 0 },
+  { year: '2025', historical: null, realistic: 9.7, netZero: 9.2, gap: 0.5 },
+  { year: '2026', historical: null, realistic: 9.2, netZero: 7.8, gap: 1.4 },
+  { year: '2027', historical: null, realistic: 8.6, netZero: 6.0, gap: 2.6 },
+  { year: '2028', historical: null, realistic: 7.8, netZero: 4.3, gap: 3.5 },
+  { year: '2029', historical: null, realistic: 7.0, netZero: 3.0, gap: 4.0 },
+  { year: '2030', historical: null, realistic: 6.2, netZero: 1.8, gap: 4.4 },
+];
+
+const leverData = [
+  { 
+    name: '2030 Potential', 
+    'Ingredient Reformulation': 0.7, 
+    'Recycled Packaging': 0.2, 
+    'EV Logistics': 0.15, 
+    'Supplier Efficiency Programs': 0.25 
+  }
+];
+
+const adoptionData = [
+  { year: '2024', rate: 10 },
+  { year: '2025', rate: 18 },
+  { year: '2026', rate: 28 },
+  { year: '2027', rate: 42 },
+  { year: '2028', rate: 55 },
+  { year: '2029', rate: 65 },
+  { year: '2030', rate: 75 },
+];
+
+const modelData = [
+  { year: '2024', adoption: 12, baselineEmissions: 9.96, modelEmissions: 9.36, delayedEmissions: 9.96, adoptionContribution: 0.60, baselineContribution: 0.00 },
+  { year: '2025', adoption: 18, baselineEmissions: 9.20, modelEmissions: 8.37, delayedEmissions: 9.20, adoptionContribution: 0.83, baselineContribution: 0.76 },
+  { year: '2026', adoption: 28, baselineEmissions: 8.51, modelEmissions: 7.31, delayedEmissions: 7.99, adoptionContribution: 1.20, baselineContribution: 1.45 },
+  { year: '2027', adoption: 42, baselineEmissions: 7.86, modelEmissions: 6.21, delayedEmissions: 7.15, adoptionContribution: 1.65, baselineContribution: 2.10 },
+  { year: '2028', adoption: 58, baselineEmissions: 7.26, modelEmissions: 5.15, delayedEmissions: 6.24, adoptionContribution: 2.11, baselineContribution: 2.70 },
+  { year: '2029', adoption: 68, baselineEmissions: 6.71, modelEmissions: 4.43, delayedEmissions: 5.30, adoptionContribution: 2.28, baselineContribution: 3.25 },
+  { year: '2030', adoption: 75, baselineEmissions: 6.20, modelEmissions: 3.87, delayedEmissions: 4.40, adoptionContribution: 2.33, baselineContribution: 3.76 },
+];
+
+const CustomAdoptionTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-4 rounded-xl shadow-xl border border-stone-200">
+        <p className="font-bold text-corporate-blue mb-2">{label}</p>
+        <p className="flex justify-between gap-4 text-xs">
+          <span className="text-stone-500">Adoption Rate:</span>
+          <span className="font-mono font-bold text-blue-600">{payload[0].value}%</span>
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
+
+const CustomEmissionsTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-4 rounded-xl shadow-xl border border-stone-200">
+        <p className="font-bold text-corporate-blue mb-2">{label}</p>
+        <div className="space-y-1 text-xs">
+          {payload.map((entry: any, index: number) => (
+            <p key={index} className="flex justify-between gap-4">
+              <span className="text-stone-500">{entry.name}:</span>
+              <span className="font-mono font-bold" style={{ color: entry.color }}>
+                {entry.value.toFixed(2)} Mt
+              </span>
+            </p>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  return null;
+};
+
+const CustomTransitionTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-4 rounded-xl shadow-xl border border-stone-200">
+        <p className="font-bold text-corporate-blue mb-2">{label}</p>
+        <div className="space-y-1 text-xs">
+          {payload.map((entry: any, index: number) => (
+            <p key={index} className="flex justify-between gap-4">
+              <span className="text-stone-500">{entry.name}:</span>
+              <span className="font-mono font-bold" style={{ color: entry.color }}>
+                {entry.value.toFixed(2)}M MT
+              </span>
+            </p>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  return null;
+};
+
+const CustomGapTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    const realistic = payload.find((p: any) => p.dataKey === 'realistic')?.value || 0;
+    const netZero = payload.find((p: any) => p.dataKey === 'netZero')?.value || 0;
+    const gap = realistic - netZero;
+    
+    return (
+      <div className="bg-white p-4 rounded-xl shadow-xl border border-stone-200">
+        <p className="font-bold text-corporate-blue mb-2">{label}</p>
+        <div className="space-y-1 text-xs">
+          <p className="flex justify-between gap-4">
+            <span className="text-stone-500">Realistic:</span>
+            <span className="font-mono font-bold text-blue-600">{realistic.toFixed(2)}M</span>
+          </p>
+          <p className="flex justify-between gap-4">
+            <span className="text-stone-500">Target:</span>
+            <span className="font-mono font-bold text-emerald-600">{netZero.toFixed(2)}M</span>
+          </p>
+          <p className="flex justify-between gap-4 pt-1 border-t border-stone-100">
+            <span className="text-stone-800 font-bold">Gap:</span>
+            <span className="font-mono font-bold text-red-600">{gap.toFixed(2)}M MT</span>
+          </p>
         </div>
       </div>
     );
@@ -289,221 +421,322 @@ export default function AuditDashboard() {
             </div>
           </div>
         </div>
+
+        {/* 2-C) Adoption-Driven Emission Impact Model */}
+        <div className="bg-white p-8 md:p-12 rounded-[3rem] shadow-sm border border-stone-200 space-y-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-stone-100 pb-8">
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 text-corporate-blue">
+                <TrendingDown size={28} />
+                <h3 className="text-2xl font-bold">2-C) Adoption-Driven Emission Impact Model</h3>
+              </div>
+              <p className="text-stone-500 max-w-2xl">
+                Quantifying the transmission mechanism between supplier ESG adoption and absolute Scope 3 decarbonization (2024–2030).
+              </p>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="text-right">
+                <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Baseline (E₀)</p>
+                <p className="text-xl font-mono font-bold text-corporate-blue">9.96 MtCO₂e</p>
+              </div>
+              <div className="w-px h-10 bg-stone-200" />
+              <div className="text-right">
+                <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Target Reduction</p>
+                <p className="text-xl font-mono font-bold text-emerald-600">-61.1%</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            {/* Chart 1: Supplier Adoption Curve */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider">Supplier Adoption Curve (S-Curve)</h4>
+                <span className="text-[10px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full font-bold">Logistic Growth</span>
+              </div>
+              <div className="h-[250px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={modelData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <defs>
+                      <linearGradient id="colorAdopt" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#2563eb" stopOpacity={0.2}/>
+                        <stop offset="95%" stopColor="#2563eb" stopOpacity={0}/>
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                    <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 10 }} />
+                    <YAxis axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 10 }} unit="%" />
+                    <Tooltip content={<CustomAdoptionTooltip />} />
+                    <Area type="monotone" dataKey="adoption" stroke="#2563eb" strokeWidth={3} fillOpacity={1} fill="url(#colorAdopt)" />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+              <p className="text-[10px] text-stone-400 italic text-center">Inflection point projected at 2027 (~42% adoption)</p>
+            </div>
+
+            {/* Chart 2: Scope 3 Emissions Scenarios */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider">Scope 3 Emission Scenarios</h4>
+                <div className="flex gap-2">
+                  <div className="flex items-center gap-1 text-[9px] font-bold text-stone-400"><div className="w-1.5 h-1.5 bg-stone-300 rounded-full" /> Baseline</div>
+                  <div className="flex items-center gap-1 text-[9px] font-bold text-blue-600"><div className="w-1.5 h-1.5 bg-blue-600 rounded-full" /> Model</div>
+                </div>
+              </div>
+              <div className="h-[250px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={modelData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                    <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 10 }} />
+                    <YAxis axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 10 }} />
+                    <Tooltip content={<CustomEmissionsTooltip />} />
+                    <Line type="monotone" dataKey="baselineEmissions" stroke="#a8a29e" strokeWidth={2} strokeDasharray="5 5" dot={false} />
+                    <Line type="monotone" dataKey="modelEmissions" stroke="#2563eb" strokeWidth={3} dot={{ r: 4, fill: '#2563eb' }} />
+                    <Line type="monotone" dataKey="delayedEmissions" stroke="#ef4444" strokeWidth={2} strokeDasharray="3 3" dot={false} />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+              <p className="text-[10px] text-red-500 font-bold text-center uppercase tracking-tighter">Red Line: 2-Year Adoption Delay Penalty</p>
+            </div>
+
+            {/* Chart 3: Reduction Contribution Analysis */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider">Reduction Contribution</h4>
+                <span className="text-[10px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-bold">Cumulative Impact</span>
+              </div>
+              <div className="h-[250px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={modelData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                    <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 10 }} />
+                    <YAxis axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 10 }} />
+                    <Tooltip />
+                    <Legend iconType="circle" wrapperStyle={{ fontSize: '9px', fontWeight: 'bold', textTransform: 'uppercase', paddingTop: '10px' }} />
+                    <Bar name="Organic Efficiency" dataKey="baselineContribution" stackId="a" fill="#d1d5db" />
+                    <Bar name="Supplier Adoption" dataKey="adoptionContribution" stackId="a" fill="#059669" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+              <p className="text-[10px] text-stone-400 italic text-center">Adoption accounts for ~38% of total 2030 reduction potential</p>
+            </div>
+          </div>
+
+          {/* Model Insights */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 border-t border-stone-100">
+            {[
+              {
+                title: "Transmission Mechanism",
+                desc: "Supplier adoption acts as the 'gearing' for Scope 3. Without it, organic efficiency (r_base) alone leaves a 2.3 MtCO₂e gap by 2030."
+              },
+              {
+                title: "Non-Linear Thresholds",
+                desc: "The model reveals a 'tipping point' in 2027. Once adoption crosses 40%, the emission reduction rate accelerates by 2.4x due to network effects."
+              },
+              {
+                title: "The Delay Penalty",
+                desc: "A 2-year delay in reaching the inflection point results in a cumulative excess of 4.2 MtCO₂e—effectively erasing 3 years of organic gains."
+              },
+              {
+                title: "Critical Bottleneck",
+                desc: "Scope 3 decarbonization is not a technology problem, but a participation problem. Alpha (α) efficiency is useless if Adoption(t) remains below 20%."
+              }
+            ].map((insight, i) => (
+              <div key={i} className="space-y-2">
+                <div className="flex items-center gap-2 text-corporate-blue">
+                  <div className="w-6 h-6 rounded-full bg-stone-100 flex items-center justify-center text-[10px] font-bold">{i + 1}</div>
+                  <h5 className="font-bold text-sm">{insight.title}</h5>
+                </div>
+                <p className="text-xs text-stone-500 leading-relaxed">{insight.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* 3) Data Modeling and Forward Analysis */}
+      {/* 3) Climate Transition Pathway & Net Zero Gap Analysis (2023-2030) */}
       <section className="space-y-10">
         <div className="flex items-center gap-4 border-b border-stone-200 pb-4">
           <div className="w-10 h-10 bg-corporate-blue text-white rounded-lg flex items-center justify-center font-bold text-xl">3</div>
-          <h2 className="text-3xl font-bold text-corporate-blue">Data Modeling and Forward Analysis</h2>
+          <h2 className="text-3xl font-bold text-corporate-blue">Climate Transition Pathway & Net Zero Gap Analysis (2023-2030)</h2>
         </div>
 
-        <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
-          <div className="flex items-center justify-between mb-10">
-            <div>
-              <h3 className="text-2xl font-bold text-corporate-blue">ESG Audit: Emissions Reporting Cycle</h3>
-              <p className="text-stone-500 text-sm">
-                {showForecast 
-                  ? "Net Zero Forecast & Gap Analysis (2023-2030)" 
-                  : "Dual-Axis Analysis of Operational vs. Value Chain Impact"}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          {/* 3-A) Climate Transition Pathway */}
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h3 className="text-xl font-bold text-corporate-blue">Climate Transition Pathway</h3>
+                <p className="text-stone-500 text-xs">Scope 3 Emissions Scenarios (Million tCO₂e)</p>
+              </div>
+              <div className="flex gap-4 text-[10px] font-bold uppercase tracking-wider">
+                <div className="flex items-center gap-1.5"><div className="w-2 h-2 bg-stone-400 rounded-full" /> Historical</div>
+                <div className="flex items-center gap-1.5"><div className="w-2 h-2 bg-blue-600 rounded-full" /> Realistic</div>
+                <div className="flex items-center gap-1.5"><div className="w-2 h-2 bg-emerald-600 rounded-full" /> Net Zero</div>
+              </div>
+            </div>
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={transitionData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                  <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 11 }} />
+                  <YAxis axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 11 }} />
+                  <Tooltip content={<CustomTransitionTooltip />} />
+                  <Line name="Historical" type="monotone" dataKey="historical" stroke="#57534e" strokeWidth={3} dot={{ r: 4, fill: '#57534e' }} connectNulls />
+                  <Line name="Realistic" type="monotone" dataKey="realistic" stroke="#2563eb" strokeWidth={3} dot={{ r: 4, fill: '#2563eb' }} connectNulls />
+                  <Line name="Net Zero" type="monotone" dataKey="netZero" stroke="#059669" strokeWidth={3} dot={{ r: 4, fill: '#059669' }} connectNulls />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* 3-B) Net Zero Gap Analysis */}
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h3 className="text-xl font-bold text-corporate-blue">Net Zero Gap Analysis</h3>
+                <p className="text-stone-500 text-xs">Projected Compliance Shortfall (2025-2030)</p>
+              </div>
+              <div className="px-3 py-1 bg-red-50 text-red-600 text-[10px] font-bold rounded-full uppercase tracking-wider">
+                Gap Shading Enabled
+              </div>
+            </div>
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={transitionData.filter(d => parseInt(d.year) >= 2025)} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                  <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 11 }} />
+                  <YAxis axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 11 }} />
+                  <Tooltip content={<CustomGapTooltip />} />
+                  <Area type="monotone" dataKey="realistic" stroke="#2563eb" fill="#2563eb" fillOpacity={0.1} />
+                  <Area type="monotone" dataKey="netZero" stroke="#059669" fill="#059669" fillOpacity={0.1} />
+                  <Area type="monotone" dataKey="gap" stroke="none" fill="#ef4444" fillOpacity={0.2} name="Compliance Gap" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* 3-C) Decarbonization Lever Contribution */}
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h3 className="text-xl font-bold text-corporate-blue">Decarbonization Lever Contribution</h3>
+                <p className="text-stone-500 text-xs">Estimated Reduction Potential (MtCO₂e by 2030)</p>
+              </div>
+            </div>
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={leverData} layout="vertical" margin={{ top: 20, right: 30, left: 40, bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#f0f0f0" />
+                  <XAxis type="number" axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 11 }} />
+                  <YAxis type="category" dataKey="name" hide />
+                  <Tooltip cursor={{ fill: 'transparent' }} />
+                  <Legend verticalAlign="top" align="right" wrapperStyle={{ fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase' }} />
+                  <Bar dataKey="Ingredient Reformulation" stackId="a" fill="#004e92" radius={[0, 0, 0, 0]} />
+                  <Bar dataKey="Recycled Packaging" stackId="a" fill="#059669" />
+                  <Bar dataKey="EV Logistics" stackId="a" fill="#f59e0b" />
+                  <Bar dataKey="Supplier Efficiency Programs" stackId="a" fill="#7c3aed" radius={[0, 10, 10, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* 3-D) Supplier Decarbonization Adoption Curve */}
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h3 className="text-xl font-bold text-corporate-blue">Supplier Adoption Curve</h3>
+                <p className="text-stone-500 text-xs">Network-Effect Participation Rate (%)</p>
+              </div>
+              <div className="flex items-center gap-2 text-emerald-600">
+                <TrendingDown className="w-4 h-4 rotate-180" />
+                <span className="text-[10px] font-bold uppercase">S-Curve Growth</span>
+              </div>
+            </div>
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={adoptionData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                  <defs>
+                    <linearGradient id="colorAdoption" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#059669" stopOpacity={0.3}/>
+                      <stop offset="95%" stopColor="#059669" stopOpacity={0}/>
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                  <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 11 }} />
+                  <YAxis axisLine={false} tickLine={false} tick={{ fill: '#888', fontSize: 11 }} unit="%" />
+                  <Tooltip />
+                  <Area type="monotone" dataKey="rate" stroke="#059669" strokeWidth={3} fillOpacity={1} fill="url(#colorAdoption)" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* 3-F) Model Methodology & Assumptions */}
+        <div className="bg-stone-50 p-8 rounded-3xl border border-stone-200 space-y-6">
+          <div className="flex items-center gap-3 text-corporate-blue border-b border-stone-200 pb-4">
+            <FileText size={24} />
+            <h3 className="text-xl font-bold">3-F) Model Methodology & Assumptions</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-3">
+              <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider">1. Decarbonization Equation</h4>
+              <div className="bg-white p-4 rounded-xl border border-stone-200 font-mono text-xs space-y-2">
+                <p className="text-corporate-blue font-bold">Eₜ = E₀ × (1 - r)ᵗ</p>
+                <div className="text-stone-500 space-y-1">
+                  <p>• Eₜ: Emissions in year t</p>
+                  <p>• E₀: Baseline (2024)</p>
+                  <p>• r: Annual Reduction Rate</p>
+                  <p>• t: Years from baseline</p>
+                </div>
+              </div>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                The model uses a geometric decay function to simulate compounding efficiency gains.
               </p>
             </div>
-            <div className="flex items-center gap-6">
-              <div className="hidden sm:flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-[#004e92] rounded-full" />
-                  <span className="text-xs font-medium text-stone-600">Scope 1&2</span>
+
+            <div className="space-y-3">
+              <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider">2. Key Parameters</h4>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm border-b border-stone-100 pb-1">
+                  <span className="text-stone-500">Baseline (E₀)</span>
+                  <span className="font-bold text-stone-800">9.96 MtCO₂e</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-[#f57c00] rounded-full" />
-                  <span className="text-xs font-medium text-stone-600">Scope 3</span>
+                <div className="flex justify-between text-sm border-b border-stone-100 pb-1">
+                  <span className="text-stone-500">Target Rate (r_target)</span>
+                  <span className="font-bold text-emerald-600">24.9% / year</span>
+                </div>
+                <div className="flex justify-between text-sm border-b border-stone-100 pb-1">
+                  <span className="text-stone-500">Realistic Rate (r_real)</span>
+                  <span className="font-bold text-blue-600">7.6% / year</span>
                 </div>
               </div>
-              
-              <button 
-                onClick={() => setShowForecast(!showForecast)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full border transition-all duration-300 ${
-                  showForecast 
-                  ? 'bg-emerald-600 text-white border-emerald-600 shadow-lg shadow-emerald-200' 
-                  : 'bg-white text-stone-600 border-stone-200 hover:border-emerald-600 hover:text-emerald-600'
-                }`}
-              >
-                <Eye size={18} className={showForecast ? 'animate-pulse' : ''} />
-                <span className="text-sm font-bold">2030 Forecast</span>
-              </button>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                The "Realistic" pathway reflects current policy constraints, while "Net Zero" requires a 3.3x acceleration.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider">3. Adoption Assumptions</h4>
+              <ul className="space-y-2">
+                {[
+                  'Initial Phase: 10-18% adoption (Tier 1 strategic partners).',
+                  'Inflection Point: 2027 (42% adoption) via digital mandates.',
+                  'Network Effect: 75% participation by 2030 across high-impact spend.'
+                ].map((text, i) => (
+                  <li key={i} className="flex gap-2 text-xs text-stone-600">
+                    <ArrowRight size={12} className="text-corporate-blue shrink-0 mt-0.5" />
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-
-          <div className="h-[500px] w-full relative">
-            <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={currentData} margin={{ top: 20, right: 60, left: 40, bottom: 40 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                <XAxis 
-                  dataKey="cycle" 
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#888', fontSize: 12, fontWeight: 500 }}
-                  dy={15}
-                />
-                
-                {/* Left Axis: Scope 1&2 */}
-                <YAxis 
-                  yAxisId="left"
-                  orientation="left"
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#004e92', fontSize: 11 }}
-                  domain={[0, 25000]}
-                >
-                  <Label 
-                    value="Scope 1&2 (MT CO2e)" 
-                    angle={-90} 
-                    position="insideLeft" 
-                    style={{ textAnchor: 'middle', fill: '#004e92', fontSize: 11, fontWeight: 600 }}
-                    offset={-25}
-                  />
-                </YAxis>
-
-                {/* Right Axis: Scope 3 */}
-                <YAxis 
-                  yAxisId="right"
-                  orientation="right"
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#f57c00', fontSize: 11 }}
-                  domain={[0, 12000000]}
-                  tickFormatter={(val) => `${(val/1000000).toFixed(1)}M`}
-                >
-                  <Label 
-                    value="Scope 3 (MT CO2e)" 
-                    angle={90} 
-                    position="insideRight" 
-                    style={{ textAnchor: 'middle', fill: '#f57c00', fontSize: 11, fontWeight: 600 }}
-                    offset={-25}
-                  />
-                </YAxis>
-
-                <Tooltip content={<CustomTooltip />} />
-                
-                {showForecast && (
-                  <Area 
-                    yAxisId="right"
-                    type="monotone" 
-                    dataKey="s3" 
-                    fill="url(#colorS3)" 
-                    stroke="none" 
-                    activeDot={false}
-                  />
-                )}
-
-                <defs>
-                  <linearGradient id="colorS3" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#f57c00" stopOpacity={0.1}/>
-                    <stop offset="95%" stopColor="#f57c00" stopOpacity={0}/>
-                  </linearGradient>
-                </defs>
-
-                <Line 
-                  yAxisId="left" 
-                  type="monotone" 
-                  dataKey="s12" 
-                  stroke="#004e92" 
-                  strokeWidth={3} 
-                  dot={{ r: 6, fill: '#004e92', strokeWidth: 2, stroke: '#fff' }}
-                  activeDot={{ r: 8 }}
-                />
-                
-                <Line 
-                  yAxisId="right" 
-                  type="monotone" 
-                  dataKey="s3" 
-                  stroke="#f57c00" 
-                  strokeWidth={3} 
-                  strokeDasharray={showForecast ? "5 5" : "0"}
-                  connectNulls
-                  dot={{ r: 6, fill: '#f57c00', strokeWidth: 2, stroke: '#fff' }}
-                  activeDot={{ r: 8 }}
-                />
-              </ComposedChart>
-            </ResponsiveContainer>
-
-            {/* Data Gap Indicator for Cycle 2025 (only in historical mode) */}
-            {!showForecast && (
-              <div className="absolute bottom-[100px] right-[12%] flex flex-col items-center gap-2 pointer-events-none">
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-stone-100 rounded-lg border border-stone-200 text-stone-400">
-                  <AlertCircle size={14} />
-                  <span className="text-[10px] font-bold uppercase tracking-wider">Data Gap</span>
-                </div>
-                <div className="w-px h-12 bg-dashed border-l border-dashed border-stone-300" />
-              </div>
-            )}
-          </div>
-
-          {/* Gap Analysis Section */}
-          <AnimatePresence>
-            {showForecast && (
-              <motion.div 
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mt-12 pt-8 border-t border-stone-100 overflow-hidden"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-emerald-700">
-                      <TrendingDown size={20} />
-                      <h4 className="font-bold uppercase tracking-wider text-sm">Decarbonization Pathway</h4>
-                    </div>
-                    <p className="text-stone-600 text-sm leading-relaxed">
-                      Python-based modeling estimates a realistic Net Zero timeline for Scope 1&2 by 2030, driven by 100% renewable energy transition and fleet electrification. Scope 3 requires aggressive supplier engagement to bridge the <span className="font-bold text-corporate-blue">4.2M MT gap</span>.
-                    </p>
-                    <div className="flex gap-4">
-                      <div className="flex-1 p-4 bg-stone-50 rounded-2xl border border-stone-100">
-                        <div className="text-[10px] text-stone-400 font-bold uppercase mb-1">Target 2030</div>
-                        <div className="text-xl font-bold text-corporate-blue">0 MT</div>
-                        <div className="text-[10px] text-emerald-600 font-medium">Scope 1 & 2</div>
-                      </div>
-                      <div className="flex-1 p-4 bg-stone-50 rounded-2xl border border-stone-100">
-                        <div className="text-[10px] text-stone-400 font-bold uppercase mb-1">Reduction</div>
-                        <div className="text-xl font-bold text-[#f57c00]">-82%</div>
-                        <div className="text-[10px] text-stone-500 font-medium">Scope 3 Intensity</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3 text-amber-600">
-                      <AlertCircle size={20} />
-                      <h4 className="font-bold uppercase tracking-wider text-sm">Scope 3 Risk Analysis</h4>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="flex gap-4">
-                        <div className="shrink-0 w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600">
-                          <DollarSign size={20} />
-                        </div>
-                        <div>
-                          <h5 className="text-sm font-bold text-stone-800">Financial Risk: Carbon Pricing</h5>
-                          <p className="text-xs text-stone-500 mt-1">Estimated $150M liability by 2030 if Scope 3 emissions are not reduced below 2M MT threshold.</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="shrink-0 w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
-                          <Globe size={20} />
-                        </div>
-                        <div>
-                          <h5 className="text-sm font-bold text-stone-800">Environmental Risk: Supply Chain</h5>
-                          <p className="text-xs text-stone-500 mt-1">80% of raw material sourcing regions are at high risk of climate-induced disruptions by 2028.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
 
-        {/* 3-A) ESG Analyst Insight: The Decarbonization Paradox (FY23-25) */}
+        {/* 3-E) ESG Analyst Insight: Decarbonization Pathway & 2030 Forecast Integrity */}
         <div className="bg-stone-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
             <ShieldCheck size={120} />
@@ -513,7 +746,7 @@ export default function AuditDashboard() {
               <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
                 <TrendingDown size={18} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold tracking-tight">3-A) ESG Analyst Insight: The Decarbonization Paradox (FY23-25)</h3>
+              <h3 className="text-xl font-bold tracking-tight">3-E) ESG Analyst Insight: The Decarbonization Paradox (FY23-25)</h3>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -546,65 +779,6 @@ export default function AuditDashboard() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 3-B) ESG Analyst Insight: Decarbonization Pathway & 2030 Forecast Integrity */}
-        <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-200 space-y-8">
-          <div className="flex items-center gap-3 text-corporate-blue">
-            <TrendingDown size={24} />
-            <h3 className="text-xl font-bold">3-B) ESG Analyst Insight: Decarbonization Pathway & 2030 Forecast Integrity</h3>
-          </div>
-          
-          <div className="space-y-6">
-            <div>
-              <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider mb-3">Methodology Overview</h4>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                The 2030 Net Zero forecast employs a <span className="font-bold">Bifurcated Decarbonization Model</span>. We distinguish between Operational Control (Scope 1 & 2) and Value Chain Influence (Scope 3) to reflect the distinct physical and economic realities of HUL's carbon footprint.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100">
-                <h5 className="font-bold text-corporate-blue mb-3 flex items-center gap-2">
-                  <Zap size={18} />
-                  Linear Operational Transition (S1 & 2)
-                </h5>
-                <p className="text-stone-600 text-xs leading-relaxed">
-                  The model utilizes a <span className="font-bold">Linear Decay ($E_t = E_0 - mt$)</span> based on HUL’s 2023-2025 performance. Given that direct operations are project-driven (e.g., renewable energy procurement), the steady year-on-year reduction is treated as a high-certainty internal KPI. Achieving Net Zero by 2030 is technically feasible through continuous capital expenditure.
-                </p>
-              </div>
-              <div className="p-6 bg-amber-50 rounded-2xl border border-amber-100">
-                <h5 className="font-bold text-amber-700 mb-3 flex items-center gap-2">
-                  <Globe size={18} />
-                  The "S-Curve" of Value Chain Reform (S3)
-                </h5>
-                <p className="text-stone-600 text-xs leading-relaxed">
-                  Unlike direct operations, Scope 3 follows an <span className="font-bold">Exponential Decay ($E_t = E_{'2025'} \cdot e^{'-rt'}$)</span>. This reflects the <span className="font-bold">Network Effect</span> within HUL’s vast supplier ecosystem.
-                </p>
-                <div className="mt-4 p-3 bg-white/50 rounded-lg border border-amber-200 italic text-[10px] text-stone-500">
-                  <span className="font-bold">Analyst Note on Network Effect:</span> Much like a digital payment network (e.g., DuitNow or UPI), the system's value is marginal when only a few participate. However, once a "critical mass" of tier-1 and tier-2 suppliers adopts green technology, the shared infrastructure becomes standardized and the unit cost of sustainable materials plummets. This creates a tipping point where the entire ecosystem shifts simultaneously, transforming sustainability from a "premium choice" into the "default industry standard."
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <h5 className="font-bold text-stone-800 text-xs uppercase tracking-widest">The Lag Phase (2024-2026)</h5>
-                <p className="text-stone-500 text-xs">Progress appears slower as it accounts for the administrative lead time of supplier onboarding and MSPO/RSPO certification alignment.</p>
-              </div>
-              <div className="space-y-2">
-                <h5 className="font-bold text-stone-800 text-xs uppercase tracking-widest">The Acceleration Phase (2027-2030)</h5>
-                <p className="text-stone-500 text-xs">The curve steepens as green logistics (hydrogen/EV) and sustainable raw materials reach a cost tipping point, allowing for non-linear, rapid decarbonization.</p>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-stone-100">
-              <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wider mb-3">Audit Observations on Data Gaps</h4>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                It is critical to note that Scope 3 emissions showed a temporary upward trend in the 2024 cycle. The 2030 forecast acts as a <span className="font-bold">Gap Analysis Tool</span>—it does not merely project the past but defines the <span className="font-bold text-corporate-blue">"Acceleration Mandate"</span> required. If the predicted "network effect" is not triggered by 2027, the 28% annual compound reduction required in the final phase will pose a significant compliance risk.
-              </p>
             </div>
           </div>
         </div>

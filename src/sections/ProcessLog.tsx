@@ -46,7 +46,7 @@ const phases = [
     items: [
       {
         label: "Environmental Scanning",
-        content: "A critical turning point occurred on February 9, following a report in eNanyang regarding the signing of 11 bilateral MoCs between Malaysia and India."
+        content: "A critical turning point occurred on February 9, following a report in eNanyang regarding the signing of 11 agreements and MoUs between Malaysia and India."
       },
       {
         label: "Insight Synthesis",
