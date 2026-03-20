@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   LineChart,
   Line,
@@ -33,14 +33,7 @@ const generateAdoptionImpactData = () => {
   const endYear = 2030;
   
   const providedAdoption: Record<number, number> = {
-    2023: 12,
-    2024: 18,
-    2025: 25,
-    2026: 33,
-    2027: 42,
-    2028: 55,
-    2029: 65,
-    2030: 72
+    2023: 12, 2024: 18, 2025: 25, 2026: 33, 2027: 42, 2028: 55, 2029: 65, 2030: 72
   };
 
   const providedEmissions: Record<number, { baseline: number; modeled: number }> = {
@@ -53,28 +46,82 @@ const generateAdoptionImpactData = () => {
     2029: { baseline: 10.4, modeled: 5.5 },
     2030: { baseline: 10.5, modeled: 4.6 }
   };
+
+  const providedContributions: Record<number, { internal: number; adoption: number }> = {
+    2023: { internal: 0.2, adoption: 0.1 },
+    2024: { internal: 0.4, adoption: 0.3 },
+    2025: { internal: 0.7, adoption: 0.6 },
+    2026: { internal: 1.0, adoption: 1.2 },
+    2027: { internal: 1.3, adoption: 2.0 },
+    2028: { internal: 1.6, adoption: 3.0 },
+    2029: { internal: 1.8, adoption: 4.2 },
+    2030: { internal: 2.0, adoption: 5.5 }
+  };
   
   for (let year = startYear; year <= endYear; year++) {
-    const t = year - startYear;
     const adoption = providedAdoption[year];
     const emissions = providedEmissions[year];
-    
-    // Internal efficiency and Adoption-driven are now derived from the difference
-    // but for the sake of the bar chart consistency we'll keep them as placeholders or 
-    // calculate them if needed. The bar chart uses its own hardcoded data now.
+    const contributions = providedContributions[year];
     
     data.push({
-      year: year, // Use number for domain support
+      year: year,
       adoption: adoption,
       baseline: emissions.baseline,
       modeled: emissions.modeled,
+      internal: contributions.internal,
+      adoptionContribution: contributions.adoption,
     });
   }
   return data;
 };
 
+const RenderRightLabel = ({ viewBox }: any) => {
+  const { x, y, height } = viewBox;
+  return (
+    <text
+      x={x + 60}
+      y={y + height / 2}
+      textAnchor="middle"
+      transform={`rotate(90, ${x + 60}, ${y + height / 2})`}
+      style={{ fontSize: 12, fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}
+    >
+      <tspan fill="#2563eb">Scope 1</tspan>
+      <tspan fill="#78716c"> & </tspan>
+      <tspan fill="#10b981">Scope 2</tspan>
+      <tspan fill="#78716c"> (MT)</tspan>
+    </text>
+  );
+};
+
+const RenderLeftLabel = ({ viewBox }: any) => {
+  const { x, y, height } = viewBox;
+  return (
+    <text
+      x={x - 60}
+      y={y + height / 2}
+      textAnchor="middle"
+      transform={`rotate(-90, ${x - 60}, ${y + height / 2})`}
+      style={{ fontSize: 12, fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}
+    >
+      <tspan fill="#f59e0b">Scope 3</tspan>
+      <tspan fill="#78716c"> (MT)</tspan>
+    </text>
+  );
+};
+
 const SystemDiagnosisDashboard: React.FC = () => {
   const adoptionData = useMemo(() => generateAdoptionImpactData(), []);
+  const [hoveredYear, setHoveredYear] = useState<number | null>(null);
+
+  const handleMouseMove = (state: any) => {
+    if (state && state.activePayload && state.activePayload.length > 0) {
+      setHoveredYear(state.activePayload[0].payload.year);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredYear(null);
+  };
 
   return (
     <div className="w-full space-y-12 py-12 bg-white" id="system-diagnosis-dashboard">
@@ -90,7 +137,7 @@ const SystemDiagnosisDashboard: React.FC = () => {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={emissionRealityData}
-              margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+              margin={{ top: 40, right: 100, left: 100, bottom: 40 }}
             >
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
               <XAxis 
@@ -98,7 +145,8 @@ const SystemDiagnosisDashboard: React.FC = () => {
                 axisLine={false} 
                 tickLine={false} 
                 tick={{ fill: '#78716c', fontSize: 12 }}
-                dy={10}
+                dy={20}
+                padding={{ left: 50, right: 50 }}
               />
               <YAxis 
                 yAxisId="left"
@@ -106,7 +154,8 @@ const SystemDiagnosisDashboard: React.FC = () => {
                 tickLine={false} 
                 tick={{ fill: '#78716c', fontSize: 12 }}
                 tickFormatter={(value) => `${(value / 1000000).toFixed(1)}M`}
-                label={{ value: 'Scope 3 (MT)', angle: -90, position: 'insideLeft', offset: -10, fill: '#f59e0b', fontSize: 12, fontWeight: 'bold' }}
+                label={<RenderLeftLabel />}
+                padding={{ top: 20, bottom: 20 }}
               />
               <YAxis 
                 yAxisId="right"
@@ -115,7 +164,8 @@ const SystemDiagnosisDashboard: React.FC = () => {
                 tickLine={false} 
                 tick={{ fill: '#78716c', fontSize: 12 }}
                 tickFormatter={(value) => `${(value / 1000).toFixed(0)}k`}
-                label={{ value: 'Scope 1 & 2 (MT)', angle: 90, position: 'insideRight', offset: -10, fill: '#2563eb', fontSize: 12, fontWeight: 'bold' }}
+                label={<RenderRightLabel />}
+                padding={{ top: 20, bottom: 20 }}
               />
               <Tooltip 
                 contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
@@ -178,23 +228,27 @@ const SystemDiagnosisDashboard: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* 1. Adoption Curve */}
-          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100">
-            <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6">
+          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100 transition-all duration-300 flex flex-col">
+            <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6 h-10 flex items-center">
               Adoption Curve (Logistic Growth)
             </h3>
             <div className="h-[250px]">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={adoptionData} margin={{ bottom: 20 }}>
+                <LineChart 
+                  data={adoptionData} 
+                  margin={{ top: 10, right: 30, left: 10, bottom: 30 }}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  syncId="adoptionImpact"
+                >
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                   <XAxis 
                     dataKey="year" 
-                    type="number"
-                    domain={[2023, 2030]}
+                    type="category"
                     axisLine={false} 
                     tickLine={false} 
                     tick={{ fill: '#78716c', fontSize: 10 }}
-                    interval={0}
-                    dy={10}
+                    dy={15}
                   />
                   <YAxis 
                     domain={[0, 100]} 
@@ -202,67 +256,83 @@ const SystemDiagnosisDashboard: React.FC = () => {
                     tickLine={false} 
                     tick={{ fill: '#78716c', fontSize: 10 }}
                     tickFormatter={(val) => `${val}%`}
+                    width={40}
                   />
                   <Tooltip 
                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
                     formatter={(val: any) => [`${val}%`, 'Adoption Rate']}
                     labelFormatter={(label) => `Year: ${label}`}
+                    cursor={{ stroke: '#78716c', strokeWidth: 1, strokeDasharray: '3 3' }}
                   />
                   <Line 
                     type="monotone" 
                     dataKey="adoption" 
                     stroke="#6366f1" 
                     strokeWidth={3}
-                    dot={{ r: 4, fill: '#6366f1' }}
-                    activeDot={{ r: 6 }}
+                    dot={(props: any) => {
+                      const { cx, cy, payload } = props;
+                      if (payload.year === hoveredYear) {
+                        return <circle cx={cx} cy={cy} r={6} fill="#6366f1" stroke="#fff" strokeWidth={2} />;
+                      }
+                      return <circle cx={cx} cy={cy} r={4} fill="#6366f1" />;
+                    }}
+                    activeDot={{ r: 8, strokeWidth: 0 }}
                     name="Adoption %"
                   />
                 </LineChart>
               </ResponsiveContainer>
             </div>
-            <div className="mt-4 flex justify-between text-[10px] font-bold text-stone-400 uppercase tracking-widest">
-              <span>2023 (Start)</span>
-              <span>2027 (Inflection)</span>
-              <span>2030 (Current)</span>
-            </div>
           </div>
 
           {/* 2. Emission Trajectory */}
-          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100">
-            <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6">
+          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100 transition-all duration-300 flex flex-col">
+            <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6 h-10 flex items-center">
               Emission Trajectory (Baseline vs Modeled)
             </h3>
             <div className="h-[250px]">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={adoptionData} margin={{ bottom: 20 }}>
+                <LineChart 
+                  data={adoptionData} 
+                  margin={{ top: 10, right: 30, left: 10, bottom: 30 }}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  syncId="adoptionImpact"
+                >
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                   <XAxis 
                     dataKey="year" 
-                    type="number"
-                    domain={[2023, 2030]}
+                    type="category"
                     axisLine={false} 
                     tickLine={false} 
                     tick={{ fill: '#78716c', fontSize: 10 }}
-                    interval={0}
-                    dy={10}
+                    dy={15}
                   />
                   <YAxis 
                     axisLine={false} 
                     tickLine={false} 
                     tick={{ fill: '#78716c', fontSize: 10 }}
                     tickFormatter={(val) => `${val}M`}
+                    width={40}
                   />
                   <Tooltip 
                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
                     formatter={(val: any, name: string) => [`${val}M MT`, name]}
                     labelFormatter={(label) => `Year: ${label}`}
+                    cursor={{ stroke: '#78716c', strokeWidth: 1, strokeDasharray: '3 3' }}
                   />
                   <Line 
                     type="monotone" 
                     dataKey="baseline" 
                     stroke="#94a3b8" 
                     strokeDasharray="5 5" 
-                    dot={false} 
+                    strokeWidth={hoveredYear ? 1 : 2}
+                    dot={(props: any) => {
+                      const { cx, cy, payload } = props;
+                      if (payload.year === hoveredYear) {
+                        return <circle cx={cx} cy={cy} r={5} fill="#94a3b8" />;
+                      }
+                      return null;
+                    }}
                     name="Baseline"
                   />
                   <Line 
@@ -270,60 +340,75 @@ const SystemDiagnosisDashboard: React.FC = () => {
                     dataKey="modeled" 
                     stroke="#ef4444" 
                     strokeWidth={3} 
-                    dot={false} 
+                    dot={(props: any) => {
+                      const { cx, cy, payload } = props;
+                      if (payload.year === hoveredYear) {
+                        return <circle cx={cx} cy={cy} r={6} fill="#ef4444" stroke="#fff" strokeWidth={2} />;
+                      }
+                      return null;
+                    }}
                     name="Modeled"
                   />
                 </LineChart>
               </ResponsiveContainer>
             </div>
-            <div className="mt-4 flex justify-between text-[10px] font-bold text-stone-400 uppercase tracking-widest">
-              <span>2023</span>
-              <span>2027</span>
-              <span>2030</span>
-            </div>
           </div>
 
           {/* 3. Reduction Contribution */}
-          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100">
-            <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6">
+          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100 transition-all duration-300 flex flex-col">
+            <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6 h-10 flex items-center">
               Reduction Contribution Comparison
             </h3>
             <div className="h-[250px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
-                  data={[
-                    { year: 2023, internal: 0.2, adoption: 0.1 },
-                    { year: 2024, internal: 0.4, adoption: 0.3 },
-                    { year: 2025, internal: 0.7, adoption: 0.6 },
-                    { year: 2026, internal: 1.0, adoption: 1.2 },
-                    { year: 2027, internal: 1.3, adoption: 2.0 },
-                    { year: 2028, internal: 1.6, adoption: 3.0 },
-                    { year: 2029, internal: 1.8, adoption: 4.2 },
-                    { year: 2030, internal: 2.0, adoption: 5.5 }
-                  ]}
-                  margin={{ bottom: 20 }}
+                  data={adoptionData}
+                  margin={{ top: 10, right: 30, left: 10, bottom: 30 }}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  syncId="adoptionImpact"
                 >
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                   <XAxis 
                     dataKey="year" 
+                    type="category"
                     axisLine={false} 
                     tickLine={false} 
                     tick={{ fill: '#78716c', fontSize: 10 }}
-                    dy={10}
+                    dy={15}
                   />
                   <YAxis 
                     axisLine={false} 
                     tickLine={false} 
                     tick={{ fill: '#78716c', fontSize: 10 }}
                     tickFormatter={(val) => `${val}M`}
+                    width={40}
                   />
                   <Tooltip 
                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
                     formatter={(val: any) => [`${val}M MT`, '']}
+                    cursor={{ fill: '#78716c', opacity: 0.15 }}
                   />
                   <Legend verticalAlign="top" align="right" iconType="circle" wrapperStyle={{ fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }} />
-                  <Bar name="Internal Efficiency" dataKey="internal" stackId="a" fill="#3b82f6" radius={[0, 0, 0, 0]} />
-                  <Bar name="Adoption-Driven" dataKey="adoption" stackId="a" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                  <Bar name="Internal Efficiency" dataKey="internal" stackId="a" fill="#3b82f6">
+                    {adoptionData.map((entry, index) => (
+                      <Cell 
+                        key={`cell-internal-${index}`} 
+                        fill="#3b82f6" 
+                        fillOpacity={hoveredYear === null || entry.year === hoveredYear ? 1 : 0.3}
+                      />
+                    ))}
+                  </Bar>
+                  <Bar name="Adoption-Driven" dataKey="adoptionContribution" stackId="a" fill="#8b5cf6">
+                    {adoptionData.map((entry, index) => (
+                      <Cell 
+                        key={`cell-adoption-${index}`} 
+                        fill="#8b5cf6" 
+                        fillOpacity={hoveredYear === null || entry.year === hoveredYear ? 1 : 0.3}
+                        radius={entry.year === hoveredYear ? [4, 4, 0, 0] : [0, 0, 0, 0]}
+                      />
+                    ))}
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
