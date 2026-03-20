@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import SystemDiagnosisDashboard from '../components/SystemDiagnosisDashboard';
 import { 
   Target, 
   ShieldCheck, 
@@ -313,6 +314,9 @@ export default function ESGBenchmarkSection() {
           </div>
         </div>
       </section>
+
+      {/* System Diagnosis Dashboard */}
+      <SystemDiagnosisDashboard />
 
       {/* Modal Overlay */}
       <AnimatePresence>
