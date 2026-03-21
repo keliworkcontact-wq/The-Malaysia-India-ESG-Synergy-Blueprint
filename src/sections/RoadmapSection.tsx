@@ -90,8 +90,8 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       id: 'plastic',
       title: 'Digital Plastic Recycling System',
       icon: Recycle,
-      idea: "This scheme integrates blockchain traceability and AI precision sorting to support Malaysia’s EPR rollout. By converting recycling efforts into audit-grade digital assets and linking the Shakti 2.0 network with financial incentives, it establishes a transparent and efficient closed-loop circular economy.",
-      operation: "A four-step circular verification loop: Digital traceability entry (linked with Shakti 2.0), AI-driven precision sorting, tokenization of compliance into 'Plastic Credits,' and EPR settlement via the LC-SF engine.",
+      idea: "This scheme integrates blockchain traceability and AI precision sorting to support Malaysia’s EPR rollout. By converting recycling efforts into audit-grade digital assets and linking the CaaS Platform network with financial incentives, it establishes a transparent and efficient closed-loop circular economy.",
+      operation: "A four-step circular verification loop: Digital traceability entry (linked with CaaS Platform), AI-driven precision sorting, tokenization of compliance into 'Plastic Credits,' and EPR settlement via the LC-SF engine.",
       auditNote: {
         constructiveness: [
           "Audit-Grade Compliance Assets: Utilizing blockchain to turn fragmented recycling activities into verifiable evidence gives Malaysian enterprises a competitive edge when facing international ESG standards.",
@@ -109,8 +109,8 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       fullBlueprint: [
         { section: "The Idea", content: "The core of this scheme is the establishment of a digital platform integrating Blockchain traceability and AI automated sorting to support the nationwide rollout of Malaysia’s Extended Producer Responsibility (EPR) policy.\n\nObjective: To address long-standing pain points in the recycling industry, such as low transparency and inconsistent material purity. By transforming plastic waste into audit-grade digital assets, the system enables producers (brands) to track the lifecycle of their packaging materials while ensuring the recycling process meets international ESG auditing standards. This is not merely an environmental project but a FinTech tool that converts 'waste' into 'high-value compliance assets.'" },
         { section: "Blueprint Operation: The Circular Verification Loop", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle:" },
-        { section: "Step 1: Digital Traceability Entry (Linking with Shakti 2.0)", content: [
-          "Action: The system directly integrates with the Shakti 2.0 Community Green Service Network. When B40 members weigh collected waste using Bluetooth-enabled smart scales, data is uploaded to the blockchain in real-time.",
+        { section: "Step 1: Digital Traceability Entry (Linking with CaaS Platform)", content: [
+          "Action: The system directly integrates with the CaaS Platform Community Green Service Network. When B40 members weigh collected waste using Bluetooth-enabled smart scales, data is uploaded to the blockchain in real-time.",
           "Logic: A unique 'Digital ID' is assigned to the waste the moment it leaves the community, recording its source, type, and original weight to ensure the integrity of the foundational data."
         ] },
         { section: "Step 2: AI-Driven Precision Sorting & Purity Enhancement", content: [
@@ -172,52 +172,56 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
     },
     {
       id: 'shakti',
-      title: 'Shakti 2.0: Community Circular Service Network',
+      title: 'Circularity-as-a-Service Platform (CaaS Platform)',
       icon: Network,
-      idea: "Redesigned into a Circular Service framework targeting the last-mile recycling gap rather than retail distribution, as retail giants dominate the Malaysian market.",
-      operation: "B40 women act as 'Digital Resource Managers' and 'ESG Ambassadors', managing community collection points and providing household diagnostic services.",
+      idea: "A digitally enabled, service-based infrastructure targeting Malaysia’s last-mile recycling gap. It integrates Project Shakti’s inclusive entrepreneurship with Project Circular Bharat’s systemic circularity to empower B40 women and informal collectors.",
+      operation: "A modular ecosystem delivering circularity as an on-demand service through community nodes, digital weighing systems, and integrated logistics networks.",
       auditNote: {
         constructiveness: [
           "Identity Transformation: Informal collectors become certified logistics partners; B40 women become digital resource managers.",
-          "Internalized Incentive Mechanism via LC-SF."
+          "Internalized Incentive Mechanism: LC-SF exchange savings fund the incentive pool, solving long-term financing sustainability.",
+          "Digital Upgrade of Social Governance: Represents a shift to data-informed community service."
         ],
         risksAndGaps: [
-          "Baseline Data Gap: Lack of historical carbon footprint data limits quantification.",
-          "Policy Overlap Risk: Potential conflicts with state initiatives like Negeri Sembilan’s KITARecycle."
+          "Baseline Data Gap: Lack of historical carbon footprint data limits quantification of emission reductions from logistics optimization.",
+          "Human Insight Gap: Quality-of-life improvement estimates remain theoretical due to absence of dedicated field surveys.",
+          "Policy Overlap Risk: Potential conflicts with state initiatives such as Negeri Sembilan’s KITARecycle program."
         ]
       },
       type: 'shakti',
       fullBlueprint: [
-        { section: "The Idea", content: "In Malaysia’s highly urbanized market, retail giants such as 99 Speedmart dominate distribution channels. As a result, HUL’s original retail-based Shakti model has no structural space to scale. To address this, the model is redesigned into a Circular Service framework targeting the last-mile recycling gap rather than retail distribution." },
+        { section: "The Idea", content: "In Malaysia’s highly urbanized market, retail giants such as 99 Speedmart dominate distribution channels, leaving limited structural space for HUL’s original retail-based Shakti model to scale.\n\nTo address this constraint, this study integrates the inclusive entrepreneurship model of Project Shakti with the systemic circularity framework of Project Circular Bharat, redesigning them into a Circularity-as-a-Service Platform (CaaS Platform)—a digitally enabled, service-based infrastructure targeting Malaysia’s last-mile recycling gap." },
         { section: "Context Premise", content: [
-          "Before the operational workflow begins, the model assumes an active participation loop from residents as below, this premise establishes the physical entry point of materials into the Shakti ecosystem:",
-          "Residents bring pre-sorted household waste — particularly high-value recyclables (e.g., aluminium cans) and low-value but highly polluting waste (e.g., multi-layer plastic packaging).",
-          "Waste is delivered either to the B40 member’s home, or a designated community micro-collection point."
+          "Before the operational workflow begins, the model assumes an active participation loop from residents:",
+          "Residents bring pre-sorted household waste—particularly high-value recyclables (e.g., aluminium cans) and low-value but highly polluting waste (e.g., multi-layer plastic packaging).",
+          "Waste is delivered either to the B40 member’s home, or a designated community micro-collection point.",
+          "This premise establishes the physical entry point of materials into the CaaS Platform ecosystem, forming the foundation of a decentralized circular network."
         ]},
-        { section: "Scenario 1: Community Collection", content: [
-          "Digital Weighing & Verification: B40 female members use Bluetooth-connected smart scales; Data automatically recorded in the Shakti App.",
-          "Household ESG Diagnostic Service: The App analyzes historical disposal data. Members proactively provide 'Green Diagnostic Advice' (e.g., bulk purchasing instead of small packaging)."
+        { section: "Scenario 1: Community Collection and ESG Ambassador Function", content: [
+          "Digital Weighing & Verification: B40 female members use Bluetooth-connected smart scales. Data is automatically recorded in the CaaS Platform App, ensuring transparency, traceability, and audit-ready ESG data.",
+          "Household ESG Diagnostic Service: The platform analyzes historical disposal data. When abnormal patterns are detected (e.g., excessive plastic usage), members provide data-informed 'Green Diagnostic Advice' (e.g., recommending bulk purchasing over small packaging).",
+          "Value Interpretation: Transforms B40 members from collectors into community ESG service providers, embedding behavioral change mechanisms directly into recycling flows."
         ]},
-        { section: "Scenario 2: Logistics Integration", content: [
-          "Inventory Trigger: When stock reaches predefined threshold (e.g., 50 kg), system automatically generates a pickup order for contracted collectors.",
-          "Efficient Collection: App navigation directs collectors precisely to the micro-center; Pre-sorted waste allows immediate loading.",
-          "Premium Settlement: Materials command higher resale prices; Incremental profit shared among platform, collectors, and B40 members."
+        { section: "Scenario 2: Logistics Integration and Value Creation", content: [
+          "Inventory Trigger at Community Micro-Centers: When stock reaches a predefined threshold (e.g., 50 kg of finely sorted plastics), the system automatically generates a pickup request and dispatches it to nearby contracted collectors.",
+          "Efficient Collection: Collectors no longer roam neighborhoods searching for waste; platform navigation directs them to precise micro-centers. Pre-sorted waste eliminates on-site sorting time.",
+          "Premium Settlement: Materials delivered to processors (e.g., HHI) are classified as high-purity recyclables, commanding higher resale prices. Incremental value is distributed across the platform, collectors, and B40 members."
         ]},
-        { section: "Scenario 3: Financial Incentives", content: [
-          "Carbon Reduction Data Generation: Emission reductions recorded for global ESG compliance.",
-          "Dividend Injection via LC-SF Mechanism: Exchange-rate savings from Malaysia–India trade channeled into the Shakti 2.0 Incentive Fund.",
-          "End-User Benefits: Residents earn recycling points redeemable for green products at double discounts."
+        { section: "Scenario 3: Financial Incentives and Circular Benefits", content: [
+          "Carbon Reduction Data Generation: Emission reductions across the recycling lifecycle are recorded within the platform. Corporations utilize this data for ESG reporting and compliance.",
+          "Dividend Injection via LC-SF Mechanism: Under Malaysia–India agreements, bilateral trade adopts local currency settlement. Exchange-rate savings are channeled into the CaaS Platform Incentive Fund.",
+          "End-User Benefits: B40 members receive management commissions; Collectors receive efficiency-based subsidies; Residents earn recycling points redeemable for green products with dual-layer incentives."
         ]},
         { section: "Core Revenue Mechanisms", content: [
-          "B40 Members: Management Commission (volume-based fee), Digital Consulting Fee (ESG diagnostics), Retail Margin (group buying).",
-          "Independent Collectors: Efficiency Incentive (reduced search time), Compliance Subsidy (LC-SF supply-chain financing), Backend Premium (pre-sorted waste)."
+          "B40 Female Members: Management Commission (percentage fee based on total community recycling volume) and Digital Consulting Fee (small service fee for household ESG diagnostics).",
+          "Independent Collectors: Efficiency Incentive (reduced fuel costs and higher hourly productivity), Compliance Subsidy (eligible for green financial rewards), and Backend Premium (pre-sorted waste commands significantly higher resale prices)."
         ]},
         { section: "Stakeholder Value", content: [
-          "B40 Women: Digital skills, social recognition, flexible income",
-          "Logistics Partners: Transition to formal green logistics careers",
-          "Corporations: Access to traceable recycled inputs",
-          "Government: Faster progress toward Net Zero"
-        ]}
+          "B40 Women: Digital workforce + ESG micro-entrepreneurs",
+          "Logistics Partners: Transition into formalized green logistics operators",
+          "Corporations: Access to traceable, compliant recycled inputs",
+          "Government: Accelerated Net Zero pathway + system-level ESG adoption"
+        ] }
       ]
     }
   ],
@@ -236,7 +240,7 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
         ],
         risksAndGaps: [
           "Production Volatility Risk: If agricultural yields drop due to climate events, the total volume of LC-SF trade may shrink, reducing the 'Incentive Pool'.",
-          "Data Integrity Gap: System is only as good as the data from RAP and Shakti; requires rigorous digital auditing to prevent 'fake' green production.",
+          "Data Integrity Gap: System is only as good as the data from RAP and CaaS Platform; requires rigorous digital auditing to prevent 'fake' green production.",
           "Adoption Friction: Moving away from USD-based trade requires significant buy-in from commercial banks and procurement departments."
         ],
         recommendation: "This framework represents a shift from 'Punitive ESG' (fining those who fail) to 'Incentive ESG' (rewarding those who lead) by utilizing de-dollarization to fund the green transition."
@@ -244,11 +248,11 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       type: 'standard',
       fullBlueprint: [
         { section: "The Idea", content: "The core objective is to dismantle the 'Compliance vs. Cost' trade-off. Historically, ESG compliance (like MSPO or plastic tracing) adds costs that smallholders and SMEs cannot absorb.\n\nI propose a Green Exchange Rate Premium. By utilizing the Malaysia-India Local Currency Settlement (LC-SF) framework to bypass the US Dollar, the transaction savings (reduced hedging costs and exchange fees) are captured and redistributed as a 'De-dollarization Dividend.'\n\nThis dividend is paid exclusively to supply chain participants who meet verifiable ESG standards, essentially making 'Sustainability' a currency of its own." },
-        { section: "Blueprint Operation: The Circular Incentive Loop", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle that directly connects to the RAP and Shakti 2.0 data streams:" },
-        { section: "Step 1: Digital Assetization of Compliance (Input from RAP & Shakti)", content: [
+        { section: "Blueprint Operation: The Circular Incentive Loop", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle that directly connects to the RAP and CaaS Platform data streams:" },
+        { section: "Step 1: Digital Assetization of Compliance (Input from RAP & CaaS Platform)", content: [
           "The system recognizes 'Green Assets' generated by the other two programs.",
           "From RAP: Automated MSPO production records of palm oil smallholders.",
-          "From Shakti 2.0: Verified volumes of high-purity recycled plastic collected by B40 managers.",
+          "From CaaS Platform: Verified volumes of high-purity recycled plastic collected by B40 managers.",
           "Action: These digital certificates are uploaded to a shared blockchain ledger between Malaysian and Indian trade banks."
         ] },
         { section: "Step 2: LC-SF Trade Execution (The Savings Catalyst)", content: [
@@ -261,7 +265,7 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
           "For a palm oil farmer in the RAP program, this means receiving a higher MYR payout per ton compared to non-compliant neighbors."
         ] },
         { section: "Step 4: Dynamic Re-investment (The Circularity)", content: [
-          "A portion of the LC-SF savings is allocated to subsidize the IoT hardware costs for new farmers joining the RAP platform or smart scales for the Shakti 2.0 network.",
+          "A portion of the LC-SF savings is allocated to subsidize the IoT hardware costs for new farmers joining the RAP platform or smart scales for the CaaS Platform network.",
           "Action: This reduces the CAPEX barrier for new participants, scaling the ESG network without relying on permanent government handouts."
         ] }
       ]
@@ -304,79 +308,6 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
 };
 
 // --- Sub-Components ---
-
-const ShaktiSlider = () => {
-  const [current, setCurrent] = useState(0);
-  const scenarios = [
-    {
-      actor: "B40 ESG Ambassadors",
-      action: "Use Bluetooth scales for digital weighing & verification. Provide 'Green Diagnostic Advice' based on disposal data.",
-      benefit: "Residents earn 'Green Credits' (double discounts on Indian-sourced green products) via LC-SF savings."
-    },
-    {
-      actor: "Lorry Botol (Logistics)",
-      action: "Inventory thresholds (50kg) trigger pickup orders. App navigation directs collectors to micro-centers.",
-      benefit: "Efficient collection eliminates 'street-sweeping'. Premium settlement shared among platform, collectors, and B40."
-    },
-    {
-      actor: "Financial Dividend",
-      action: "Carbon reduction data recorded for ESG compliance. LC-SF exchange savings injected into Incentive Fund.",
-      benefit: "B40 members receive management commissions; Collectors receive efficiency subsidies."
-    }
-  ];
-
-  return (
-    <div className="relative bg-stone-50 rounded-xl p-6 border border-stone-200 overflow-hidden">
-      <div className="flex items-center justify-between mb-4">
-        <h5 className="font-bold text-corporate-blue text-sm uppercase tracking-wider">Operational Scenarios</h5>
-        <div className="flex gap-2">
-          <button onClick={() => setCurrent(prev => Math.max(0, prev - 1))} className="p-1 hover:bg-stone-200 rounded"><ChevronLeft size={18} /></button>
-          <button onClick={() => setCurrent(prev => Math.min(scenarios.length - 1, prev + 1))} className="p-1 hover:bg-stone-200 rounded"><ChevronRight size={18} /></button>
-        </div>
-      </div>
-      <div className="min-h-[140px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="space-y-3"
-          >
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 bg-corporate-blue text-white text-[10px] font-bold rounded">SCENARIO {current + 1}</span>
-              <span className="font-bold text-stone-800">{scenarios[current].actor}</span>
-            </div>
-            <p className="text-sm text-stone-600">
-              <span className="font-semibold text-corporate-blue">Action:</span> {scenarios[current].action}
-            </p>
-            <p className="text-sm text-stone-600 group/benefit">
-              <span className="font-semibold text-sustainability-green">Benefit:</span>{' '}
-              {current === 0 ? (
-                <>
-                  Residents receive{' '}
-                  <span className="font-bold text-sustainability-green underline decoration-dotted underline-offset-2">
-                    'Green Credits'
-                  </span>
-                  —discounts on Unilever products funded by the savings from{' '}
-                  <span className="bg-amber-100 px-1 rounded cursor-help transition-colors hover:bg-amber-200">
-                    Local Currency Settlement (LC-SF)
-                  </span>
-                  .
-                </>
-              ) : scenarios[current].benefit}
-            </p>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-      <div className="flex justify-center gap-1.5 mt-4">
-        {scenarios.map((_, i) => (
-          <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors ${i === current ? 'bg-corporate-blue' : 'bg-stone-300'}`} />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const RAPTimeline = () => {
   const steps = [
@@ -460,6 +391,14 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                     )}
                   </div>
                 ))}
+
+                {/* Special Visualizations based on Type */}
+                {item.type === 'rap' && (
+                  <div className="pt-6 border-t border-stone-200">
+                    <h5 className="font-sans font-bold text-lg text-corporate-blue mb-4">Implementation Roadmap</h5>
+                    <RAPTimeline />
+                  </div>
+                )}
               </div>
             </div>
 
@@ -565,43 +504,182 @@ export default function RoadmapSection() {
 
   return (
     <div className="max-w-6xl mx-auto w-full px-4 py-20">
-      <div className="text-center mb-16">
-        <h2 className="font-sans font-bold text-4xl md:text-5xl text-corporate-blue mb-4">Section 3: Localization</h2>
-        <h3 className="text-2xl font-semibold text-stone-700 mb-6">Malaysia ESG Transformation Roadmap (E / S / G)</h3>
-        
-        <div className="max-w-3xl mx-auto space-y-8 text-slate-600 leading-relaxed">
-          <p>
-            Following the benchmark audit in Section 2, this section presents a series of localized ESG strategies tailored for the Malaysian landscape under the Malaysia-India Comprehensive Strategic Partnership (CSP).
-          </p>
-
-          <div className="space-y-4">
-            <h4 className="font-bold text-stone-900 text-lg">Categorization of Initiatives</h4>
-            <p>The proposed solutions are categorized into three core pillars:</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span><span className="font-bold">Environmental (E):</span> Resource Circularity</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-blue-500" />
-                <span><span className="font-bold">Social (S):</span> Community Empowerment</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-amber-500" />
-                <span><span className="font-bold">Governance (G):</span> Financial Innovation</span>
-              </div>
+      {/* Section 3.0: Introduction */}
+      <section className="mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
+            Section 3.0: Introduction — From Benchmark to Localization
+          </h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+            From Insight to Application
+          </h1>
+          
+          <div className="w-full space-y-8">
+            <blockquote className="border-l-4 border-blue-500 pl-6 py-4 bg-stone-50 italic text-lg text-stone-600 leading-relaxed">
+              "Building on Section 2 findings, this section moves from insight to application."
+            </blockquote>
+            
+            <div className="space-y-6">
+              <p className="text-lg text-stone-500 leading-relaxed">
+                Rather than replicating HUL’s ESG strategies directly, the focus is on translating their underlying mechanisms into a localized framework suited to Malaysia’s institutional and industrial context.
+              </p>
+              <p className="text-lg text-stone-500 leading-relaxed">
+                This involves adapting key capabilities—such as digital-enabled sustainability, circular resource systems, and inclusive participation models—into integrated strategies aligned with national priorities.
+              </p>
+              <p className="text-lg font-semibold text-corporate-blue leading-relaxed">
+                Anchored within the Malaysia–India Comprehensive Strategic Partnership (CSP), the objective is to construct a pragmatic and scalable ESG transformation system that supports Malaysia’s transition toward Net Zero 2050.
+              </p>
             </div>
           </div>
+        </motion.div>
+      </section>
 
-          <div className="space-y-4">
-            <h4 className="font-bold text-stone-900 text-lg">The ESG Ecosystem Loop</h4>
-            <p>
-              These initiatives are designed as an interconnected ecosystem rather than isolated projects. The digital data generated through the Environmental and Social platforms (such as recycling volumes and agricultural compliance) serves as the verification layer required to trigger the financial incentives within the Governance framework. This integration ensures that operational sustainability is directly reinforced by financial viability.
+      {/* Section 3.1: Synergy Framework */}
+      <section className="mb-24 p-8 md:p-12 bg-stone-50 rounded-[3rem] border border-stone-200">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
+            Section 3.1: Malaysia–India ESG Synergy Framework — Conceptual Overview
+          </h2>
+          <h1 className="text-3xl md:text-4xl font-bold text-corporate-blue mb-8 leading-tight">
+            The Logic of Translation
+          </h1>
+          
+          <div className="space-y-8">
+            <p className="text-xl text-stone-600 leading-relaxed">
+              This framework visualizes the core logic of the report by structuring the transition from benchmark insights to localized implementation.
+            </p>
+            
+            {/* Malaysia–India ESG Synergy Framework */}
+            <div className="flex flex-col items-center gap-4 py-12">
+              {/* Box 1: INDIA ESG BENCHMARK SYSTEM */}
+              <div className="w-full max-w-2xl bg-white border border-stone-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-corporate-blue mb-3 border-b border-stone-100 pb-2 text-sm md:text-base">INDIA ESG BENCHMARK SYSTEM (HUL ESG Operating Architecture)</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-stone-600">
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> ASPIRE Strategy</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> DDF / AI Supply Chain</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Governance Transparency</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Project Shakti</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Project Circular Bharat</li>
+                </ul>
+              </div>
+
+              <div className="h-8 w-px bg-stone-300 relative">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 border-8 border-transparent border-t-stone-300" />
+              </div>
+
+              {/* Box 2: TRANSFERABLE ESG MECHANISMS */}
+              <div className="w-full max-w-2xl bg-white border border-stone-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-corporate-blue mb-3 border-b border-stone-100 pb-2 text-sm md:text-base">TRANSFERABLE ESG MECHANISMS</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-stone-600">
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Digital Sustainability Infrastructure</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Circular Economy Systems</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Inclusive Workforce Models</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Data-driven Governance</li>
+                </ul>
+              </div>
+
+              <div className="h-8 w-px bg-stone-300 relative">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 border-8 border-transparent border-t-stone-300" />
+              </div>
+
+              {/* Box 3: LOCALIZATION FILTERS (MALAYSIA) */}
+              <div className="w-full max-w-2xl bg-white border border-stone-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-corporate-blue mb-3 border-b border-stone-100 pb-2 text-sm md:text-base">LOCALIZATION FILTERS (MALAYSIA)</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-stone-600">
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> NIMP 2030</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> TVET</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Malaysia–India CSP</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Digital & Industrial Readiness</li>
+                </ul>
+              </div>
+
+              <div className="h-8 w-px bg-stone-300 relative">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 border-8 border-transparent border-t-stone-300" />
+              </div>
+
+              {/* Box 4: MALAYSIA ESG TRANSFORMATION SYSTEM */}
+              <div className="w-full max-w-2xl bg-white border border-stone-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-corporate-blue mb-3 border-b border-stone-100 pb-2 text-sm md:text-base">MALAYSIA ESG TRANSFORMATION SYSTEM (Localized Strategy Blueprint)</h3>
+                <div className="space-y-4 text-sm text-stone-600">
+                  <div>
+                    <p className="font-bold text-emerald-600 mb-1">E — Environmental Circularity</p>
+                    <ul className="pl-4 space-y-1">
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Smart Water Management</li>
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Digital Plastic Recycling System</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-bold text-blue-600 mb-1">S — Social Empowerment</p>
+                    <ul className="pl-4 space-y-1">
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Digital TVET Training System</li>
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /> Circularity-as-a-Service Platform (Caas Platform)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-bold text-amber-600 mb-1">G — Governance Innovation</p>
+                    <ul className="pl-4 space-y-1">
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-amber-400" /> LC-SF Supply Chain Optimization</li>
+                      <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-amber-400" /> Digital Regenerative Agriculture Platform (RAP)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="h-8 w-px bg-stone-300 relative">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 border-8 border-transparent border-t-stone-300" />
+              </div>
+
+              {/* Box 5: OUTCOME TARGET */}
+              <div className="w-full max-w-2xl bg-blue-600 border border-blue-500 rounded-2xl p-6 shadow-md text-white">
+                <h3 className="font-bold mb-3 border-b border-blue-400 pb-2 text-sm md:text-base">OUTCOME TARGET</h3>
+                <p className="font-bold mb-2">Malaysia Net Zero 2050 Roadmap</p>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-blue-100">
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-200" /> Decarbonization Pathway</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-200" /> ESG Ecosystem Scaling</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-200" /> Industrial Transformation</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <p className="text-lg text-stone-500 leading-relaxed">
+                It illustrates how transferable ESG mechanisms—spanning digital infrastructure, circular systems, and inclusive models—are systematically adapted through Malaysia’s policy, industrial, and institutional context.
+              </p>
+              <p className="text-lg text-stone-500 leading-relaxed">
+                By mapping the progression from <span className="font-bold text-corporate-blue">benchmark → insight → localization → implementation</span>, the diagram provides a clear system-level view of how ESG strategies can be translated into a scalable transformation pathway toward Net Zero 2050.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <div className="text-center mb-16">
+        <h2 className="font-sans font-bold text-4xl md:text-5xl text-corporate-blue mb-8">Section 3.2: Malaysia ESG Transformation Strategies Blueprint</h2>
+        
+        <div className="max-w-3xl mx-auto space-y-8 text-slate-600 leading-relaxed">
+          <div className="space-y-6">
+            <h4 className="font-bold text-stone-900 text-xl">The ESG Ecosystem Loop</h4>
+            <p className="text-lg">
+              These initiatives are designed as an interconnected system rather than isolated projects.
+            </p>
+            <p className="text-lg">
+              Within this framework, data generated from Environmental and Social platforms is intended to function as a verification layer within the system, enabling the activation of financial mechanisms under the Governance framework.
+            </p>
+            <p className="text-lg">
+              Through this design, sustainability performance can be systematically linked to financial incentives, forming a self-reinforcing ESG ecosystem.
             </p>
           </div>
 
           <p className="font-semibold text-corporate-blue pt-6 border-t border-stone-100">
-            You are invited to review the full details of these interlinked schemes to understand the complete structural logic of the proposed ESG roadmap.
+            You are invited to explore the detailed design of each initiative to understand the full structural logic of the proposed roadmap.
           </p>
         </div>
       </div>
