@@ -315,6 +315,71 @@ export default function ESGBenchmarkSection() {
         </div>
       </section>
 
+      {/* 2.2 From Emission Reality to System-Level Constraint */}
+      <section className="max-w-7xl mx-auto px-8 py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
+            Section 2.2: From Emission Reality to System-Level Constraint
+          </h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+            Bridging Strategy and Reality
+          </h1>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <p className="text-xl text-stone-600 leading-relaxed">
+                To evaluate the real-world effectiveness of HUL’s ESG system, it is necessary to move beyond strategy descriptions and examine how emissions behave across different scopes—and where structural constraints limit progress.
+              </p>
+              <p className="text-lg text-stone-500 leading-relaxed">
+                Using HUL’s reported data, this section applies a focused set of models to identify:
+              </p>
+              
+              <ul className="mt-8 space-y-4">
+                {[
+                  'Where emissions are being successfully controlled',
+                  'Where systemic challenges persist',
+                  'How ESG systems translate into real-world impact'
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-stone-600 font-medium">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm">
+              <h3 className="text-lg font-bold text-corporate-blue mb-6 flex items-center gap-2">
+                <Zap size={20} className="text-amber-500" />
+                Analysis Logic
+              </h3>
+              <p className="text-stone-600 leading-relaxed mb-8">
+                The analysis progresses from <span className="font-bold text-corporate-blue">emission reality → structural constraint → adoption-driven impact</span>, providing a clear and sequential understanding of ESG transformation dynamics.
+              </p>
+              
+              <div className="flex items-center justify-between gap-2">
+                {["What's going on", "What's the problem", "What's the key factor"].map((step, i) => (
+                  <React.Fragment key={i}>
+                    <div className="flex-1 text-center">
+                      <div className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-3">Step 0{i+1}</div>
+                      <div className="py-3 px-4 bg-stone-50 border border-stone-100 rounded-2xl text-sm font-bold text-corporate-blue shadow-sm min-h-[72px] flex items-center justify-center leading-tight">
+                        {step}
+                      </div>
+                    </div>
+                    {i < 2 && <ArrowRight size={16} className="text-stone-300 shrink-0 mt-8" />}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* System Diagnosis Dashboard */}
       <SystemDiagnosisDashboard />
 
