@@ -380,6 +380,27 @@ export default function ESGBenchmarkSection() {
         </motion.div>
       </section>
 
+      {/* System Diagnosis Dashboard Intro */}
+      <section className="max-w-7xl mx-auto px-8 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="w-full"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+            Diagnosis Process
+          </h1>
+          <div className="text-xl text-stone-600 leading-relaxed space-y-2">
+            <p>This section applies two models in sequence:</p>
+            <ul className="list-none space-y-1">
+              <li>• 2.2A — Emission Reality to identify where structural constraints emerge</li>
+              <li>• 2.2B — Adoption Impact System to isolate the key driver of change</li>
+            </ul>
+          </div>
+        </motion.div>
+      </section>
+
       {/* System Diagnosis Dashboard */}
       <SystemDiagnosisDashboard />
 

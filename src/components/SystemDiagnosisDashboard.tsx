@@ -125,11 +125,11 @@ const SystemDiagnosisDashboard: React.FC = () => {
 
   return (
     <div className="w-full space-y-12 py-12 bg-white" id="system-diagnosis-dashboard">
-      {/* Module 1 — Emission Reality */}
+      {/* 2.2A）Emission Reality */}
       <div className="max-w-7xl mx-auto px-8">
         <div className="border-b border-stone-200 pb-4 mb-8">
           <h2 className="text-2xl font-bold text-corporate-blue uppercase tracking-wider">
-            Module 1 — Emission Reality
+            2.2A）Emission Reality
           </h2>
         </div>
         
@@ -215,6 +215,74 @@ const SystemDiagnosisDashboard: React.FC = () => {
           <p className="text-xs italic">
             Note: Data for Scope 3 in 2025 is missing due to pending supplier disclosures.
           </p>
+        </div>
+
+        {/* Interpretation Box for 2.2A */}
+        <div className="mt-12 bg-stone-50 rounded-3xl border border-stone-200 overflow-hidden divide-y divide-stone-200">
+          {/* 1. Model Objective */}
+          <div className="p-8">
+            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">Model Objective</h3>
+            <p className="text-stone-700 font-medium leading-relaxed">
+              To diagnose the distribution and controllability of emissions across Scope 1, Scope 2, and Scope 3, and to identify where structural constraints limit decarbonization effectiveness.
+            </p>
+          </div>
+
+          {/* 2. Model Observation & Insight */}
+          <div className="p-8 bg-white/50">
+            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">Model Observation & Insight</h3>
+            <div className="space-y-4 text-stone-600 leading-relaxed">
+              <p>The emission trends reveal a clear divergence across the three scopes.</p>
+              <p>
+                <span className="text-corporate-blue font-semibold">Scope 1 and Scope 2</span> emissions show a declining or stabilizing trend over the past three years, indicating that HUL has achieved a meaningful level of control over its direct operations and energy-related emissions through internal efficiency improvements.
+              </p>
+              <p>
+                In contrast, <span className="text-amber-600 font-semibold">Scope 3</span> emissions remain significantly higher in magnitude and exhibit an upward trend, alongside visible data lag (e.g., incomplete 2025 reporting). This indicates that despite the implementation of advanced ESG systems, Scope 3 emissions remain largely beyond direct corporate control and are influenced by external dependencies.
+              </p>
+              <div className="pt-4 border-t border-stone-100">
+                <p className="italic font-medium text-stone-800">
+                  This divergence establishes a critical premise: even for a leading ESG performer like HUL, decarbonization effectiveness is structurally uneven across emission scopes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Scope 3 Structural Interpretation */}
+          <div className="p-8">
+            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6">Scope 3 Structural Interpretation</h3>
+            <p className="text-stone-500 mb-8 italic">
+              Due to the absence of detailed quantitative breakdowns, the structure of Scope 3 emissions is interpreted based on key drivers disclosed in HUL’s official reports.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { title: 'Procured Goods & Services', desc: 'Most significant emission driver, particularly raw material inputs and formulation components.' },
+                { title: 'Packaging', desc: 'Driven by plastic lifecycle, focused on recycled content and material optimization.' },
+                { title: 'Logistics', desc: 'Emissions from both upstream and downstream transportation activities.' },
+                { title: 'Consumer Use Phase', desc: 'Indirect emissions generated during product usage, beyond corporate control.' }
+              ].map((item, idx) => (
+                <div key={idx} className="p-6 bg-white rounded-2xl border border-stone-100 shadow-sm">
+                  <h4 className="text-sm font-bold text-corporate-blue mb-2">{item.title}</h4>
+                  <p className="text-xs text-stone-500 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-xs text-stone-400 italic">
+              Due to limited disclosure granularity, this interpretation focuses on structural drivers rather than full category-level quantification.
+            </p>
+          </div>
+
+          {/* 4. Core Scope 3 Structural Insight */}
+          <div className="p-8 bg-corporate-blue text-white">
+            <h3 className="text-xs font-bold opacity-60 uppercase tracking-widest mb-6">Core Scope 3 Structural Insight</h3>
+            <div className="space-y-6">
+              <p className="text-lg font-light leading-snug">
+                These components collectively demonstrate that Scope 3 emissions are not concentrated within a single controllable domain, but are <span className="font-bold">structurally distributed across the entire value chain</span>—spanning upstream suppliers, operational processes, and downstream consumption.
+              </p>
+              <div className="h-px bg-white/20 w-12" />
+              <p className="opacity-90 leading-relaxed">
+                As a result, decarbonization cannot be achieved through internal optimization alone. It is fundamentally dependent on <span className="underline underline-offset-4 decoration-white/40 font-medium text-white">coordinated intervention across the broader ecosystem</span>.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
