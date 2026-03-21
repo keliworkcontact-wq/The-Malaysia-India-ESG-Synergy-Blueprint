@@ -404,6 +404,47 @@ export default function ESGBenchmarkSection() {
       {/* System Diagnosis Dashboard */}
       <SystemDiagnosisDashboard />
 
+      {/* 2.3) Section 2 Summary */}
+      <section className="w-full bg-stone-950 text-stone-300 py-24 border-t border-stone-800 mt-16 -mx-8 px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-lg font-bold tracking-[0.2em] text-blue-400/60 uppercase mb-4">
+              Section 2.3: Section 2 Summary
+            </h2>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-16 leading-tight">
+              From Benchmark to Localization
+            </h1>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              <div className="space-y-8">
+                <p className="text-lg text-stone-400 leading-relaxed">
+                  The analysis of Hindustan Unilever Limited (HUL) demonstrates that ESG excellence at the corporate level is both achievable and scalable when embedded into core business strategy. Through its integration of governance frameworks, digital infrastructure, and inclusive value chain initiatives, HUL has transformed sustainability from a compliance function into a driver of operational efficiency and long-term competitiveness.
+                </p>
+                <p className="text-lg text-stone-400 leading-relaxed">
+                  More importantly, this benchmark reveals that the true strength of HUL’s ESG system lies not only in its performance outcomes, but in its ability to structure and coordinate complex value chain interactions. By leveraging digital tools such as AI-enabled diagnostics and simulation platforms, HUL has created a system where sustainability actions can be measured, optimized, and scaled across multiple operational layers.
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                <blockquote className="border-l-4 border-blue-500 pl-6 py-4 bg-stone-900/40 italic text-lg text-stone-200 leading-relaxed">
+                  "However, the findings from Section 2.2 establish a critical boundary condition: while corporate-level optimization can improve operational performance, system-level decarbonization depends on the participation of a broader ecosystem."
+                </blockquote>
+                <p className="text-lg text-stone-400 leading-relaxed">
+                  This insight shifts the focus of ESG strategy from internal execution to external coordination. For Malaysia, this implies that the adoption of ESG frameworks cannot rely solely on firm-level transformation. Instead, it requires the development of localized systems that can mobilize participation across suppliers, communities, and supporting institutions.
+                </p>
+                <p className="text-lg text-stone-400 leading-relaxed">
+                  <span className="text-blue-400 font-semibold">Therefore, the value of the HUL benchmark lies in its transferability. The next section moves from analysis to application.</span> Section 3 translates these ESG mechanisms into a Malaysia-specific context, adapting key components—such as digital platforms, circular resource systems, and inclusive participation models—into a set of localized strategies aligned with national priorities and institutional structures.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Modal Overlay */}
       <AnimatePresence>
         {selectedNode && (

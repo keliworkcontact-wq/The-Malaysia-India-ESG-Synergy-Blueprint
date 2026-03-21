@@ -290,7 +290,7 @@ const SystemDiagnosisDashboard: React.FC = () => {
       <div className="max-w-7xl mx-auto px-8">
         <div className="border-b border-stone-200 pb-4 mb-8">
           <h2 className="text-2xl font-bold text-corporate-blue uppercase tracking-wider">
-            Module 2 — Adoption Impact System
+            2.2B) Adoption Impact System
           </h2>
         </div>
 
@@ -482,6 +482,106 @@ const SystemDiagnosisDashboard: React.FC = () => {
             </div>
             <div className="mt-4 text-center text-[10px] font-bold text-stone-400 uppercase tracking-widest">
               Cumulative Reduction (MT)
+            </div>
+          </div>
+        </div>
+
+        {/* Interpretation Box for 2.2B */}
+        <div className="mt-12 bg-stone-50 rounded-3xl border border-stone-200 overflow-hidden divide-y divide-stone-200">
+          {/* 1. Model Description */}
+          <div className="p-8">
+            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">Model Description</h3>
+            <div className="space-y-4 text-stone-700 font-medium leading-relaxed">
+              <p>
+                This model conceptualizes Scope 3 decarbonization as a system-level process, where emission reduction is primarily enabled through supplier participation rather than internal operational improvements.
+              </p>
+              <p>
+                It demonstrates that supplier adoption functions as the transmission mechanism through which ESG strategies translate into measurable emission outcomes.
+              </p>
+            </div>
+          </div>
+
+          {/* 2. Model Objective */}
+          <div className="p-8 bg-white/50">
+            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">Model Objective</h3>
+            <p className="text-stone-700 font-medium leading-relaxed">
+              To evaluate the extent to which supplier ESG adoption determines the effectiveness of Scope 3 emission reduction.
+            </p>
+          </div>
+
+          {/* 3. Key Observation */}
+          <div className="p-8">
+            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6">Key Observation</h3>
+            <ul className="space-y-4 text-stone-600 leading-relaxed">
+              <li className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" />
+                <span>Emission reduction is highly dependent on supplier participation levels</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" />
+                <span>Adoption follows a non-linear pattern, with acceleration after a critical threshold</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* 4. Insight */}
+          <div className="p-8 bg-indigo-600 text-white">
+            <h3 className="text-xs font-bold opacity-60 uppercase tracking-widest mb-6">Insight</h3>
+            <div className="space-y-6">
+              <p className="text-lg font-light leading-snug">
+                Supplier adoption is not a supporting factor, but the <span className="font-bold text-white">primary constraint on Scope 3 decarbonization</span>.
+              </p>
+              <div className="h-px bg-white/20 w-12" />
+              <p className="opacity-90 leading-relaxed">
+                Without sufficient ecosystem participation, even well-designed ESG systems cannot deliver meaningful emission reduction.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 2.2C) Integrated Insight */}
+        <div className="mt-24 border-t border-stone-200 pt-16">
+          <div className="border-b border-stone-200 pb-4 mb-8">
+            <h2 className="text-2xl font-bold text-corporate-blue uppercase tracking-wider">
+              2.2C) Integrated Insight
+            </h2>
+          </div>
+
+          <div className="bg-stone-50 rounded-3xl border border-stone-200 overflow-hidden divide-y divide-stone-200">
+            {/* Combined Analysis */}
+            <div className="p-8">
+              <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6">Combined Analysis</h3>
+              <p className="text-stone-700 font-medium mb-6">The combined analysis reveals a clear structural progression:</p>
+              <ul className="space-y-4 text-stone-600 leading-relaxed">
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-corporate-blue mt-2 shrink-0" />
+                  <span>Emission data identifies Scope 3 as the dominant decarbonization challenge</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-corporate-blue mt-2 shrink-0" />
+                  <span>Structural interpretation shows that Scope 3 emissions are distributed across the value chain, making them inherently beyond firm-level control</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-corporate-blue mt-2 shrink-0" />
+                  <span>Impact modeling demonstrates that supplier adoption acts as the primary mechanism enabling emission reduction</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* System-Level Conclusion */}
+            <div className="p-8 bg-white/50">
+              <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6">System-Level Conclusion</h3>
+              <div className="space-y-6">
+                <p className="text-xl font-light text-stone-800 leading-snug">
+                  Together, these findings indicate that: <br />
+                  <span className="font-bold text-corporate-blue">Scope 3 decarbonization is not constrained by technical capability, but by the ability to mobilize ecosystem-wide participation.</span>
+                </p>
+                <div className="h-px bg-stone-200 w-12" />
+                <p className="text-stone-600 leading-relaxed">
+                  As a result: <br />
+                  <span className="font-medium">ESG transformation cannot be achieved through internal optimization alone, but requires coordinated intervention across the entire value chain.</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
