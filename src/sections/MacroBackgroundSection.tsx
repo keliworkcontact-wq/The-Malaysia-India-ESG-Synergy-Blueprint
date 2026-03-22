@@ -18,23 +18,15 @@ export default function MacroBackgroundSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-corporate-blue mb-4"
+          className="text-4xl md:text-5xl font-bold text-corporate-blue mb-4 tracking-tight"
         >
-          Section 1: Macro Background
+          1.0 The Malaysia–India Strategic Alignment: A New Frontier for ESG Resilience
         </motion.h2>
-        <motion.h3 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-2xl font-semibold text-stone-700 max-w-3xl mx-auto"
-        >
-          The Malaysia–India Strategic Alignment: A New Frontier for ESG Resilience
-        </motion.h3>
+        <div className="h-1.5 w-24 bg-sustainability-green mx-auto rounded-full mb-8" />
       </div>
 
       <div className="space-y-16">
-        {/* 1) The Strategic Catalyst */}
+        {/* Intro Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -42,16 +34,14 @@ export default function MacroBackgroundSection() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <div className="flex items-center gap-3 text-corporate-blue">
-              <Calendar className="w-6 h-6" />
-              <h4 className="text-xl font-bold uppercase tracking-wider">1) The Strategic Catalyst</h4>
-            </div>
-            <h5 className="text-2xl font-bold text-stone-800">A Milestone in Bilateral Relations</h5>
-            <p className="text-stone-600 leading-relaxed">
-              The landscape of Southeast Asian and South Asian economic relations reached a historic turning point on <span className="font-bold text-corporate-blue">9 February 2026</span>. As reported by <span className="italic">eNanyang</span>, the signing of <span className="font-bold">11 agreements and memoranda of understanding (MoUs)</span> between Malaysia and India signals a profound institutional alignment under the <span className="font-bold">Comprehensive Strategic Partnership (CSP)</span> framework.
+            <p className="text-stone-600 leading-relaxed text-lg">
+              The economic relationship between Southeast Asia and South Asia reached a significant milestone on <span className="font-bold text-corporate-blue">9 February 2026</span>, marked by the signing of <span className="font-bold">11 agreements and memoranda of understanding (MoUs)</span> between Malaysia and India under the <span className="font-bold">Comprehensive Strategic Partnership (CSP)</span> framework.
             </p>
             <p className="text-stone-600 leading-relaxed">
-              This milestone is more than a diplomatic formality; it is a manifestation of India’s growing confidence in the political and economic stability of Malaysia’s current administration. This "policy window" provides a rare, coordinated opportunity for both nations to move beyond traditional trade complementarity and toward high-level industrial and sustainability transformation.
+              This development represents more than diplomatic alignment. It reflects a strengthening of institutional trust and policy coordination, creating a rare window for deeper economic and industrial collaboration.
+            </p>
+            <p className="text-stone-600 leading-relaxed">
+              From an ESG perspective, this alignment is particularly consequential. It establishes the foundation for cross-border sustainability integration—enabling both countries to move beyond traditional trade linkages toward coordinated low-carbon and industrial transformation.
             </p>
           </motion.div>
           <motion.div 
@@ -61,27 +51,30 @@ export default function MacroBackgroundSection() {
             className="relative"
           >
             <img 
-              src="/india-malaysia-flag.png" 
-              alt="India and Malaysia Strategic Partnership" 
+              src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=800" 
+              alt="Strategic Partnership" 
               className="rounded-3xl shadow-2xl w-full h-80 object-cover"
               referrerPolicy="no-referrer"
             />
             <div className="absolute -bottom-6 -right-6 bg-sustainability-green text-white p-6 rounded-2xl shadow-xl hidden md:block">
               <p className="text-3xl font-bold">11</p>
-              <p className="text-sm font-medium uppercase tracking-wider">Bilateral Agreements & MoUs</p>
+              <p className="text-sm font-medium uppercase tracking-wider">Bilateral Agreements</p>
             </div>
           </motion.div>
         </section>
 
-        {/* 2) Unpacking the "ESG Golden Opportunity" */}
+        {/* 1.1 Unpacking the "ESG Golden Opportunity" */}
         <section className="bg-stone-50 rounded-[3rem] p-8 md:p-16 border border-stone-200">
           <div className="flex flex-col items-center text-center mb-12">
             <div className="flex items-center gap-3 text-amber-600 mb-4">
               <Zap className="w-6 h-6" />
-              <h4 className="text-xl font-bold uppercase tracking-wider">2) Unpacking the "ESG Golden Opportunity"</h4>
+              <h4 className="text-xl font-bold uppercase tracking-wider">1.1 Unpacking the “ESG Golden Opportunity”</h4>
             </div>
-            <p className="text-stone-600 max-w-2xl">
-              In an era defined by intensifying technological competition and the global trend of de-dollarization, the Malaysia–India collaboration has evolved into what I identify as the "ESG Golden Opportunity."
+            <p className="text-stone-600 max-w-2xl text-lg">
+              Within the broader context of technological competition and shifting global financial dynamics, the Malaysia–India partnership can be understood as an emerging <span className="font-bold text-amber-600">“ESG Golden Opportunity.”</span>
+            </p>
+            <p className="text-stone-500 mt-4">
+              This opportunity is driven by the convergence of several structural enablers:
             </p>
           </div>
 
@@ -89,18 +82,18 @@ export default function MacroBackgroundSection() {
             {[
               {
                 icon: Globe,
-                title: "Geopolitical Resilience",
-                desc: "Strengthening regional value chains in semiconductors and digital infrastructure to hedge against global supply chain fragility."
+                title: "Resilient ESG Value Chains",
+                desc: "Strengthening regional supply chains in semiconductors and digital infrastructure to reduce exposure to global disruptions"
               },
               {
                 icon: ShieldCheck,
-                title: "Economic Sovereignty",
-                desc: "Utilizing bilateral enablers like the Local Currency Settlement (LC-SF) to reduce reliance on external currencies while funding green transitions."
+                title: "Financial Enablers for ESG Transition",
+                desc: "Leveraging bilateral mechanisms such as the Local Currency Settlement (LC-SF) to support capital flows for green transformation"
               },
               {
                 icon: TrendingUp,
                 title: "The Green Economy Leap",
-                desc: "A mutual commitment to the 2050 Net Zero target, where Malaysia can leverage India’s massive scale of ESG digitalization to accelerate its own NIMP 2030 and NETR goals."
+                desc: "A shared commitment to Net Zero 2050, where Malaysia can leverage India’s scale and digital ESG capabilities to accelerate NIMP 2030 and NETR"
               }
             ].map((item, i) => (
               <motion.div 
@@ -119,9 +112,19 @@ export default function MacroBackgroundSection() {
               </motion.div>
             ))}
           </div>
+
+          <div className="mt-12 text-center space-y-4">
+            <p className="text-stone-600">Together, these factors signal a system-level opportunity for accelerated ESG development.</p>
+            <div className="p-6 bg-white rounded-2xl border border-stone-200 inline-block max-w-2xl">
+              <p className="text-stone-800 font-bold">
+                This leads to a key strategic question:<br/>
+                <span className="text-corporate-blue text-xl">Which corporate model offers the most relevant and transferable ESG architecture for Malaysia?</span>
+              </p>
+            </div>
+          </div>
         </section>
 
-        {/* 3) Seizing the Moment */}
+        {/* 1.2 Seizing the Opportunity: The HUL Strategic Shortcut */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -168,20 +171,22 @@ export default function MacroBackgroundSection() {
           >
             <div className="flex items-center gap-3 text-corporate-blue">
               <BarChart3 className="w-6 h-6" />
-              <h4 className="text-xl font-bold uppercase tracking-wider">3) Seizing the Moment</h4>
+              <h4 className="text-xl font-bold uppercase tracking-wider">1.2 Seizing the Opportunity: The HUL Strategic Shortcut</h4>
             </div>
-            <h5 className="text-2xl font-bold text-stone-800">The HUL Strategic Shortcut</h5>
-            <p className="text-stone-600 leading-relaxed">
-              To capitalize on this window, Malaysia requires more than just policy goals; it needs a <span className="font-bold">battle-tested operational blueprint</span>. I identify <span className="font-bold text-corporate-blue">Hindustan Unilever Limited (HUL)</span> as the high-fidelity reference for this transition.
+            <p className="text-stone-600 leading-relaxed text-lg">
+              Capturing this opportunity requires more than policy ambition—it requires a <span className="font-bold text-corporate-blue">proven operational model</span>.
             </p>
             <p className="text-stone-600 leading-relaxed">
-              By adopting HUL’s digitalized ESG practices—proven under India’s rigorous <span className="font-bold">Business Responsibility and Sustainability Reporting (BRSR)</span> framework—Malaysia can achieve a "strategic shortcut" in three key areas:
+              In this context, <span className="font-bold">Hindustan Unilever Limited (HUL)</span> serves as a high-fidelity reference point.
+            </p>
+            <p className="text-stone-600 leading-relaxed">
+              Operating under India’s <span className="font-bold">Business Responsibility and Sustainability Reporting (BRSR)</span> framework, HUL demonstrates how digitalization can be embedded into ESG execution at scale. Its model offers a potential <span className="font-bold text-corporate-blue">“strategic shortcut”</span> across three key dimensions:
             </p>
             <ul className="space-y-4">
               {[
-                { title: "TVET Transformation", desc: "Harmonizing talent development with Industry 4.0 requirements." },
-                { title: "Industrial Digitalization", desc: "Using AI-enabled supply chains to drive resource efficiency." },
-                { title: "Net Zero Acceleration", desc: "Moving from paper-based compliance to real-time, audit-grade environmental monitoring." }
+                { title: "TVET Transformation", desc: "Aligning workforce capabilities with Industry 4.0 and ESG requirements" },
+                { title: "Industrial Digitalization", desc: "Applying AI-enabled systems to enhance supply chain efficiency and transparency" },
+                { title: "Net Zero Acceleration", desc: "Transitioning from static reporting toward real-time, audit-grade environmental monitoring" }
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <div className="w-6 h-6 rounded-full bg-stone-100 flex items-center justify-center shrink-0 mt-1">
@@ -197,20 +202,26 @@ export default function MacroBackgroundSection() {
           </motion.div>
         </section>
 
-        {/* 4) The Case for HUL */}
+        {/* 1.3 The Case for HUL: Why this Benchmark Matters */}
         <section className="relative overflow-hidden bg-corporate-blue rounded-[3rem] p-8 md:p-16 text-white">
           <div className="relative z-10 max-w-3xl">
             <div className="flex items-center gap-3 text-sustainability-green mb-6">
               <Users className="w-6 h-6" />
-              <h4 className="text-xl font-bold uppercase tracking-wider">4) The Case for HUL</h4>
+              <h4 className="text-xl font-bold uppercase tracking-wider">1.3 The Case for HUL: Why this Benchmark Matters</h4>
             </div>
-            <h5 className="text-3xl font-bold mb-6">Why this Benchmark Matters</h5>
-            <p className="text-lg text-white/80 leading-relaxed mb-8">
-              One might ask: <span className="italic">Why focus on HUL?</span> The answer lies in the company’s unique position at the intersection of extreme operational scale and cutting-edge digital governance. HUL is not merely a consumer goods company; it is a data-driven ecosystem that has successfully navigated the complexities of an emerging market while maintaining global leadership in sustainability.
+            <p className="text-lg text-white/90 leading-relaxed mb-8">
+              HUL’s relevance as a benchmark lies in its ability to integrate <span className="font-bold text-sustainability-green">operational scale with digital governance capability</span>.
+            </p>
+            <p className="text-white/80 leading-relaxed mb-8">
+              Beyond being a consumer goods company, HUL operates as a data-driven ecosystem—successfully managing the complexities of an emerging market while maintaining strong ESG performance. This combination closely mirrors the structural conditions faced by Malaysia.
             </p>
             <div className="pt-8 border-t border-white/10">
-              <p className="text-white/60 mb-4">In the following chapter—<span className="text-white font-bold">Section 2: Benchmark Audit</span>—I will conduct a deep-dive analysis into HUL’s ESG performance between 2023 and 2025.</p>
-              <p className="text-white/60">By dissecting their <span className="text-sustainability-green font-bold uppercase tracking-widest">ASPIRE strategy</span> and AI-driven methodologies, we will demonstrate the tangible value this benchmark offers to Malaysia’s corporate and national sustainability roadmap.</p>
+              <p className="text-white/70 mb-4">
+                <span className="text-white font-bold">Section 2—Benchmark Audit</span>—therefore moves from strategic context to empirical analysis.
+              </p>
+              <p className="text-white/70">
+                It evaluates HUL’s ESG performance (2023–2025) to identify the underlying mechanisms, technologies, and governance structures that can inform Malaysia’s ESG transformation pathway.
+              </p>
             </div>
           </div>
           <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">

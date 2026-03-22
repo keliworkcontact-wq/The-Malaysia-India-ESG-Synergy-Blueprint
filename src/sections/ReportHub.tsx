@@ -11,29 +11,33 @@ export default function ReportHub({ onSelectSection, onBackToHome }: ReportHubPr
   const modules = [
     {
       id: 'macro',
-      title: 'Section 1: Geopolitical Signal',
-      description: 'The Malaysia–India Strategic Alignment: A New Frontier for ESG Resilience.',
+      title: 'Section 1 — Geopolitical Signal',
+      description: 'The Malaysia–India Strategic Alignment: A New Frontier for ESG Resilience',
+      keyPoint: 'Geopolitical alignment creates a rare window for cross-border ESG system integration',
       icon: Globe,
       color: 'bg-corporate-blue',
     },
     {
       id: 'audit',
-      title: 'Section 2: Corporate ESG Benchmark',
-      description: 'HUL ESG Performance, Risk Signals, and Forward Projections.',
+      title: 'Section 2 — Corporate ESG Benchmark',
+      description: 'Diagnosing ESG Systems: From Corporate Excellence to Scope 3 Constraint',
+      keyPoint: 'Scope 3 emissions reveal the structural limits of firm-level decarbonization',
       icon: BarChart3,
       color: 'bg-audit-green',
     },
     {
       id: 'localization',
-      title: 'Section 3: Strategy Translation',
-      description: 'Localizing HUL’s Digital ESG Excellence for the Malaysian Ecosystem.',
+      title: 'Section 3 — Strategy Translation',
+      description: 'From Benchmark to Blueprint: Translating ESG Systems for Malaysia',
+      keyPoint: 'ESG transformation depends on adapting systems—not replicating strategies',
       icon: Zap,
       color: 'bg-deep-amber',
     },
     {
       id: 'conclusion',
-      title: 'Section 4: Malaysia Net Zero 2050 Roadmap',
-      description: 'A Systemic Blueprint for National Sustainability and Strategic Sovereignty.',
+      title: 'Section 4 — Malaysia Net Zero 2050 Roadmap',
+      description: 'Operationalizing Net Zero: A System-Level Roadmap for Malaysia',
+      keyPoint: 'Net Zero requires coordinated ecosystem execution, not isolated corporate action',
       icon: Map,
       color: 'bg-stone-800',
     },
@@ -72,9 +76,10 @@ export default function ReportHub({ onSelectSection, onBackToHome }: ReportHubPr
               <h2 className="text-2xl font-bold text-corporate-blue mb-3 group-hover:text-sustainability-green transition-colors">
                 {module.title}
               </h2>
-              <p className="text-stone-500 leading-relaxed mb-8">
-                {module.description}
-              </p>
+              <div className="text-stone-500 leading-relaxed mb-8 space-y-3">
+                <p>{module.description}</p>
+                <p className="italic text-stone-400">→ {module.keyPoint}</p>
+              </div>
               <div className="mt-auto flex items-center gap-2 text-sm font-bold text-corporate-blue uppercase tracking-widest">
                 Explore Section
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
