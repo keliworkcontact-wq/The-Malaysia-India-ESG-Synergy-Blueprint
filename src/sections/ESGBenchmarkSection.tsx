@@ -168,18 +168,16 @@ export default function ESGBenchmarkSection() {
   return (
     <div className="w-full">
       {/* 2.0 Purpose of the Benchmark Audit */}
-      <section className="max-w-7xl mx-auto px-8 py-16">
+      <section className="max-w-7xl mx-auto px-8 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
-            Section 2.0: Purpose of the Benchmark Audit
-          </h2>
           <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
-            Analyzing HUL’s ESG Operational Architecture
+            Section 2.0: <br />
+            Diagnosing ESG Systems: From Corporate Excellence to Scope 3 Constraint
           </h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -238,10 +236,10 @@ export default function ESGBenchmarkSection() {
       <section className="bg-stone-50 py-20 overflow-x-auto">
         <div className="max-w-[1400px] mx-auto px-8 min-w-[1000px]">
           <div className="text-center mb-20">
-            <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
-              Section 2.1: HUL ESG Operating Architecture
-            </h2>
-            <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">HUL ESG System Structure</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+              Section 2.1: <br />
+              HUL ESG System Structure
+            </h1>
             <p className="text-xl text-stone-600 max-w-4xl mx-auto leading-relaxed">
               The diagram below illustrates HUL’s ESG practices functioning as an integrated and scalable system. Select the strategy nodes to reveal detailed insights into the underlying mechanisms.
             </p>
@@ -323,10 +321,8 @@ export default function ESGBenchmarkSection() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
-            Section 2.2: From Emission Reality to System-Level Constraint
-          </h2>
           <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+            Section 2.2: <br />
             Bridging Strategy and Reality
           </h1>
           
@@ -405,17 +401,15 @@ export default function ESGBenchmarkSection() {
       <SystemDiagnosisDashboard />
 
       {/* 2.3) Section 2 Summary */}
-      <section className="w-full bg-stone-950 text-stone-300 py-24 border-t border-stone-800 mt-16 -mx-8 px-8">
+      <section className="w-full bg-stone-950 text-stone-300 py-20 border-t border-stone-800 mt-16 -mx-8 px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-lg font-bold tracking-[0.2em] text-blue-400/60 uppercase mb-4">
-              Section 2.3: Section 2 Summary
-            </h2>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-16 leading-tight">
+              Section 2.3: <br />
               From Benchmark to Localization
             </h1>
             

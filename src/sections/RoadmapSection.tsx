@@ -490,19 +490,17 @@ export default function RoadmapSection() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto w-full px-4 py-20">
+    <div className="max-w-7xl mx-auto w-full px-8 py-20">
       {/* Section 3.0: Introduction */}
-      <section className="mb-24">
+      <section className="mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
-            Section 3.0: Introduction — From Benchmark to Localization
-          </h2>
           <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
-            From Insight to Application
+            Section 3.0: <br />
+            From Benchmark to Blueprint: Translating ESG Systems for Malaysia
           </h1>
           
           <div className="w-full space-y-8">
@@ -526,16 +524,14 @@ export default function RoadmapSection() {
       </section>
 
       {/* Section 3.1: Synergy Framework */}
-      <section className="mb-24 p-8 md:p-12 bg-stone-50 rounded-[3rem] border border-stone-200">
+      <section className="mb-20 p-8 md:p-12 bg-stone-50 rounded-[3rem] border border-stone-200">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-lg font-bold tracking-[0.2em] text-corporate-blue/60 uppercase mb-4">
-            Section 3.1: Malaysia–India ESG Synergy Framework — Conceptual Overview
-          </h2>
-          <h1 className="text-3xl md:text-4xl font-bold text-corporate-blue mb-8 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+            Section 3.1: <br />
             The Logic of Translation
           </h1>
           
@@ -649,7 +645,10 @@ export default function RoadmapSection() {
       </section>
 
       <div className="text-center mb-16">
-        <h2 className="font-sans font-bold text-4xl md:text-5xl text-corporate-blue mb-8">Section 3.2: Malaysia ESG Transformation Strategies Blueprint</h2>
+        <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+          Section 3.2: <br />
+          Malaysia ESG Transformation Strategies Blueprint
+        </h1>
         
         <div className="max-w-3xl mx-auto space-y-8 text-slate-600 leading-relaxed">
           <div className="space-y-6">

@@ -12,22 +12,24 @@ import {
 
 export default function MacroBackgroundSection() {
   return (
-    <div className="max-w-6xl mx-auto w-full py-20">
-      <div className="text-center mb-16">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-corporate-blue mb-4 tracking-tight"
-        >
-          1.0 The Malaysia–India Strategic Alignment: A New Frontier for ESG Resilience
-        </motion.h2>
-        <div className="h-1.5 w-24 bg-sustainability-green mx-auto rounded-full mb-8" />
-      </div>
+    <div className="w-full">
+      {/* 1.0 Title & Intro */}
+      <section className="max-w-7xl mx-auto px-8 py-20">
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+              Section 1.0: <br />
+              The Malaysia–India Strategic Alignment: A New Frontier for ESG Resilience
+            </h1>
+            <div className="h-1.5 w-24 bg-sustainability-green mx-auto rounded-full mb-8" />
+          </motion.div>
+        </div>
 
-      <div className="space-y-16">
-        {/* Intro Section */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,7 +53,7 @@ export default function MacroBackgroundSection() {
             className="relative"
           >
             <img 
-              src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=800" 
+              src="/india-malaysia-flag.png" 
               alt="Strategic Partnership" 
               className="rounded-3xl shadow-2xl w-full h-80 object-cover"
               referrerPolicy="no-referrer"
@@ -61,15 +63,17 @@ export default function MacroBackgroundSection() {
               <p className="text-sm font-medium uppercase tracking-wider">Bilateral Agreements</p>
             </div>
           </motion.div>
-        </section>
+        </div>
+      </section>
 
-        {/* 1.1 Unpacking the "ESG Golden Opportunity" */}
-        <section className="bg-stone-50 rounded-[3rem] p-8 md:p-16 border border-stone-200">
-          <div className="flex flex-col items-center text-center mb-12">
-            <div className="flex items-center gap-3 text-amber-600 mb-4">
-              <Zap className="w-6 h-6" />
-              <h4 className="text-xl font-bold uppercase tracking-wider">1.1 Unpacking the “ESG Golden Opportunity”</h4>
-            </div>
+      {/* 1.1 Unpacking the "ESG Golden Opportunity" */}
+      <section className="bg-stone-50 py-20 border-y border-stone-200">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex flex-col items-center text-center mb-20">
+            <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+              Section 1.1: <br />
+              Unpacking the “ESG Golden Opportunity”
+            </h1>
             <p className="text-stone-600 max-w-2xl text-lg">
               Within the broader context of technological competition and shifting global financial dynamics, the Malaysia–India partnership can be understood as an emerging <span className="font-bold text-amber-600">“ESG Golden Opportunity.”</span>
             </p>
@@ -113,24 +117,37 @@ export default function MacroBackgroundSection() {
             ))}
           </div>
 
-          <div className="mt-12 text-center space-y-4">
+          <div className="mt-12 text-center space-y-12">
             <p className="text-stone-600">Together, these factors signal a system-level opportunity for accelerated ESG development.</p>
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 inline-block max-w-2xl">
+            <div className="p-6 bg-white rounded-2xl border border-stone-200 inline-block max-w-2xl shadow-sm">
               <p className="text-stone-800 font-bold">
                 This leads to a key strategic question:<br/>
                 <span className="text-corporate-blue text-xl">Which corporate model offers the most relevant and transferable ESG architecture for Malaysia?</span>
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 1.2 Seizing the Opportunity: The HUL Strategic Shortcut */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* 1.2 Seizing the Opportunity: The HUL Strategic Shortcut */}
+      <section className="max-w-7xl mx-auto px-8 py-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center md:text-left mb-20"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue leading-tight">
+            Section 1.2: <br />
+            Seizing the Opportunity: The HUL Strategic Shortcut
+          </h1>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="order-2 md:order-1"
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
@@ -138,7 +155,7 @@ export default function MacroBackgroundSection() {
                   <Cpu className="w-8 h-8 mb-2" />
                   <p className="text-xs font-bold uppercase tracking-tighter">Industrial Digitalization</p>
                 </div>
-                <div className="h-56 bg-stone-200 rounded-3xl overflow-hidden">
+                <div className="h-56 bg-stone-200 rounded-3xl overflow-hidden shadow-lg">
                   <img 
                     src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=500" 
                     alt="Industry 4.0" 
@@ -148,7 +165,7 @@ export default function MacroBackgroundSection() {
                 </div>
               </div>
               <div className="space-y-4 pt-8">
-                <div className="h-56 bg-stone-200 rounded-3xl overflow-hidden">
+                <div className="h-56 bg-stone-200 rounded-3xl overflow-hidden shadow-lg">
                   <img 
                     src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=500" 
                     alt="Teamwork" 
@@ -167,12 +184,8 @@ export default function MacroBackgroundSection() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6 order-1 md:order-2"
+            className="space-y-6"
           >
-            <div className="flex items-center gap-3 text-corporate-blue">
-              <BarChart3 className="w-6 h-6" />
-              <h4 className="text-xl font-bold uppercase tracking-wider">1.2 Seizing the Opportunity: The HUL Strategic Shortcut</h4>
-            </div>
             <p className="text-stone-600 leading-relaxed text-lg">
               Capturing this opportunity requires more than policy ambition—it requires a <span className="font-bold text-corporate-blue">proven operational model</span>.
             </p>
@@ -200,35 +213,45 @@ export default function MacroBackgroundSection() {
               ))}
             </ul>
           </motion.div>
-        </section>
+        </div>
+      </section>
 
-        {/* 1.3 The Case for HUL: Why this Benchmark Matters */}
-        <section className="relative overflow-hidden bg-corporate-blue rounded-[3rem] p-8 md:p-16 text-white">
-          <div className="relative z-10 max-w-3xl">
-            <div className="flex items-center gap-3 text-sustainability-green mb-6">
-              <Users className="w-6 h-6" />
-              <h4 className="text-xl font-bold uppercase tracking-wider">1.3 The Case for HUL: Why this Benchmark Matters</h4>
-            </div>
-            <p className="text-lg text-white/90 leading-relaxed mb-8">
-              HUL’s relevance as a benchmark lies in its ability to integrate <span className="font-bold text-sustainability-green">operational scale with digital governance capability</span>.
-            </p>
-            <p className="text-white/80 leading-relaxed mb-8">
-              Beyond being a consumer goods company, HUL operates as a data-driven ecosystem—successfully managing the complexities of an emerging market while maintaining strong ESG performance. This combination closely mirrors the structural conditions faced by Malaysia.
-            </p>
-            <div className="pt-8 border-t border-white/10">
-              <p className="text-white/70 mb-4">
-                <span className="text-white font-bold">Section 2—Benchmark Audit</span>—therefore moves from strategic context to empirical analysis.
+      {/* 1.3 The Case for HUL: Why this Benchmark Matters */}
+      <section className="bg-corporate-blue py-20 text-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                Section 1.3: <br />
+                The Case for HUL: Why this Benchmark Matters
+              </h1>
+              <p className="text-lg text-white/90 leading-relaxed">
+                HUL’s relevance as a benchmark lies in its ability to integrate <span className="font-bold text-sustainability-green">operational scale with digital governance capability</span>.
               </p>
-              <p className="text-white/70">
-                It evaluates HUL’s ESG performance (2023–2025) to identify the underlying mechanisms, technologies, and governance structures that can inform Malaysia’s ESG transformation pathway.
+              <p className="text-white/80 leading-relaxed">
+                Beyond being a consumer goods company, HUL operates as a data-driven ecosystem—successfully managing the complexities of an emerging market while maintaining strong ESG performance. This combination closely mirrors the structural conditions faced by Malaysia.
               </p>
             </div>
+            
+            <div className="bg-white/10 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 border border-white/20">
+              <div className="space-y-6">
+                <p className="text-white/70">
+                  <span className="text-white font-bold">Section 2—Benchmark Audit</span>—therefore moves from strategic context to empirical analysis.
+                </p>
+                <p className="text-white/70">
+                  It evaluates HUL’s ESG performance (2023–2025) to identify the underlying mechanisms, technologies, and governance structures that can inform Malaysia’s ESG transformation pathway.
+                </p>
+                <div className="pt-6 border-t border-white/10">
+                  <div className="flex items-center gap-4 text-sustainability-green font-bold">
+                    <BarChart3 size={24} />
+                    <span>Proceed to Empirical Analysis</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
-            <div className="w-full h-full bg-gradient-to-l from-white to-transparent" />
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

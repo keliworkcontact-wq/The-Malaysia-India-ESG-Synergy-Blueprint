@@ -27,7 +27,7 @@ export default function ConclusionRoadmapSection() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto w-full py-20 px-6">
+    <div className="max-w-7xl mx-auto w-full py-20 px-8">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -37,9 +37,10 @@ export default function ConclusionRoadmapSection() {
       >
         {/* Header Section */}
         <motion.div variants={itemVariants} className="text-center space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-            Section 4.0: Malaysia Net Zero 2050 Roadmap
-          </h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+            Section 4.0: <br />
+            Operationalizing Net Zero: A System-Level Roadmap for Malaysia
+          </h1>
           <div className="h-1.5 w-24 bg-sustainability-green mx-auto rounded-full" />
         </motion.div>
 
@@ -88,42 +89,50 @@ export default function ConclusionRoadmapSection() {
           </div>
         </motion.section>
 
-        {/* 4.2 ESG Ecosystem Scaling */}
-        <motion.section variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col justify-center">
-            <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
-              <Layers size={28} />
-            </div>
-            <h3 className="text-3xl font-bold text-stone-900 mb-6">4.1 ESG Ecosystem Scaling</h3>
-            <p className="text-lg text-stone-600 leading-relaxed mb-8">
-              This report reframes ESG from a compliance function into a <span className="text-blue-600 font-bold">scalable ecosystem supported by interconnected platforms</span>.
-            </p>
-            <p className="text-stone-500 leading-relaxed">
-              The strategies outlined in Section 3—including the CaaS Platform, Digital Regenerative Agriculture Platform (RAP), and LC-SF-enabled supply chain mechanisms—demonstrate how ESG objectives can be operationalized through coordinated systems.
-            </p>
-          </div>
-
-          <div className="bg-stone-900 rounded-[2.5rem] p-8 md:p-12 text-white shadow-xl flex flex-col">
-            <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-8 text-center">Enabling Conditions for Scaling the Ecosystem</h4>
-            <div className="space-y-6 flex-grow">
-              {[
-                "Institutional coordination across ministries, industry bodies, and bilateral platforms (e.g., Malaysia–India CSP)",
-                "Human capital development, particularly through ESG-aligned TVET systems",
-                "Pilot-based implementation to validate models before broader rollout",
-                "Financial alignment mechanisms, including LC-SF, to create economic incentives"
-              ].map((condition, idx) => (
-                <div key={idx} className="flex items-start gap-4 group">
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-sustainability-green transition-colors">
-                    <span className="text-xs font-bold">{idx + 1}</span>
-                  </div>
-                  <p className="text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">{condition}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 pt-8 border-t border-white/10">
-              <p className="text-xs text-white/40 italic text-center">
-                Rather than immediate nationwide deployment, a <span className="font-bold">phased scaling approach</span> is recommended, where pilot outcomes inform iterative expansion.
+        {/* 4.1 ESG Ecosystem Scaling */}
+        <motion.section variants={itemVariants} className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-stone-100 relative overflow-hidden">
+          <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-stone-50 rounded-full" />
+          
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-1 space-y-6">
+              <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
+                <Layers size={28} />
+              </div>
+              <h3 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-6 leading-tight">
+                Section 4.1: <br />
+                ESG Ecosystem Scaling
+              </h3>
+              <p className="text-lg text-stone-600 leading-relaxed">
+                This report reframes ESG from a compliance function into a <span className="text-blue-600 font-bold">scalable ecosystem supported by interconnected platforms</span>.
               </p>
+              <p className="text-sm text-stone-500 italic">
+                The strategies outlined in Section 3—including the CaaS Platform, Digital Regenerative Agriculture Platform (RAP), and LC-SF-enabled supply chain mechanisms—demonstrate how ESG objectives can be operationalized through coordinated systems.
+              </p>
+            </div>
+
+            <div className="lg:col-span-2 space-y-6">
+              <p className="text-stone-400 font-bold uppercase tracking-widest text-xs">Enabling Conditions for Scaling the Ecosystem:</p>
+              <div className="grid grid-cols-1 gap-6">
+                {[
+                  { title: "Institutional Coordination", desc: "Alignment across ministries, industry bodies, and bilateral platforms (e.g., Malaysia–India CSP)" },
+                  { title: "Human Capital Development", desc: "Focusing on ESG-aligned TVET systems to build future-ready skills" },
+                  { title: "Pilot-based Implementation", desc: "Validating models through targeted pilots before broader national rollout" },
+                  { title: "Financial Alignment", desc: "Utilizing mechanisms like LC-SF to create direct economic incentives for compliance" }
+                ].map((condition, idx) => (
+                  <div key={idx} className="p-6 bg-stone-50 rounded-2xl border border-stone-100 hover:border-blue-200 transition-colors">
+                    <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2">
+                      <CheckCircle2 size={16} className="text-blue-500" />
+                      {condition.title}
+                    </h4>
+                    <p className="text-sm text-stone-500 leading-relaxed">{condition.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="p-4 bg-blue-50 rounded-2xl border border-blue-100">
+                <p className="text-xs text-blue-800 italic text-center">
+                  Rather than immediate nationwide deployment, a <span className="font-bold">phased scaling approach</span> is recommended, where pilot outcomes inform iterative expansion.
+                </p>
+              </div>
             </div>
           </div>
         </motion.section>
@@ -137,7 +146,10 @@ export default function ConclusionRoadmapSection() {
               <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center">
                 <Factory size={28} />
               </div>
-              <h3 className="text-3xl font-bold text-stone-900">4.2 Industrial Transformation</h3>
+              <h3 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-6 leading-tight">
+                Section 4.2: <br />
+                Industrial Transformation
+              </h3>
               <p className="text-stone-600 leading-relaxed">
                 Over time, the proposed roadmap supports a shift in Malaysia’s industrial positioning—from cost-based manufacturing to a <span className="text-amber-600 font-bold">digitally enabled, sustainability-driven production system</span>.
               </p>
@@ -183,7 +195,7 @@ export default function ConclusionRoadmapSection() {
           </div>
 
           <div className="relative z-10 max-w-3xl mx-auto space-y-8">
-            <h3 className="text-3xl md:text-4xl font-bold">Closing Statement</h3>
+            <h3 className="text-4xl md:text-5xl font-bold">Closing Statement</h3>
             <p className="text-xl md:text-2xl font-light leading-relaxed">
               This report positions ESG not as a set of isolated initiatives, but as a <span className="font-bold">coordinated system of digital infrastructure, ecosystem participation, and financial alignment</span>.
             </p>
