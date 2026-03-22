@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import ReactMarkdown from 'react-markdown';
 import { 
   Leaf, 
   Users, 
@@ -55,34 +56,33 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       operation: "A four-step circular asset cycle: Smart catchment with IoT sensing, AI-driven automated tiered filtration, closed-loop reuse with ZLD integration, and digital water footprint auditing for ESG reporting.",
       auditNote: {
         constructiveness: [
-          "Structural Shift in Resource Models: Enterprises transition from mere 'consumers' of water to 'collectors and circulators', enhancing resilience during dry seasons.",
-          "Audit-grade ESG Performance: Provides real-time IoT data for global supply chain audits, meeting high standards required by major corporations like HUL."
+          "**Structural Shift in Resource Models**: Enterprises transition from mere 'consumers' of water to 'collectors and circulators', enhancing resilience during dry seasons or water rationing periods.",
+          "**Audit-grade ESG Performance**: Provides real-time IoT data for global supply chain audits, meeting high standards required by major corporations like HUL."
         ],
         risksAndGaps: [
-          "Long CAPEX Payback Period: Significant upfront expenditure may cause resistance from SMEs if payback exceeds five years without subsidies.",
-          "Technical Maintenance Barriers: Smart systems require regular professional maintenance; risk of 'technological waste' if local talent is lacking."
-        ],
-        recommendation: "The logic is remarkably pure—transforming Malaysia’s abundant rainfall into an auditable ESG asset while bypassing complex interstate policy disputes."
+          "**Long CAPEX Payback Period**: Significant upfront expenditure may cause resistance from SMEs if payback exceeds five years without subsidies.",
+          "**Technical Maintenance Barriers**: Smart systems require regular professional maintenance; risk of 'technological waste' if local talent is lacking."
+        ]
       },
       type: 'standard',
       fullBlueprint: [
         { section: "The Idea", content: "Inspired by HUL’s 'Water Neutral' and Zero Liquid Discharge (ZLD) practices, this proposal aims to transform rainwater from 'wasted runoff' into a 'controlled industrial asset'.\n\nThe core objective is to establish an intelligent rainwater harvesting and reuse system across Malaysian industrial zones. By integrating harvested rainwater into industrial cooling and cleaning cycles, companies can significantly reduce their reliance on municipal water supplies. This not only lowers operational costs but also utilizes technological intervention to enable a structural shift from 'resource consumption' to 'circular resource management'." },
         { section: "Blueprint Operation: The Circular Asset Cycle", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle:" },
         { section: "Step 1: Smart Catchment & Sensing", content: [
-          "Action: Install high-capacity rainwater harvesting arrays on industrial rooftops, equipped with IoT (Internet of Things) sensors.",
-          "Logic: Sensors provide real-time monitoring of storage tank levels and initial water quality, ensuring maximum capture efficiency during Malaysia’s high-rainfall seasons."
+          "**Action**: Install high-capacity rainwater harvesting arrays on industrial rooftops, equipped with IoT (Internet of Things) sensors.",
+          "**Logic**: Sensors provide real-time monitoring of storage tank levels and initial water quality, ensuring maximum capture efficiency during Malaysia’s high-rainfall seasons."
         ] },
         { section: "Step 2: Automated Tiered Filtration", content: [
-          "Action: Captured rainwater passes through an AI-driven filtration system that automatically diverts water based on real-time purity levels.",
-          "Logic: High-purity water is routed to industrial cooling towers, while secondary-grade water is used for cleaning or landscape irrigation, achieving 'quality-on-demand' and minimizing treatment costs."
+          "**Action**: Captured rainwater passes through an AI-driven filtration system that automatically diverts water based on real-time purity levels.",
+          "**Logic**: High-purity water is routed to industrial cooling towers, while secondary-grade water is used for cleaning or landscape irrigation, achieving 'quality-on-demand' and minimizing treatment costs."
         ] },
         { section: "Step 3: Closed-loop Reuse & ZLD Integration", content: [
-          "Action: Integrate HUL’s ZLD logic to perform secondary treatment on industrial wastewater.",
-          "Logic: Treated water is re-pumped back into the harvesting system. This 'rainwater replenishment + internal circulation' model creates a small-scale, self-sufficient water ecosystem within the industrial zone."
+          "**Action**: Integrate HUL’s ZLD logic to perform secondary treatment on industrial wastewater.",
+          "**Logic**: Treated water is re-pumped back into the harvesting system. This 'rainwater replenishment + internal circulation' model creates a small-scale, self-sufficient water ecosystem within the industrial zone."
         ] },
         { section: "Step 4: Digital Water Footprint Auditing", content: [
-          "Action: All water-saving data is uploaded via the cloud to the corporate ESG dashboard.",
-          "Logic: Every cubic meter of displaced municipal water is recorded as a 'water asset,' providing audit-grade evidence for companies to apply for green financing or tax incentives under the CSP framework."
+          "**Action**: All water-saving data is uploaded via the cloud to the corporate ESG dashboard.",
+          "**Logic**: Every cubic meter of displaced municipal water is recorded as a 'water asset,' providing audit-grade evidence for companies to apply for green financing or tax incentives under the CSP framework."
         ] }
       ]
     },
@@ -94,36 +94,35 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       operation: "A four-step circular verification loop: Digital traceability entry (linked with CaaS Platform), AI-driven precision sorting, tokenization of compliance into 'Plastic Credits,' and EPR settlement via the LC-SF engine.",
       auditNote: {
         constructiveness: [
-          "Audit-Grade Compliance Assets: Utilizing blockchain to turn fragmented recycling activities into verifiable evidence gives Malaysian enterprises a competitive edge when facing international ESG standards.",
-          "Value Chain Premium: AI sorting drastically improves material purity, allowing recycled plastic to enter premium markets like food-grade packaging, increasing income for B40 collectors.",
-          "Regulatory Transparency: Provides a real-time dashboard for regulators to accurately monitor national waste flows, significantly reducing monitoring costs."
+          "**Audit-Grade Compliance Assets**: Utilizing blockchain to turn fragmented recycling activities into verifiable evidence gives Malaysian enterprises a competitive edge when facing international ESG standards.",
+          "**Value Chain Premium**: AI sorting drastically improves material purity, allowing recycled plastic to enter premium markets like food-grade packaging, increasing income for B40 collectors.",
+          "**Regulatory Transparency**: Provides a real-time dashboard for regulators to accurately monitor national waste flows, significantly reducing monitoring costs."
         ],
         risksAndGaps: [
-          "Participation Barriers for Small Recyclers: Small-scale recyclers may lack the digital hardware and technical expertise required, potentially polarizing the industry.",
-          "Dependency on EPR Enforcement: Business model relies on mandatory government enforcement; lax enforcement diminishes the incentive for brands to purchase 'Compliance Assets'.",
-          "Baseline Data Gap: Lack of comprehensive national baseline data on waste flows makes it challenging to precisely quantify initial recycling rate increases."
-        ],
-        recommendation: "The true value lies in transforming 'informal collectors' into 'digitally compliant partners,' using technology to solve the hardest part of EPR execution: verification."
+          "**Participation Barriers for Small Recyclers**: Small-scale recyclers may lack the digital hardware and technical expertise required, potentially polarizing the industry.",
+          "**Dependency on EPR Enforcement**: Business model relies on mandatory government enforcement; lax enforcement diminishes the incentive for brands to purchase 'Compliance Assets'.",
+          "**Baseline Data Gap**: Lack of comprehensive national baseline data on waste flows makes it challenging to precisely quantify initial recycling rate increases."
+        ]
       },
       type: 'standard',
       fullBlueprint: [
-        { section: "The Idea", content: "The core of this scheme is the establishment of a digital platform integrating Blockchain traceability and AI automated sorting to support the nationwide rollout of Malaysia’s Extended Producer Responsibility (EPR) policy.\n\nObjective: To address long-standing pain points in the recycling industry, such as low transparency and inconsistent material purity. By transforming plastic waste into audit-grade digital assets, the system enables producers (brands) to track the lifecycle of their packaging materials while ensuring the recycling process meets international ESG auditing standards. This is not merely an environmental project but a FinTech tool that converts 'waste' into 'high-value compliance assets.'" },
+        { section: "The Idea", content: "The core of this scheme is the establishment of a digital platform integrating Blockchain traceability and AI automated sorting to support the nationwide rollout of Malaysia’s Extended Producer Responsibility (EPR) policy.\n\n**Objective**: To address long-standing pain points in the recycling industry, such as low transparency and inconsistent material purity. By transforming plastic waste into audit-grade digital assets, the system enables producers (brands) to track the lifecycle of their packaging materials while ensuring the recycling process meets international ESG auditing standards. This is not merely an environmental project but a FinTech tool that converts 'waste' into 'high-value compliance assets.'" },
         { section: "Blueprint Operation: The Circular Verification Loop", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle:" },
         { section: "Step 1: Digital Traceability Entry (Linking with CaaS Platform)", content: [
-          "Action: The system directly integrates with the CaaS Platform Community Green Service Network. When B40 members weigh collected waste using Bluetooth-enabled smart scales, data is uploaded to the blockchain in real-time.",
-          "Logic: A unique 'Digital ID' is assigned to the waste the moment it leaves the community, recording its source, type, and original weight to ensure the integrity of the foundational data."
+          "**Action**: The system directly integrates with the CaaS Platform network. When B40 members weigh collected waste using Bluetooth-enabled smart scales, data is uploaded to the blockchain in real-time.",
+          "**Logic**: A unique 'Digital ID' is assigned to the waste the moment it leaves the community, recording its source, type, and original weight to ensure the integrity of the foundational data."
         ] },
         { section: "Step 2: AI-Driven Precision Sorting & Purity Enhancement", content: [
-          "Action: Deploy AI optical sorting technology at centralized collection hubs to automatically identify different polymer types (e.g., rPET, HDPE).",
-          "Logic: Compared to manual sorting, AI significantly enhances the purity of recycled materials. High-purity recycled plastic commands a higher resale value in the market, directly increasing the profit margins across the entire supply chain."
+          "**Action**: Deploy AI optical sorting technology at centralized collection hubs to automatically identify different polymer types (e.g., rPET, HDPE).",
+          "**Logic**: Compared to manual sorting, AI significantly enhances the purity of recycled materials. High-purity recycled plastic commands a higher resale value in the market, directly increasing the profit margins across the entire supply chain."
         ] },
         { section: "Step 3: Tokenization of Compliance", content: [
-          "Action: Sorted and processed volumes are converted into 'Plastic Credits' or 'Digital Compliance Certificates.'",
-          "Logic: These certificates are recorded on an immutable blockchain. Brands (e.g., FMCG companies) purchase these credits as audited evidence of fulfilling their legal EPR obligations."
+          "**Action**: Sorted and processed volumes are converted into 'Plastic Credits' or 'Digital Compliance Certificates.'",
+          "**Logic**: These certificates are recorded on an immutable blockchain. Brands (e.g., FMCG companies) purchase these credits as audited evidence of fulfilling their legal EPR obligations."
         ] },
         { section: "Step 4: EPR Settlement & Green Finance Incentives", content: [
-          "Action: Sync recycling data with the LC-SF (Local Currency Settlement Framework) engine.",
-          "Logic: Recyclers and B40 members can receive additional subsidies or green finance loans funded by LC-SF exchange rate savings, based on the volume of 'Compliance Assets' they contribute, creating a closed loop of capital and material."
+          "**Action**: Sync recycling data with the LC-SF (Local Currency Settlement Framework) engine.",
+          "**Logic**: Recyclers and B40 members can receive additional subsidies or green finance loans funded by LC-SF exchange rate savings, based on the volume of 'Compliance Assets' they contribute, creating a closed loop of capital and material."
         ] }
       ]
     }
@@ -134,39 +133,39 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       title: 'Digital TVET Training System',
       icon: GraduationCap,
       idea: "Using DDF simulation architecture, Malaysian technicians can train locally through immersive digital environments to become Industry 4.0 architects rather than operators.",
-      operation: "Funding Pathways: Recommend MyMahir apply to HRD Corp; Establish Malaysia-India Digital Manufacturing Scholarship; Corporate sponsorship for equipment in exchange for priority hiring rights.",
+      operation: "**Funding Pathways**: Recommend MyMahir apply to HRD Corp; Establish Malaysia-India Digital Manufacturing Scholarship; Corporate sponsorship for equipment in exchange for priority hiring rights.",
       auditNote: {
         constructiveness: [
-          "Long-term assetisation: Although the initial cost of building a virtual twin platform is high, digital assets do not wear out and are highly scalable. Once built, the marginal cost of training ten thousand learners will be far lower than setting up traditional physical labs.",
-          "Feasibility of Ecological Financing: This strategy no longer relies solely on government grants. By combining HRD Corp support, transnational scholarships and corporate sponsorship, the costs are shared with the beneficiaries, which offers strong commercial sustainability.",
-          "ESG Integration: The training process itself is digital and low-carbon, and the core curriculum includes how to achieve precise carbon reduction through Industry 4.0 technologies. This makes trained talent the company's future 'green transformation drivers'."
+          "**Long-term assetisation**: Although the initial cost of building a virtual twin platform is high, digital assets do not wear out and are highly scalable. Once built, the marginal cost of training ten thousand learners will be far lower than setting up traditional physical labs.",
+          "**Feasibility of Ecological Financing**: This strategy no longer relies solely on government grants. By combining HRD Corp support, transnational scholarships and corporate sponsorship, the costs are shared with the beneficiaries, which offers strong commercial sustainability.",
+          "**ESG Integration**: The training process itself is digital and low-carbon, and the core curriculum includes how to achieve precise carbon reduction through Industry 4.0 technologies. This makes trained talent the company's future 'green transformation drivers'."
         ],
         risksAndGaps: [
-          "Cost and calibration challenges: The initial costs for architecture setup and expert consultancy are a significant financial burden. Furthermore, if the Indian models are not fully compatible with Malaysian hardware, the cost of secondary development could exceed the budget.",
-          "Risk of Simulation Distortion: If the virtual environment fails to synchronise with real production parameters promptly, those trained as 'architects' may struggle when facing physical production lines."
+          "**Cost and calibration challenges**: The initial costs for architecture setup and expert consultancy are a significant financial burden. Furthermore, if the Indian models are not fully compatible with Malaysian hardware, the cost of secondary development could exceed the budget.",
+          "**Risk of Simulation Distortion**: If the virtual environment fails to synchronise with real production parameters promptly, those trained as 'architects' may struggle when facing physical production lines."
         ]
       },
       type: 'standard',
       fullBlueprint: [
         { section: "The Idea", content: "Using DDF simulation architecture, Malaysian technicians can train locally through immersive digital environments to become Industry 4.0 architects rather than operators." },
         { section: "Step 1: Develop a high-precision digital base (digital twin architecture)", content: [
-          "Implementation actions: Invest dedicated funds and invite HUL DDF architects to collaborate with local system integrators in developing customised digital twin platforms for Malaysia's key industries, such as semiconductors and food processing.",
-          "Technical details: Build virtual production line models and integrate real-time production data to allow trainees to access cutting-edge industrial standards in a virtual environment."
+          "**Implementation actions**: Invest dedicated funds and invite HUL DDF architects to collaborate with local system integrators in developing customised digital twin platforms for Malaysia's key industries, such as semiconductors and food processing.",
+          "**Technical details**: Build virtual production line models and integrate real-time production data to allow trainees to access cutting-edge industrial standards in a virtual environment."
         ]},
         { section: "Step 2: Malaysia-India Expert 'Cloud Mentorship' (Remote Expert Mentorship)", content: [
-          "Implementation actions: Hire senior engineers from HUL India as 'digital mentors' to provide remote mentorship through simulation systems.",
-          "Operational logic: Although expert consultation fees are expensive, cloud collaboration avoids the travel costs associated with large-scale personnel movements between Malaysia and India."
+          "**Implementation actions**: Hire senior engineers from HUL India as 'digital mentors' to provide remote mentorship through simulation systems.",
+          "**Operational logic**: Although expert consultation fees are expensive, cloud collaboration avoids the travel costs associated with large-scale personnel movements between Malaysia and India."
         ]},
         { section: "Step 3: Virtual Sandbox & Stress Testing", content: [
-          "Implementation actions: Trainees simulate extreme situations in the virtual system, such as equipment wear warnings and production scheduling optimisation.",
-          "Core value: The virtual system enables trainees to experiment without damaging expensive physical assets (CAPEX) and gain experience in handling complex industrial logic."
+          "**Implementation actions**: Trainees simulate extreme situations in the virtual system, such as equipment wear warnings and production scheduling optimisation.",
+          "**Core value**: The virtual system enables trainees to experiment without damaging expensive physical assets (CAPEX) and gain experience in handling complex industrial logic."
         ]},
-        { section: "Step 4: Localisation & Train-the-Trainer", content: "Implementation actions: Adapting mature Indian models to Malaysian local factory hardware (e.g. different brands of PLC controllers). The long-term goal is to cultivate the first batch of local 'digital trainers' to ensure the training system can iterate independently." },
+        { section: "Step 4: Localisation & Train-the-Trainer", content: "**Implementation actions**: Adapting mature Indian models to Malaysian local factory hardware (e.g. different brands of PLC controllers). The long-term goal is to cultivate the first batch of local 'digital trainers' to ensure the training system can iterate independently." },
         { section: "Funding and Financing Strategy", content: [
           "To hedge against the high initial construction costs (CAPEX), I recommend the following three channels of ecological financing:",
-          "1. Government Fund Support (HRD Corp): MyMahir should actively apply to have this project included in HRD Corp's approved training list. Funds can be recirculated from training levies paid by enterprises, thereby reducing the direct financial burden on participating companies.",
-          "2. Bilateral scholarships: Based on the 11 Memoranda of Understanding (MoUs) signed between Malaysia and India, the governments of both countries are recommended to jointly establish the \"Malaysia-India Digital Manufacturing Scholarship\", specifically to subsidise high software licensing and Indian expert consultancy fees.",
-          "3. Corporate Sponsorship & Talent Loop: Large manufacturing companies in Malaysia (such as semiconductor and FMCG giants) should be attracted to sponsor hardware equipment or digital model construction costs. In return, sponsoring companies will gain priority hiring rights for these 'Industry 4.0 architects', creating a virtuous cycle of funds and talent."
+          "**1. Government Fund Support (HRD Corp)**: MyMahir should actively apply to have this project included in HRD Corp's approved training list. Funds can be recirculated from training levies paid by enterprises, thereby reducing the direct financial burden on participating companies.",
+          "**2. Bilateral scholarships**: Based on the 11 Memoranda of Understanding (MoUs) signed between Malaysia and India, the governments of both countries are recommended to jointly establish the \"Malaysia-India Digital Manufacturing Scholarship\", specifically to subsidise high software licensing and Indian expert consultancy fees.",
+          "**3. Corporate Sponsorship & Talent Loop**: Large manufacturing companies in Malaysia (such as semiconductor and FMCG giants) should be attracted to sponsor hardware equipment or digital model construction costs. In return, sponsoring companies will gain priority hiring rights for these 'Industry 4.0 architects', creating a virtuous cycle of funds and talent."
         ]}
       ]
     },
@@ -174,53 +173,38 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       id: 'shakti',
       title: 'Circularity-as-a-Service Platform (CaaS Platform)',
       icon: Network,
-      idea: "A digitally enabled, service-based infrastructure targeting Malaysia’s last-mile recycling gap. It integrates Project Shakti’s inclusive entrepreneurship with Project Circular Bharat’s systemic circularity to empower B40 women and informal collectors.",
+      idea: "The CaaS Platform is a modular ecosystem built on community nodes and digital systems, providing on-demand circular economy services. Inspired by Project Shakti, it places B40 women and informal waste collectors at the core of operations, ensuring that environmental sustainability is achieved alongside grassroots economic empowerment and social inclusion.",
       operation: "A modular ecosystem delivering circularity as an on-demand service through community nodes, digital weighing systems, and integrated logistics networks.",
       auditNote: {
         constructiveness: [
-          "Identity Transformation: Informal collectors become certified logistics partners; B40 women become digital resource managers.",
-          "Internalized Incentive Mechanism: LC-SF exchange savings fund the incentive pool, solving long-term financing sustainability.",
-          "Digital Upgrade of Social Governance: Represents a shift to data-informed community service."
+          "**Identity Transformation**: Informal collectors become certified logistics partners; B40 women become digital resource managers.",
+          "**Internalized Incentive Mechanism**: LC-SF exchange savings fund the incentive pool, solving long-term financing sustainability.",
+          "**Digital Upgrade of Social Governance**: Represents a shift to data-informed community service."
         ],
         risksAndGaps: [
-          "Baseline Data Gap: Lack of historical carbon footprint data limits quantification of emission reductions from logistics optimization.",
-          "Human Insight Gap: Quality-of-life improvement estimates remain theoretical due to absence of dedicated field surveys.",
-          "Policy Overlap Risk: Potential conflicts with state initiatives such as Negeri Sembilan’s KITARecycle program."
+          "**Baseline Data Gap**: Lack of historical carbon footprint data limits quantification of emission reductions from logistics optimization.",
+          "**Human Insight Gap**: Quality-of-life improvement estimates remain theoretical due to absence of dedicated field surveys.",
+          "**Policy Overlap Risk**: Potential conflicts with state initiatives such as Negeri Sembilan’s KITARecycle program."
         ]
       },
       type: 'shakti',
       fullBlueprint: [
-        { section: "The Idea", content: "In Malaysia’s highly urbanized market, retail giants such as 99 Speedmart dominate distribution channels, leaving limited structural space for HUL’s original retail-based Shakti model to scale.\n\nTo address this constraint, this study integrates the inclusive entrepreneurship model of Project Shakti with the systemic circularity framework of Project Circular Bharat, redesigning them into a Circularity-as-a-Service Platform (CaaS Platform)—a digitally enabled, service-based infrastructure targeting Malaysia’s last-mile recycling gap." },
+        { section: "The Idea", content: "In Malaysia’s highly urbanized market, retail giants such as 99 Speedmart dominate distribution channels, leaving limited structural space for HUL’s original retail-based Shakti model to scale.\n\nTo address this constraint, this study integrates the inclusive entrepreneurship model of Project Shakti with the systemic circularity framework of Project Circular Bharat, redesigning them into a **Circularity-as-a-Service Platform (CaaS Platform)**—a digitally enabled, service-based infrastructure targeting Malaysia’s **last-mile recycling gap**.\n\nThe CaaS Platform is a modular ecosystem built on community nodes and digital systems, providing on-demand circular economy services. Inspired by Project Shakti, it places B40 women and informal waste collectors at the core of operations, ensuring that environmental sustainability is achieved alongside grassroots economic empowerment and social inclusion." },
         { section: "Context Premise", content: [
           "Before the operational workflow begins, the model assumes an active participation loop from residents:",
           "Residents bring pre-sorted household waste—particularly high-value recyclables (e.g., aluminium cans) and low-value but highly polluting waste (e.g., multi-layer plastic packaging).",
           "Waste is delivered either to the B40 member’s home, or a designated community micro-collection point.",
           "This premise establishes the physical entry point of materials into the CaaS Platform ecosystem, forming the foundation of a decentralized circular network."
         ]},
-        { section: "Scenario 1: Community Collection and ESG Ambassador Function", content: [
-          "Digital Weighing & Verification: B40 female members use Bluetooth-connected smart scales. Data is automatically recorded in the CaaS Platform App, ensuring transparency, traceability, and audit-ready ESG data.",
-          "Household ESG Diagnostic Service: The platform analyzes historical disposal data. When abnormal patterns are detected (e.g., excessive plastic usage), members provide data-informed 'Green Diagnostic Advice' (e.g., recommending bulk purchasing over small packaging).",
-          "Value Interpretation: Transforms B40 members from collectors into community ESG service providers, embedding behavioral change mechanisms directly into recycling flows."
-        ]},
-        { section: "Scenario 2: Logistics Integration and Value Creation", content: [
-          "Inventory Trigger at Community Micro-Centers: When stock reaches a predefined threshold (e.g., 50 kg of finely sorted plastics), the system automatically generates a pickup request and dispatches it to nearby contracted collectors.",
-          "Efficient Collection: Collectors no longer roam neighborhoods searching for waste; platform navigation directs them to precise micro-centers. Pre-sorted waste eliminates on-site sorting time.",
-          "Premium Settlement: Materials delivered to processors (e.g., HHI) are classified as high-purity recyclables, commanding higher resale prices. Incremental value is distributed across the platform, collectors, and B40 members."
-        ]},
-        { section: "Scenario 3: Financial Incentives and Circular Benefits", content: [
-          "Carbon Reduction Data Generation: Emission reductions across the recycling lifecycle are recorded within the platform. Corporations utilize this data for ESG reporting and compliance.",
-          "Dividend Injection via LC-SF Mechanism: Under Malaysia–India agreements, bilateral trade adopts local currency settlement. Exchange-rate savings are channeled into the CaaS Platform Incentive Fund.",
-          "End-User Benefits: B40 members receive management commissions; Collectors receive efficiency-based subsidies; Residents earn recycling points redeemable for green products with dual-layer incentives."
-        ]},
         { section: "Core Revenue Mechanisms", content: [
-          "B40 Female Members: Management Commission (percentage fee based on total community recycling volume) and Digital Consulting Fee (small service fee for household ESG diagnostics).",
-          "Independent Collectors: Efficiency Incentive (reduced fuel costs and higher hourly productivity), Compliance Subsidy (eligible for green financial rewards), and Backend Premium (pre-sorted waste commands significantly higher resale prices)."
+          "**B40 Female Members**: Management Commission (percentage fee based on total community recycling volume) and Digital Consulting Fee (small service fee for household ESG diagnostics).",
+          "**Independent Collectors**: Efficiency Incentive (reduced fuel costs and higher hourly productivity), Compliance Subsidy (eligible for green financial rewards), and Backend Premium (pre-sorted waste commands significantly higher resale prices)."
         ]},
         { section: "Stakeholder Value", content: [
-          "B40 Women: Digital workforce + ESG micro-entrepreneurs",
-          "Logistics Partners: Transition into formalized green logistics operators",
-          "Corporations: Access to traceable, compliant recycled inputs",
-          "Government: Accelerated Net Zero pathway + system-level ESG adoption"
+          "**B40 Women**: Digital workforce + ESG micro-entrepreneurs",
+          "**Logistics Partners**: Transition into formalized green logistics operators",
+          "**Corporations**: Access to traceable, compliant recycled inputs",
+          "**Government**: Accelerated Net Zero pathway + system-level ESG adoption"
         ] }
       ]
     }
@@ -230,43 +214,42 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       id: 'lcsf',
       title: 'LC-SF Supply Chain Optimization',
       icon: TrendingUp,
-      idea: "A financial engine leveraging local-currency settlements to reward ESG compliance with exchange-rate premiums, driving a self-sustaining green trade corridor between Malaysia and India.",
+      idea: "A financial engine leveraging local-currency settlements to reward ESG compliance with **exchange-rate premiums**, driving a self-sustaining green trade corridor between Malaysia and India.",
       operation: "A four-step circular incentive loop: Digital assetization of compliance, LC-SF trade execution (1-3% savings), 'Green Premium' injection via preferential rates, and dynamic re-investment into hardware subsidies.",
       auditNote: {
         constructiveness: [
-          "Monetizing Compliance: Provides an immediate, tangible financial reward for MSPO/RSPO certification, solving the 'Smallholder ESG Dilemma'.",
-          "Systemic Synergy: Acts as the 'connective tissue' between agriculture and waste management by using a unified financial engine (LC-SF).",
-          "Resilience against Global Volatility: Shields small-scale producers from USD fluctuations, providing more stable income for B40 communities."
+          "**Monetizing Compliance**: Provides an immediate, tangible financial reward for MSPO/RSPO certification, solving the 'Smallholder ESG Dilemma'.",
+          "**Systemic Synergy**: Acts as the 'connective tissue' between agriculture and waste management by using a unified financial engine (LC-SF).",
+          "**Resilience against Global Volatility**: Shields small-scale producers from USD fluctuations, providing more stable income for B40 communities."
         ],
         risksAndGaps: [
-          "Production Volatility Risk: If agricultural yields drop due to climate events, the total volume of LC-SF trade may shrink, reducing the 'Incentive Pool'.",
-          "Data Integrity Gap: System is only as good as the data from RAP and CaaS Platform; requires rigorous digital auditing to prevent 'fake' green production.",
-          "Adoption Friction: Moving away from USD-based trade requires significant buy-in from commercial banks and procurement departments."
-        ],
-        recommendation: "This framework represents a shift from 'Punitive ESG' (fining those who fail) to 'Incentive ESG' (rewarding those who lead) by utilizing de-dollarization to fund the green transition."
+          "**Production Volatility Risk**: If agricultural yields drop due to climate events, the total volume of LC-SF trade may shrink, reducing the 'Incentive Pool'.",
+          "**Data Integrity Gap**: System is only as good as the data from RAP and CaaS Platform; requires rigorous digital auditing to prevent 'fake' green production.",
+          "**Adoption Friction**: Moving away from USD-based trade requires significant buy-in from commercial banks and procurement departments."
+        ]
       },
       type: 'standard',
       fullBlueprint: [
-        { section: "The Idea", content: "The core objective is to dismantle the 'Compliance vs. Cost' trade-off. Historically, ESG compliance (like MSPO or plastic tracing) adds costs that smallholders and SMEs cannot absorb.\n\nI propose a Green Exchange Rate Premium. By utilizing the Malaysia-India Local Currency Settlement (LC-SF) framework to bypass the US Dollar, the transaction savings (reduced hedging costs and exchange fees) are captured and redistributed as a 'De-dollarization Dividend.'\n\nThis dividend is paid exclusively to supply chain participants who meet verifiable ESG standards, essentially making 'Sustainability' a currency of its own." },
-        { section: "Blueprint Operation: The Circular Incentive Loop", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle that directly connects to the RAP and CaaS Platform data streams:" },
+        { section: "The Idea", content: "The core objective is to dismantle the 'Compliance vs. Cost' trade-off. Historically, ESG compliance (like MSPO or plastic tracing) adds costs that smallholders and SMEs cannot absorb.\n\nI propose a **Green Exchange Rate Premium**. By utilizing the Malaysia-India Local Currency Settlement (LC-SF) framework to bypass the US Dollar, the transaction savings (reduced hedging costs and exchange fees) are captured and redistributed as a **'De-dollarization Dividend.'**\n\nThis dividend is paid exclusively to supply chain participants who meet verifiable ESG standards, essentially making 'Sustainability' a currency of its own." },
+        { section: "Blueprint Operation: The Circular Incentive Loop", content: "To ensure the system is audit-grade and integrated, the operation follows a four-step cycle that directly connects to the **RAP** and **CaaS Platform** data streams:" },
         { section: "Step 1: Digital Assetization of Compliance (Input from RAP & CaaS Platform)", content: [
           "The system recognizes 'Green Assets' generated by the other two programs.",
-          "From RAP: Automated MSPO production records of palm oil smallholders.",
-          "From CaaS Platform: Verified volumes of high-purity recycled plastic collected by B40 managers.",
-          "Action: These digital certificates are uploaded to a shared blockchain ledger between Malaysian and Indian trade banks."
+          "**From RAP**: Automated MSPO production records of palm oil smallholders.",
+          "**From CaaS Platform**: Verified volumes of high-purity recycled plastic collected by B40 managers.",
+          "**Action**: These digital certificates are uploaded to a shared blockchain ledger between Malaysian and Indian trade banks."
         ] },
         { section: "Step 2: LC-SF Trade Execution (The Savings Catalyst)", content: [
-          "When an Indian corporation (e.g., HUL) purchases raw materials from a Malaysian supplier, the transaction is settled in MYR/INR via the LC-SF mechanism.",
-          "Action: By bypassing the USD intermediary, the transaction realizes a 1%–3% saving in conversion and administrative overhead."
+          "When an Indian corporation (e.g., HUL) purchases raw materials from a Malaysian supplier, the transaction is settled in **MYR/INR** via the LC-SF mechanism.",
+          "**Action**: By bypassing the USD intermediary, the transaction realizes a 1%–3% saving in conversion and administrative overhead."
         ] },
         { section: "Step 3: The 'Green Premium' Injection (The Incentive)", content: [
-          "The saved transaction costs are funneled into a Bilateral Green Fund.",
-          "Action: Suppliers who provided the 'Green Assets' from Step 1 receive a Preferential Exchange Rate or a direct Exchange Rate Subsidy.",
+          "The saved transaction costs are funneled into a **Bilateral Green Fund**.",
+          "**Action**: Suppliers who provided the 'Green Assets' from Step 1 receive a **Preferential Exchange Rate** or a direct **Exchange Rate Subsidy**.",
           "For a palm oil farmer in the RAP program, this means receiving a higher MYR payout per ton compared to non-compliant neighbors."
         ] },
         { section: "Step 4: Dynamic Re-investment (The Circularity)", content: [
-          "A portion of the LC-SF savings is allocated to subsidize the IoT hardware costs for new farmers joining the RAP platform or smart scales for the CaaS Platform network.",
-          "Action: This reduces the CAPEX barrier for new participants, scaling the ESG network without relying on permanent government handouts."
+          "A portion of the LC-SF savings is allocated to subsidize the **IoT hardware costs** for new farmers joining the RAP platform or **smart scales** for the CaaS Platform network.",
+          "**Action**: This reduces the CAPEX barrier for new participants, scaling the ESG network without relying on permanent government handouts."
         ] }
       ]
     },
@@ -278,29 +261,29 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       operation: "Collaborate with MPOB to deploy IoT sensors and satellite sensing, delivering precision advisory via WhatsApp and linking to LC-SF incentives.",
       auditNote: {
         constructiveness: [
-          "Compliance automation: The 'MSPO Automated Compliance Audit' feature in the four-step strategy is brilliant. It transforms the originally high-threshold certification process into a 'by-product' of daily production, greatly lowering the entry barrier for small farmers.",
-          "Technology penetration: By providing precise instructions via WhatsApp, the complex app learning curve is bypassed, representing a typical application of 'appropriate technology'."
+          "**Compliance automation**: The 'MSPO Automated Compliance Audit' feature in the four-step strategy is brilliant. It transforms the originally high-threshold certification process into a 'by-product' of daily production, greatly lowering the entry barrier for small farmers.",
+          "**Technology penetration**: By providing precise instructions via WhatsApp, the complex app learning curve is bypassed, representing a typical application of 'appropriate technology'."
         ],
         risksAndGaps: [
-          "Hardware deployment cost: Deploying IoT sensors on pilot smallholder plots requires an initial capital investment. Without large-scale government subsidies, the financial model puts pressure on small farmers.",
-          "Agricultural forecast accuracy: The accuracy of AI agricultural advisors' predictions depends on localised soil models, and there may be errors in the early stages of the project."
+          "**Hardware deployment cost**: Deploying IoT sensors on pilot smallholder plots requires an initial capital investment. Without large-scale government subsidies, the financial model puts pressure on small farmers.",
+          "**Agricultural forecast accuracy**: The accuracy of AI agricultural advisors' predictions depends on localised soil models, and there may be errors in the early stages of the project."
         ]
       },
       type: 'rap',
       fullBlueprint: [
         { section: "The Idea", content: "The establishment of a 'Digital Regenerative Agriculture Platform' should be a collaborative effort between Malaysia and India. The core of this platform is not merely a mobile app, but an ecosystem of 'technology empowerment + benefit bundling,' which utilises HUL's Regenerative Agriculture technology to address the low yield and compliance difficulties (MSPO) faced by Malaysian palm oil smallholders." },
         { section: "Step 1 : Assetisation of underlying data (sensors + remote sensing)", content: [
-          "Implementation: Collaborate with the Malaysian Palm Oil Board (MPOB) to install low-cost IoT sensors on selected pilot smallholder plots to monitor soil pH, moisture and the content of nitrogen, phosphorus and potassium.",
-          "HUL technology introduction: Introduce the Regenerative Agriculture Principles (RAP) model mentioned in HUL reports, using satellite remote sensing to monitor vegetation coverage and identify yield gap points caused by soil degradation."
+          "**Implementation**: Collaborate with the Malaysian Palm Oil Board (MPOB) to install low-cost IoT sensors on selected pilot smallholder plots to monitor soil pH, moisture and the content of nitrogen, phosphorus and potassium.",
+          "**HUL technology introduction**: Introduce the Regenerative Agriculture Principles (RAP) model mentioned in HUL reports, using satellite remote sensing to monitor vegetation coverage and identify yield gap points caused by soil degradation."
         ]},
         { section: "Step 2: Precision agriculture command system (AI agricultural technician)", content: [
-          "Implementation: Build AI prediction models. Based on sensor feedback, the platform will directly send 'precision instructions' to smallholders via WhatsApp or a simple app. These instructions will be in the form of recommendations such as: 'It will rain within the next 48 hours. It is recommended that you fertilise today to maximise the efficiency of the fertiliser.' or 'Based on soil moisture levels, it is recommended that you delay harvesting to improve the oil content.'",
-          "Constructive impact: This solves the problem of smallholders 'planting based on experience', reducing resource waste and increasing yield."
+          "**Implementation**: Build AI prediction models. Based on sensor feedback, the platform will directly send 'precision instructions' to smallholders via WhatsApp or a simple app. These instructions will be in the form of recommendations such as: 'It will rain within the next 48 hours. It is recommended that you fertilise today to maximise the efficiency of the fertiliser.' or 'Based on soil moisture levels, it is recommended that you delay harvesting to improve the oil content.'",
+          "**Constructive impact**: This solves the problem of smallholders 'planting based on experience', reducing resource waste and increasing yield."
         ]},
-        { section: "Step 3: Local Currency Settlement (LC-SF) Linked to Incentives", content: "Implementation Action: Connect the platform to Malaysia's local currency settlement mechanism. Farmers who meet the standards for regenerative agriculture (for example, using bio-fertilisers and achieving carbon sequestration targets) can get an exchange rate bonus subsidy based on savings from LC-SF when they sell their palm fruit (FFB) to factories." },
+        { section: "Step 3: Local Currency Settlement (LC-SF) Linked to Incentives", content: "**Implementation Action**: Connect the platform to Malaysia's local currency settlement mechanism. Farmers who meet the standards for regenerative agriculture (for example, using bio-fertilisers and achieving carbon sequestration targets) can get an exchange rate bonus subsidy based on savings from LC-SF when they sell their palm fruit (FFB) to factories." },
         { section: "Step 4: MSPO Automated Compliance Audit", content: [
-          "Implementation action: The platform automatically generates digital production records. When applying for MSPO certification, small farmers no longer need cumbersome handwritten ledgers and can export data with one click, significantly reducing certification costs and thresholds.",
-          "Value proposition: This platform addresses the issue for small farmers of wanting to engage in ESG activities but lacking the necessary technology or receiving no rewards for doing so."
+          "**Implementation action**: The platform automatically generates digital production records. When applying for MSPO certification, small farmers no longer need cumbersome handwritten ledgers and can export data with one click, significantly reducing certification costs and thresholds.",
+          "**Value proposition**: This platform addresses the issue for small farmers of wanting to engage in ESG activities but lacking the necessary technology or receiving no rewards for doing so."
         ]}
       ]
     }
@@ -381,13 +364,15 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                           return (
                             <div key={j} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
                               <div className="w-1.5 h-1.5 rounded-full bg-corporate-blue mt-2 shrink-0" />
-                              <span>{line}</span>
+                              <ReactMarkdown components={{ p: ({node, ...props}) => <span {...props} /> }}>{line}</ReactMarkdown>
                             </div>
                           );
                         })}
                       </div>
                     ) : (
-                      <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-wrap">{bp.content}</p>
+                      <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-wrap">
+                        <ReactMarkdown>{bp.content as string}</ReactMarkdown>
+                      </div>
                     )}
                   </div>
                 ))}
@@ -420,7 +405,7 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                     {(Array.isArray(note.constructiveness) ? note.constructiveness : [note.constructiveness]).map((point, i) => (
                       <div key={i} className="flex items-start gap-2 text-sm text-slate-600 leading-relaxed italic">
                         <div className="w-1 h-1 rounded-full bg-[#10B981] mt-2 shrink-0" />
-                        <span>"{point}"</span>
+                        <ReactMarkdown components={{ p: ({node, ...props}) => <span {...props} /> }}>{`"${point}"`}</ReactMarkdown>
                       </div>
                     ))}
                   </div>
@@ -435,7 +420,7 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                     {(Array.isArray(note.risksAndGaps) ? note.risksAndGaps : [note.risksAndGaps]).map((point, i) => (
                       <div key={i} className="flex items-start gap-2 text-sm text-slate-600 leading-relaxed italic">
                         <div className="w-1 h-1 rounded-full bg-[#F59E0B] mt-2 shrink-0" />
-                        <span>"{point}"</span>
+                        <ReactMarkdown components={{ p: ({node, ...props}) => <span {...props} /> }}>{`"${point}"`}</ReactMarkdown>
                       </div>
                     ))}
                   </div>
@@ -447,7 +432,9 @@ const AuditNote = ({ item, isOpen, onClose }: { item: RoadmapItem | null; isOpen
                       <ArrowRight size={18} />
                       <span className="font-bold text-xs uppercase tracking-wider">Recommendation</span>
                     </div>
-                    <p className="text-sm text-slate-600 leading-relaxed italic">"{note.recommendation}"</p>
+                    <div className="text-sm text-slate-600 leading-relaxed italic">
+                      <ReactMarkdown components={{ p: ({node, ...props}) => <span {...props} /> }}>{`"${note.recommendation}"`}</ReactMarkdown>
+                    </div>
                   </div>
                 )}
 
@@ -731,7 +718,9 @@ export default function RoadmapSection() {
                       <div className="space-y-4">
                         <div className="space-y-1">
                           <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">The Idea</span>
-                          <p className="text-slate-600 leading-relaxed">{item.idea}</p>
+                          <div className="text-slate-600 leading-relaxed">
+                            <ReactMarkdown>{item.idea}</ReactMarkdown>
+                          </div>
                         </div>
                       </div>
 
