@@ -291,6 +291,66 @@ const SystemDiagnosisDashboard: React.FC = () => {
           </h2>
         </div>
 
+        {/* System Overview Content */}
+        <div className="mb-12 space-y-8 text-stone-600">
+          <p className="text-stone-700 font-medium leading-relaxed">
+            This system simulates how supplier adoption drives Scope 3 emission reduction over time (2025–2035).
+          </p>
+
+          <div className="border-t border-stone-200 pt-8">
+            <h4 className="text-sm font-bold text-corporate-blue uppercase tracking-widest mb-6">System Logic</h4>
+            <p className="text-lg font-semibold text-stone-800 mb-6 italic">The model is structured as a single causal chain: Adoption → Reduction Share → Emission Outcome</p>
+            <ul className="space-y-4 text-base text-stone-700">
+              <li className="flex items-start gap-3">
+                <span className="text-corporate-blue font-bold text-lg">•</span>
+                <span>Supplier adoption follows a non-linear (S-curve) growth pattern</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-corporate-blue font-bold text-lg">•</span>
+                <span>Reduction scales proportionally with adoption</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-corporate-blue font-bold text-lg">•</span>
+                <span>Emissions decline as adoption increases</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="border-t border-stone-200 pt-8">
+            <h4 className="text-sm font-bold text-corporate-blue uppercase tracking-widest mb-6">What the Model Shows</h4>
+            <ul className="space-y-4 text-base text-stone-700">
+              <li className="flex items-start gap-3">
+                <span className="text-corporate-blue font-bold text-lg">•</span>
+                <span>Emission reduction is highly sensitive to adoption levels</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-corporate-blue font-bold text-lg">•</span>
+                <span>Adoption creates non-linear acceleration effects</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-corporate-blue font-bold text-lg">•</span>
+                <span>Over time, adoption becomes the dominant driver of decarbonization</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="border-t border-stone-200 pt-8">
+            <h4 className="text-sm font-bold text-corporate-blue uppercase tracking-widest mb-4">Key Insight</h4>
+            <p className="text-xl font-bold text-stone-900 bg-stone-100 p-8 rounded-2xl border-l-8 border-corporate-blue leading-tight shadow-sm">
+              Scope 3 decarbonization is not constrained by internal capability, but by the ability to scale supplier participation.
+            </p>
+          </div>
+
+          <div className="border-t border-stone-200 pt-8 text-sm text-stone-500 leading-relaxed">
+            <p className="font-bold text-stone-700 uppercase tracking-widest mb-3">Note</p>
+            <p className="mb-1">This is a normalized simulation illustrating system behavior.</p>
+            <p className="mb-3">Values are indicative and do not represent actual reported emissions.</p>
+            <p className="mt-4 italic text-stone-400">
+              * The complete methodology for each model can be found in the "Report Appendix and Log PDF", which can be downloaded from the "Report Appendix and Log" page.
+            </p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* 1. Adoption Curve */}
           <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100 transition-all duration-300 flex flex-col">
@@ -345,49 +405,7 @@ const SystemDiagnosisDashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. Emission Trajectory */}
-          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100 transition-all duration-300 flex flex-col">
-            <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6 h-10 flex items-center">
-              Emission Trajectory (Baseline vs Modeled)
-            </h3>
-            <div className="h-[250px] pointer-events-none">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart 
-                  data={adoptionData} 
-                  syncId="adoptionImpact"
-                  margin={{ top: 10, right: 30, left: 0, bottom: 20 }}
-                >
-                  <XAxis 
-                    dataKey="year" 
-                    label={{ value: 'Year', position: 'insideBottomRight', offset: -10, fontSize: 10, fill: '#78716c' }}
-                    tick={{ fontSize: 10 }}
-                  />
-                  <YAxis 
-                    label={{ value: 'Emissions (MT)', angle: -90, position: 'insideLeft', offset: 15, fontSize: 10, fill: '#78716c' }}
-                    tick={{ fontSize: 10 }}
-                  />
-                  
-                  <Tooltip 
-                    cursor={false}
-                    formatter={(value: any, name: string) => [value, `${name} (MT)`]}
-                  />
-
-                  {hoveredYear && (
-                    <ReferenceLine
-                      x={hoveredYear}
-                      stroke="#78716c"
-                      strokeDasharray="3 3"
-                    />
-                  )}
-
-                  <Line name="Baseline" dataKey="baseline" stroke="#A0A0A0" strokeDasharray="5 5" dot={false} />
-                  <Line name="Modeled" dataKey="modeled" stroke="#FF4D4F" dot={false} />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-
-          {/* 3. Reduction Contribution */}
+          {/* 2. Reduction Contribution */}
           <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100 transition-all duration-300 flex flex-col">
             <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6 h-10 flex items-center">
               Reduction Contribution (Share %)
@@ -428,57 +446,46 @@ const SystemDiagnosisDashboard: React.FC = () => {
               </ResponsiveContainer>
             </div>
           </div>
-        </div>
 
-        {/* Interpretation Box for 2.2B */}
-        <div className="mt-12 bg-stone-50 rounded-3xl border border-stone-200 overflow-hidden divide-y divide-stone-200">
-          {/* 1. Model Description */}
-          <div className="p-8">
-            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">Model Description</h3>
-            <div className="space-y-4 text-stone-700 font-medium leading-relaxed">
-              <p>
-                This model conceptualizes Scope 3 decarbonization as a system-level process, where emission reduction is primarily enabled through supplier participation rather than internal operational improvements.
-              </p>
-              <p>
-                It demonstrates that supplier adoption functions as the transmission mechanism through which ESG strategies translate into measurable emission outcomes.
-              </p>
-            </div>
-          </div>
+          {/* 3. Emission Trajectory */}
+          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100 transition-all duration-300 flex flex-col">
+            <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6 h-10 flex items-center">
+              Emission Trajectory (Baseline vs Modeled)
+            </h3>
+            <div className="h-[250px] pointer-events-none">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart 
+                  data={adoptionData} 
+                  syncId="adoptionImpact"
+                  margin={{ top: 10, right: 30, left: 0, bottom: 20 }}
+                >
+                  <XAxis 
+                    dataKey="year" 
+                    label={{ value: 'Year', position: 'insideBottomRight', offset: -10, fontSize: 10, fill: '#78716c' }}
+                    tick={{ fontSize: 10 }}
+                  />
+                  <YAxis 
+                    label={{ value: 'Emissions (MT)', angle: -90, position: 'insideLeft', offset: 15, fontSize: 10, fill: '#78716c' }}
+                    tick={{ fontSize: 10 }}
+                  />
+                  
+                  <Tooltip 
+                    cursor={false}
+                    formatter={(value: any, name: string) => [value, `${name} (MT)`]}
+                  />
 
-          {/* 2. Model Objective */}
-          <div className="p-8 bg-white/50">
-            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">Model Objective</h3>
-            <p className="text-stone-700 font-medium leading-relaxed">
-              To evaluate the extent to which supplier ESG adoption determines the effectiveness of Scope 3 emission reduction.
-            </p>
-          </div>
+                  {hoveredYear && (
+                    <ReferenceLine
+                      x={hoveredYear}
+                      stroke="#78716c"
+                      strokeDasharray="3 3"
+                    />
+                  )}
 
-          {/* 3. Key Observation */}
-          <div className="p-8">
-            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6">Key Observation</h3>
-            <ul className="space-y-4 text-stone-600 leading-relaxed">
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" />
-                <span>Emission reduction is highly dependent on supplier participation levels</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" />
-                <span>Adoption follows a non-linear pattern, with acceleration after a critical threshold</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* 4. Insight */}
-          <div className="p-8 bg-indigo-600 text-white">
-            <h3 className="text-xs font-bold opacity-60 uppercase tracking-widest mb-6">Insight</h3>
-            <div className="space-y-6">
-              <p className="text-lg font-light leading-snug">
-                Supplier adoption is not a supporting factor, but the <span className="font-bold text-white">primary constraint on Scope 3 decarbonization</span>.
-              </p>
-              <div className="h-px bg-white/20 w-12" />
-              <p className="opacity-90 leading-relaxed">
-                Without sufficient ecosystem participation, even well-designed ESG systems cannot deliver meaningful emission reduction.
-              </p>
+                  <Line name="Baseline" dataKey="baseline" stroke="#A0A0A0" strokeDasharray="5 5" dot={false} />
+                  <Line name="Modeled" dataKey="modeled" stroke="#FF4D4F" dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </div>
