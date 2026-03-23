@@ -93,26 +93,32 @@ export default function ConclusionRoadmapSection() {
         <motion.section variants={itemVariants} className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-stone-100 relative overflow-hidden">
           <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-stone-50 rounded-full" />
           
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-1 space-y-6">
-              <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
-                <Layers size={28} />
-              </div>
-              <h3 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-6 leading-tight">
+          <div className="relative z-10 space-y-12">
+            {/* Title */}
+            <div className="space-y-6">
+              <h3 className="text-4xl md:text-5xl font-bold text-corporate-blue leading-tight">
                 Section 4.1: <br />
                 ESG Ecosystem Scaling
               </h3>
-              <p className="text-lg text-stone-600 leading-relaxed">
+              <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
+                <Layers size={28} />
+              </div>
+            </div>
+
+            {/* Paragraph Content */}
+            <div className="space-y-6 max-w-4xl">
+              <p className="text-xl text-stone-600 leading-relaxed">
                 This report reframes ESG from a compliance function into a <span className="text-blue-600 font-bold">scalable ecosystem supported by interconnected platforms</span>.
               </p>
-              <p className="text-sm text-stone-500 italic">
+              <p className="text-lg text-stone-500 italic leading-relaxed">
                 The strategies outlined in Section 3—including the CaaS Platform, Digital Regenerative Agriculture Platform (RAP), and LC-SF-enabled supply chain mechanisms—demonstrate how ESG objectives can be operationalized through coordinated systems.
               </p>
             </div>
 
-            <div className="lg:col-span-2 space-y-6">
+            {/* Card 1: Enabling Conditions */}
+            <div className="space-y-6">
               <p className="text-stone-400 font-bold uppercase tracking-widest text-xs">Enabling Conditions for Scaling the Ecosystem:</p>
-              <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
                   { title: "Institutional Coordination", desc: "Alignment across ministries, industry bodies, and bilateral platforms (e.g., Malaysia–India CSP)" },
                   { title: "Human Capital Development", desc: "Focusing on ESG-aligned TVET systems to build future-ready skills" },
@@ -128,39 +134,47 @@ export default function ConclusionRoadmapSection() {
                   </div>
                 ))}
               </div>
-              <div className="p-4 bg-blue-50 rounded-2xl border border-blue-100">
-                <p className="text-xs text-blue-800 italic text-center">
-                  Rather than immediate nationwide deployment, a <span className="font-bold">phased scaling approach</span> is recommended, where pilot outcomes inform iterative expansion.
-                </p>
-              </div>
+            </div>
+
+            {/* Card 2: Phased Scaling Note */}
+            <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100">
+              <p className="text-sm text-blue-800 italic text-center">
+                Rather than immediate nationwide deployment, a <span className="font-bold">phased scaling approach</span> is recommended, where pilot outcomes inform iterative expansion.
+              </p>
             </div>
           </div>
         </motion.section>
 
-        {/* 4.3 Industrial Transformation */}
+        {/* 4.2 Industrial Transformation */}
         <motion.section variants={itemVariants} className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-stone-100 relative overflow-hidden">
           <div className="absolute -right-20 -top-20 w-64 h-64 bg-stone-50 rounded-full" />
           
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-1 space-y-6">
-              <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center">
-                <Factory size={28} />
-              </div>
-              <h3 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-6 leading-tight">
+          <div className="relative z-10 space-y-12">
+            {/* Title */}
+            <div className="space-y-6">
+              <h3 className="text-4xl md:text-5xl font-bold text-corporate-blue leading-tight">
                 Section 4.2: <br />
                 Industrial Transformation
               </h3>
-              <p className="text-stone-600 leading-relaxed">
+              <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center">
+                <Factory size={28} />
+              </div>
+            </div>
+
+            {/* Paragraph Content */}
+            <div className="space-y-6 max-w-4xl">
+              <p className="text-xl text-stone-600 leading-relaxed">
                 Over time, the proposed roadmap supports a shift in Malaysia’s industrial positioning—from cost-based manufacturing to a <span className="text-amber-600 font-bold">digitally enabled, sustainability-driven production system</span>.
               </p>
-              <p className="text-sm text-stone-500 italic">
+              <p className="text-lg text-stone-500 italic leading-relaxed">
                 Insights from HUL indicate that ESG integration can enhance both efficiency and competitiveness when supported by digital infrastructure.
               </p>
             </div>
 
-            <div className="lg:col-span-2 space-y-6">
+            {/* Card 1: Key Transformation Priorities */}
+            <div className="space-y-6">
               <p className="text-stone-400 font-bold uppercase tracking-widest text-xs">Key transformation priorities include:</p>
-              <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
                   { title: "Resource Efficiency", desc: "Integrating resource efficiency technologies into manufacturing and agriculture" },
                   { title: "Supply Chain Capability", desc: "Strengthening ESG-linked supply chain capabilities in export-oriented sectors" },
@@ -177,10 +191,11 @@ export default function ConclusionRoadmapSection() {
                 ))}
               </div>
             </div>
-          </div>
 
-          <div className="mt-12 p-6 bg-stone-900 rounded-2xl text-white/70 text-sm text-center italic">
-            This transformation is inherently long-term and dependent on policy consistency, industry participation, and market dynamics. The roadmap should therefore be understood as a <span className="font-bold">strategic direction, not a fixed prescription.</span>
+            {/* Card 2: Strategic Direction Note */}
+            <div className="p-6 bg-stone-900 rounded-2xl text-white/70 text-sm text-center italic">
+              This transformation is inherently long-term and dependent on policy consistency, industry participation, and market dynamics. The roadmap should therefore be understood as a <span className="font-bold">strategic direction, not a fixed prescription.</span>
+            </div>
           </div>
         </motion.section>
 

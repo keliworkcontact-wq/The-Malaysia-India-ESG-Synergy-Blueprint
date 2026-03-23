@@ -23,7 +23,8 @@ export default function MacroBackgroundSection() {
           >
             <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
               Section 1.0: <br />
-              The Malaysia–India Strategic Alignment: A New Frontier for ESG Resilience
+              The Malaysia–India Strategic Alignment — <br />
+              A New Frontier for ESG Resilience
             </h1>
             <div className="h-1.5 w-24 bg-sustainability-green mx-auto rounded-full mb-8" />
           </motion.div>
@@ -119,136 +120,144 @@ export default function MacroBackgroundSection() {
 
           <div className="mt-12 text-center space-y-12">
             <p className="text-stone-600">Together, these factors signal a system-level opportunity for accelerated ESG development.</p>
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 inline-block max-w-2xl shadow-sm">
-              <p className="text-stone-800 font-bold">
-                This leads to a key strategic question:<br/>
-                <span className="text-corporate-blue text-xl">Which corporate model offers the most relevant and transferable ESG architecture for Malaysia?</span>
+            <blockquote className="border-l-4 border-corporate-blue pl-6 py-2 text-left max-w-3xl mx-auto">
+              <p className="text-stone-500 text-lg italic mb-2">This leads to a key strategic question:</p>
+              <p className="text-corporate-blue text-2xl md:text-3xl font-bold leading-tight">
+                Which corporate model offers the most relevant and transferable ESG architecture for Malaysia?
               </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* 1.2 Seizing the Opportunity — The HUL Strategic Shortcut */}
+      <section className="max-w-7xl mx-auto px-8 py-20 border-t border-stone-100">
+        <div className="space-y-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue leading-tight">
+              Section 1.2: <br />
+              Seizing the Opportunity — The HUL Strategic Shortcut
+            </h1>
+          </motion.div>
+
+          <div className="space-y-12">
+            {/* Paragraph Content */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <p className="text-stone-600 leading-relaxed text-xl">
+                Capturing this opportunity requires more than policy ambition—it requires a <span className="font-bold text-corporate-blue">proven operational model</span>.
+              </p>
+              <p className="text-stone-600 leading-relaxed text-lg">
+                In this context, <span className="font-bold">Hindustan Unilever Limited (HUL)</span> serves as a high-fidelity reference point. Operating under India’s <span className="font-bold">Business Responsibility and Sustainability Reporting (BRSR)</span> framework, HUL demonstrates how digitalization can be embedded into ESG execution at scale.
+              </p>
+              <p className="text-stone-600 leading-relaxed text-lg">
+                Its model offers a potential <span className="font-bold text-corporate-blue">“strategic shortcut”</span> across three key dimensions:
+              </p>
+            </motion.div>
+
+            {/* Images & Dimensions Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-2 gap-4"
+              >
+                <div className="space-y-4">
+                  <div className="h-40 bg-corporate-blue rounded-3xl flex flex-col items-center justify-center text-white p-6 text-center">
+                    <Cpu className="w-8 h-8 mb-2" />
+                    <p className="text-xs font-bold uppercase tracking-tighter">Industrial Digitalization</p>
+                  </div>
+                  <div className="h-56 bg-stone-200 rounded-3xl overflow-hidden shadow-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=500" 
+                      alt="Industry 4.0" 
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <div className="h-56 bg-stone-200 rounded-3xl overflow-hidden shadow-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=500" 
+                      alt="Teamwork" 
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div className="h-40 bg-sustainability-green rounded-3xl flex flex-col items-center justify-center text-white p-6 text-center">
+                    <TrendingUp className="w-8 h-8 mb-2" />
+                    <p className="text-xs font-bold uppercase tracking-tighter">Net Zero Acceleration</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-stone-50 p-8 md:p-12 rounded-[2.5rem] border border-stone-100"
+              >
+                <ul className="space-y-8">
+                  {[
+                    { title: "TVET Transformation", desc: "Aligning workforce capabilities with Industry 4.0 and ESG requirements" },
+                    { title: "Industrial Digitalization", desc: "Applying AI-enabled systems to enhance supply chain efficiency and transparency" },
+                    { title: "Net Zero Acceleration", desc: "Transitioning from static reporting toward real-time, audit-grade environmental monitoring" }
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-6">
+                      <div className="w-8 h-8 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0 mt-1">
+                        <div className="w-2.5 h-2.5 rounded-full bg-corporate-blue" />
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-stone-800 mb-2">{item.title}</p>
+                        <p className="text-stone-500 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 1.2 Seizing the Opportunity: The HUL Strategic Shortcut */}
-      <section className="max-w-7xl mx-auto px-8 py-20">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center md:text-left mb-20"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue leading-tight">
-            Section 1.2: <br />
-            Seizing the Opportunity: The HUL Strategic Shortcut
-          </h1>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="h-40 bg-corporate-blue rounded-3xl flex flex-col items-center justify-center text-white p-6 text-center">
-                  <Cpu className="w-8 h-8 mb-2" />
-                  <p className="text-xs font-bold uppercase tracking-tighter">Industrial Digitalization</p>
-                </div>
-                <div className="h-56 bg-stone-200 rounded-3xl overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=500" 
-                    alt="Industry 4.0" 
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4 pt-8">
-                <div className="h-56 bg-stone-200 rounded-3xl overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=500" 
-                    alt="Teamwork" 
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="h-40 bg-sustainability-green rounded-3xl flex flex-col items-center justify-center text-white p-6 text-center">
-                  <TrendingUp className="w-8 h-8 mb-2" />
-                  <p className="text-xs font-bold uppercase tracking-tighter">Net Zero Acceleration</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <p className="text-stone-600 leading-relaxed text-lg">
-              Capturing this opportunity requires more than policy ambition—it requires a <span className="font-bold text-corporate-blue">proven operational model</span>.
-            </p>
-            <p className="text-stone-600 leading-relaxed">
-              In this context, <span className="font-bold">Hindustan Unilever Limited (HUL)</span> serves as a high-fidelity reference point.
-            </p>
-            <p className="text-stone-600 leading-relaxed">
-              Operating under India’s <span className="font-bold">Business Responsibility and Sustainability Reporting (BRSR)</span> framework, HUL demonstrates how digitalization can be embedded into ESG execution at scale. Its model offers a potential <span className="font-bold text-corporate-blue">“strategic shortcut”</span> across three key dimensions:
-            </p>
-            <ul className="space-y-4">
-              {[
-                { title: "TVET Transformation", desc: "Aligning workforce capabilities with Industry 4.0 and ESG requirements" },
-                { title: "Industrial Digitalization", desc: "Applying AI-enabled systems to enhance supply chain efficiency and transparency" },
-                { title: "Net Zero Acceleration", desc: "Transitioning from static reporting toward real-time, audit-grade environmental monitoring" }
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-stone-100 flex items-center justify-center shrink-0 mt-1">
-                    <div className="w-2 h-2 rounded-full bg-corporate-blue" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-stone-800">{item.title}</p>
-                    <p className="text-sm text-stone-500">{item.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 1.3 The Case for HUL: Why this Benchmark Matters */}
+      {/* 1.3 The Case for HUL — Why this Benchmark Matters */}
       <section className="bg-corporate-blue py-20 text-white">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+          <div className="space-y-16">
+            <div className="space-y-8 text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 Section 1.3: <br />
-                The Case for HUL: Why this Benchmark Matters
+                The Case for HUL — Why this Benchmark Matters
               </h1>
-              <p className="text-lg text-white/90 leading-relaxed">
-                HUL’s relevance as a benchmark lies in its ability to integrate <span className="font-bold text-sustainability-green">operational scale with digital governance capability</span>.
-              </p>
-              <p className="text-white/80 leading-relaxed">
-                Beyond being a consumer goods company, HUL operates as a data-driven ecosystem—successfully managing the complexities of an emerging market while maintaining strong ESG performance. This combination closely mirrors the structural conditions faced by Malaysia.
-              </p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 border border-white/20">
-              <div className="space-y-6">
-                <p className="text-white/70">
-                  <span className="text-white font-bold">Section 2—Benchmark Audit</span>—therefore moves from strategic context to empirical analysis.
+              <div className="space-y-6 text-left">
+                <p className="text-lg text-white/80 leading-relaxed">
+                  HUL’s relevance as a benchmark lies in its ability to integrate <span className="font-bold text-sustainability-green">operational scale with digital governance capability</span>.
                 </p>
-                <p className="text-white/70">
-                  It evaluates HUL’s ESG performance (2023–2025) to identify the underlying mechanisms, technologies, and governance structures that can inform Malaysia’s ESG transformation pathway.
+                <p className="text-lg text-white/80 leading-relaxed">
+                  Beyond being a consumer goods company, HUL operates as a data-driven ecosystem—successfully managing the complexities of an emerging market while maintaining strong ESG performance. This combination closely mirrors the structural conditions faced by Malaysia.
                 </p>
-                <div className="pt-6 border-t border-white/10">
-                  <div className="flex items-center gap-4 text-sustainability-green font-bold">
-                    <BarChart3 size={24} />
-                    <span>Proceed to Empirical Analysis</span>
-                  </div>
-                </div>
               </div>
             </div>
+            
+            <blockquote className="border-l-4 border-sustainability-green pl-6 py-2 text-left max-w-4xl mx-auto">
+              <p className="text-lg text-white/90 leading-relaxed mb-4">
+                <span className="text-sustainability-green font-bold">Section 2 — Benchmark Audit</span> — therefore moves from strategic context to empirical analysis.
+              </p>
+              <p className="text-lg text-white/70 leading-relaxed italic">
+                It evaluates HUL’s ESG performance (2023–2025) to identify the underlying mechanisms, technologies, and governance structures that can inform Malaysia’s ESG transformation pathway.
+              </p>
+            </blockquote>
           </div>
         </div>
       </section>
