@@ -175,9 +175,10 @@ export default function ESGBenchmarkSection() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight text-center">
             Section 2.0: <br />
-            Diagnosing ESG Systems: From Corporate Excellence to Scope 3 Constraint
+            Diagnosing ESG Systems — <br />
+            From Corporate Excellence to Scope 3 Constraint
           </h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -321,7 +322,7 @@ export default function ESGBenchmarkSection() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight text-center">
             Section 2.2: <br />
             Bridging Strategy and Reality
           </h1>
@@ -408,7 +409,7 @@ export default function ESGBenchmarkSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-16 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-16 leading-tight text-center">
               Section 2.3: <br />
               From Benchmark to Localization
             </h1>

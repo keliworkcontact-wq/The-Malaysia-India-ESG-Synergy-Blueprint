@@ -30,33 +30,39 @@ const logistic = (t: number, L: number, k: number, t0: number) => {
 
 const generateAdoptionImpactData = () => {
   const data = [];
-  const startYear = 2023;
-  const endYear = 2030;
+  const startYear = 2025;
+  const endYear = 2035;
   
   const providedAdoption: Record<number, number> = {
-    2023: 12, 2024: 18, 2025: 25, 2026: 33, 2027: 42, 2028: 55, 2029: 65, 2030: 72
+    2025: 15, 2026: 20, 2027: 28, 2028: 38, 2029: 50, 2030: 60, 2031: 68, 2032: 74, 2033: 78, 2034: 81, 2035: 83
   };
 
   const providedEmissions: Record<number, { baseline: number; modeled: number }> = {
-    2023: { baseline: 9.8, modeled: 9.6 },
-    2024: { baseline: 9.9, modeled: 9.3 },
-    2025: { baseline: 10.0, modeled: 8.9 },
-    2026: { baseline: 10.1, modeled: 8.2 },
-    2027: { baseline: 10.2, modeled: 7.4 },
-    2028: { baseline: 10.3, modeled: 6.5 },
-    2029: { baseline: 10.4, modeled: 5.5 },
-    2030: { baseline: 10.5, modeled: 4.6 }
+    2025: { baseline: 10.0, modeled: 9.1 },
+    2026: { baseline: 10.1, modeled: 8.9 },
+    2027: { baseline: 10.2, modeled: 8.5 },
+    2028: { baseline: 10.3, modeled: 7.9 },
+    2029: { baseline: 10.4, modeled: 7.3 },
+    2030: { baseline: 10.5, modeled: 6.7 },
+    2031: { baseline: 10.6, modeled: 6.3 },
+    2032: { baseline: 10.7, modeled: 5.9 },
+    2033: { baseline: 10.8, modeled: 5.7 },
+    2034: { baseline: 10.9, modeled: 5.6 },
+    2035: { baseline: 11.0, modeled: 5.5 }
   };
 
   const providedContributions: Record<number, { internal: number; adoption: number }> = {
-    2023: { internal: 0.2, adoption: 0.1 },
-    2024: { internal: 0.4, adoption: 0.3 },
-    2025: { internal: 0.7, adoption: 0.6 },
-    2026: { internal: 1.0, adoption: 1.2 },
-    2027: { internal: 1.3, adoption: 2.0 },
-    2028: { internal: 1.6, adoption: 3.0 },
-    2029: { internal: 1.8, adoption: 4.2 },
-    2030: { internal: 2.0, adoption: 5.5 }
+    2025: { adoption: 9, internal: 91 },
+    2026: { adoption: 12, internal: 88 },
+    2027: { adoption: 17, internal: 83 },
+    2028: { adoption: 23, internal: 77 },
+    2029: { adoption: 30, internal: 70 },
+    2030: { adoption: 36, internal: 64 },
+    2031: { adoption: 41, internal: 59 },
+    2032: { adoption: 44, internal: 56 },
+    2033: { adoption: 47, internal: 53 },
+    2034: { adoption: 49, internal: 51 },
+    2035: { adoption: 50, internal: 50 }
   };
   
   for (let year = startYear; year <= endYear; year++) {
@@ -296,6 +302,7 @@ const SystemDiagnosisDashboard: React.FC = () => {
                 <LineChart
                   data={adoptionData}
                   syncId="adoptionImpact"
+                  margin={{ top: 10, right: 30, left: 0, bottom: 20 }}
                   onMouseMove={(state: any) => {
                     if (state?.activePayload && state.activePayload.length > 0) {
                       setHoveredYear(state.activePayload[0].payload.year);
@@ -305,8 +312,15 @@ const SystemDiagnosisDashboard: React.FC = () => {
                     setHoveredYear(null);
                   }}
                 >
-                  <XAxis dataKey="year" />
-                  <YAxis />
+                  <XAxis 
+                    dataKey="year" 
+                    label={{ value: 'Year', position: 'insideBottomRight', offset: -10, fontSize: 10, fill: '#78716c' }}
+                    tick={{ fontSize: 10 }}
+                  />
+                  <YAxis 
+                    label={{ value: 'Adoption (%)', angle: -90, position: 'insideLeft', offset: 15, fontSize: 10, fill: '#78716c' }}
+                    tick={{ fontSize: 10 }}
+                  />
                   <Tooltip cursor={false} />
 
                   {hoveredYear && (
@@ -338,9 +352,20 @@ const SystemDiagnosisDashboard: React.FC = () => {
             </h3>
             <div className="h-[250px] pointer-events-none">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={adoptionData} syncId="adoptionImpact">
-                  <XAxis dataKey="year" />
-                  <YAxis />
+                <LineChart 
+                  data={adoptionData} 
+                  syncId="adoptionImpact"
+                  margin={{ top: 10, right: 30, left: 0, bottom: 20 }}
+                >
+                  <XAxis 
+                    dataKey="year" 
+                    label={{ value: 'Year', position: 'insideBottomRight', offset: -10, fontSize: 10, fill: '#78716c' }}
+                    tick={{ fontSize: 10 }}
+                  />
+                  <YAxis 
+                    label={{ value: 'Emissions (MT)', angle: -90, position: 'insideLeft', offset: 15, fontSize: 10, fill: '#78716c' }}
+                    tick={{ fontSize: 10 }}
+                  />
                   
                   <Tooltip cursor={false} />
 
@@ -366,9 +391,20 @@ const SystemDiagnosisDashboard: React.FC = () => {
             </h3>
             <div className="h-[250px] pointer-events-none">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={adoptionData} syncId="adoptionImpact">
-                  <XAxis dataKey="year" />
-                  <YAxis />
+                <BarChart 
+                  data={adoptionData} 
+                  syncId="adoptionImpact"
+                  margin={{ top: 10, right: 30, left: 0, bottom: 20 }}
+                >
+                  <XAxis 
+                    dataKey="year" 
+                    label={{ value: 'Year', position: 'insideBottomRight', offset: -10, fontSize: 10, fill: '#78716c' }}
+                    tick={{ fontSize: 10 }}
+                  />
+                  <YAxis 
+                    label={{ value: 'Share %', angle: -90, position: 'insideLeft', offset: 15, fontSize: 10, fill: '#78716c' }}
+                    tick={{ fontSize: 10 }}
+                  />
 
                   <Tooltip cursor={false} />
 
@@ -386,7 +422,7 @@ const SystemDiagnosisDashboard: React.FC = () => {
               </ResponsiveContainer>
             </div>
             <div className="mt-4 text-center text-[10px] font-bold text-stone-400 uppercase tracking-widest">
-              Cumulative Reduction (MT)
+              Reduction Contribution Share (%)
             </div>
           </div>
         </div>
