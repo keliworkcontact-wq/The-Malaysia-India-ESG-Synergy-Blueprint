@@ -318,7 +318,7 @@ const SystemDiagnosisDashboard: React.FC = () => {
                     tick={{ fontSize: 10 }}
                   />
                   <YAxis 
-                    label={{ value: 'Adoption (%)', angle: -90, position: 'insideLeft', offset: 15, fontSize: 10, fill: '#78716c' }}
+                    label={{ value: 'Adoption Rate (%)', angle: -90, position: 'insideLeft', offset: 15, fontSize: 10, fill: '#78716c' }}
                     tick={{ fontSize: 10 }}
                   />
                   <Tooltip cursor={false} />
@@ -367,7 +367,10 @@ const SystemDiagnosisDashboard: React.FC = () => {
                     tick={{ fontSize: 10 }}
                   />
                   
-                  <Tooltip cursor={false} />
+                  <Tooltip 
+                    cursor={false}
+                    formatter={(value: any, name: string) => [value, `${name} (MT)`]}
+                  />
 
                   {hoveredYear && (
                     <ReferenceLine
@@ -387,7 +390,7 @@ const SystemDiagnosisDashboard: React.FC = () => {
           {/* 3. Reduction Contribution */}
           <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100 transition-all duration-300 flex flex-col">
             <h3 className="text-sm font-bold text-stone-500 uppercase tracking-widest mb-6 h-10 flex items-center">
-              Reduction Contribution Comparison
+              Reduction Contribution (Share %)
             </h3>
             <div className="h-[250px] pointer-events-none">
               <ResponsiveContainer width="100%" height="100%">
@@ -406,7 +409,10 @@ const SystemDiagnosisDashboard: React.FC = () => {
                     tick={{ fontSize: 10 }}
                   />
 
-                  <Tooltip cursor={false} />
+                  <Tooltip 
+                    cursor={false}
+                    formatter={(value: any, name: string) => [value, `${name} (%)`]}
+                  />
 
                   {hoveredYear && (
                     <ReferenceLine
@@ -420,9 +426,6 @@ const SystemDiagnosisDashboard: React.FC = () => {
                   <Bar name="Adoption-Driven" dataKey="adoption" stackId="a" fill="#B37FEB" />
                 </BarChart>
               </ResponsiveContainer>
-            </div>
-            <div className="mt-4 text-center text-[10px] font-bold text-stone-400 uppercase tracking-widest">
-              Reduction Contribution Share (%)
             </div>
           </div>
         </div>
