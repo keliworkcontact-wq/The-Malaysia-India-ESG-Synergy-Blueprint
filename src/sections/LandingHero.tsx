@@ -36,7 +36,9 @@ export default function LandingHero({ onStart, onViewLog }: LandingHeroProps) {
             <span className="text-sustainability-green block mt-2">A Digital Roadmap for Net Zero 2050</span>
           </h1>
           <p className="text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
-            A comprehensive strategic framework that bridges Hindustan Unilever’s digital ESG excellence with Malaysia’s national sustainability goals. This blueprint outlines a systemic integration of Environmental circularity, Social empowerment, and Governance innovation—leveraging the Malaysia–India CSP to accelerate a pragmatic transition toward Net Zero 2050.
+            A strategic blueprint that translates Hindustan Unilever’s digitally enabled ESG model into a localized transformation pathway for Malaysia.
+            <br />
+            By integrating Environmental circularity, Social inclusion, and Governance innovation into a multi-platform ecosystem, this report demonstrates how Malaysia can leverage the Malaysia–India Comprehensive Strategic Partnership (CSP) to move from fragmented ESG adoption toward a more coordinated and system-level Net Zero transition.
           </p>
 
           <div className="mb-12">
@@ -71,7 +73,7 @@ export default function LandingHero({ onStart, onViewLog }: LandingHeroProps) {
               id="report-process-log-btn"
             >
               <History size={20} />
-              Report Process Log
+              Report Appendix and Log
             </button>
           </div>
         </motion.div>
