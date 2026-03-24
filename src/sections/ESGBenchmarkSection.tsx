@@ -183,7 +183,7 @@ export default function ESGBenchmarkSection() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <p className="text-xl text-stone-600 leading-relaxed">
+              <p className="text-lg text-stone-500 leading-relaxed">
                 This section examines the ESG operational architecture of Hindustan Unilever Limited (HUL), one of the most advanced ESG-integrated corporations in emerging markets.
               </p>
               <p className="text-lg text-stone-500 leading-relaxed">
@@ -324,23 +324,23 @@ export default function ESGBenchmarkSection() {
         >
           <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight text-center">
             Section 2.2: <br />
-            Bridging Strategy and Reality
+            From Emission Reality to System-Level Constraint
           </h1>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             <div className="space-y-6">
-              <p className="text-xl text-stone-600 leading-relaxed">
-                To evaluate the real-world effectiveness of HUL’s ESG system, it is necessary to move beyond strategy descriptions and examine how emissions behave across different scopes—and where structural constraints limit progress.
+              <p className="text-lg text-stone-500 leading-relaxed">
+                To evaluate the real-world effectiveness of HUL’s ESG system, it is necessary to move beyond strategy descriptions and examine how emissions behave across scopes—and where structural constraints limit progress.
               </p>
               <p className="text-lg text-stone-500 leading-relaxed">
-                Using HUL’s reported data, this section applies a focused set of models to identify:
+                Using reported data, this section applies a focused set of models to identify:
               </p>
               
               <ul className="mt-8 space-y-4">
                 {[
-                  'Where emissions are being successfully controlled',
-                  'Where systemic challenges persist',
-                  'How ESG systems translate into real-world impact'
+                  'where emissions are being controlled',
+                  'where systemic challenges persist',
+                  'how ESG systems translate into real-world impact'
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-stone-600 font-medium">
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
@@ -350,13 +350,13 @@ export default function ESGBenchmarkSection() {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm">
-              <h3 className="text-lg font-bold text-corporate-blue mb-6 flex items-center gap-2">
+            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm h-full flex flex-col justify-center">
+              <h3 className="text-lg font-bold text-corporate-blue mb-6 flex items-center justify-center gap-2">
                 <Zap size={20} className="text-amber-500" />
                 Analysis Logic
               </h3>
-              <p className="text-stone-600 leading-relaxed mb-8">
-                The analysis progresses from <span className="font-bold text-corporate-blue">emission reality → structural constraint → adoption-driven impact</span>, providing a clear and sequential understanding of ESG transformation dynamics.
+              <p className="text-stone-600 leading-relaxed mb-8 text-center">
+                The analysis progresses from <span className="font-bold text-corporate-blue">emission reality → structural constraint → adoption-driven impact</span>, forming a sequential view of ESG transformation dynamics.
               </p>
               
               <div className="flex items-center justify-between gap-2">
@@ -388,9 +388,9 @@ export default function ESGBenchmarkSection() {
           <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
             Diagnosis Process
           </h1>
-          <div className="text-xl text-stone-600 leading-relaxed space-y-2">
+          <div className="text-xl text-stone-600 leading-relaxed space-y-4">
             <p>This section applies two models in sequence:</p>
-            <ul className="list-none space-y-1">
+            <ul className="list-none space-y-3">
               <li>• 2.2A — Emission Reality to identify where structural constraints emerge</li>
               <li>• 2.2B — Adoption Impact System to isolate the key driver of change</li>
             </ul>
@@ -417,22 +417,25 @@ export default function ESGBenchmarkSection() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               <div className="space-y-8">
                 <p className="text-lg text-stone-400 leading-relaxed">
-                  The analysis of Hindustan Unilever Limited (HUL) demonstrates that ESG excellence at the corporate level is both achievable and scalable when embedded into core business strategy. Through its integration of governance frameworks, digital infrastructure, and inclusive value chain initiatives, HUL has transformed sustainability from a compliance function into a driver of operational efficiency and long-term competitiveness.
+                  The analysis of Hindustan Unilever Limited (HUL) demonstrates that ESG excellence is both achievable and scalable when embedded into core business strategy. Through the integration of governance frameworks, digital infrastructure, and inclusive value chain initiatives, HUL has transformed sustainability from a compliance function into a driver of operational efficiency and long-term competitiveness.
                 </p>
                 <p className="text-lg text-stone-400 leading-relaxed">
-                  More importantly, this benchmark reveals that the true strength of HUL’s ESG system lies not only in its performance outcomes, but in its ability to structure and coordinate complex value chain interactions. By leveraging digital tools such as AI-enabled diagnostics and simulation platforms, HUL has created a system where sustainability actions can be measured, optimized, and scaled across multiple operational layers.
+                  More importantly, the strength of HUL’s ESG system lies not only in its performance outcomes, but in its ability to structure and coordinate complex value chain interactions. By leveraging digital tools such as AI-enabled diagnostics and simulation platforms, HUL has established a system where sustainability actions can be measured, optimized, and scaled across multiple operational layers.
                 </p>
+                <blockquote className="border-l-4 border-blue-500 pl-6 py-4 bg-stone-900/40 italic text-lg text-stone-200 leading-relaxed">
+                  This shifts the relevance of the benchmark from performance to transferability.
+                </blockquote>
               </div>
 
               <div className="space-y-8">
+                <p className="text-lg text-stone-400 leading-relaxed">
+                  For Malaysia, this implies that ESG transformation cannot rely solely on firm-level execution, but must be supported by localized systems capable of mobilizing participation across suppliers, communities, and institutional actors.
+                </p>
                 <blockquote className="border-l-4 border-blue-500 pl-6 py-4 bg-stone-900/40 italic text-lg text-stone-200 leading-relaxed">
-                  "However, the findings from Section 2.2 establish a critical boundary condition: while corporate-level optimization can improve operational performance, system-level decarbonization depends on the participation of a broader ecosystem."
+                  The value of the HUL benchmark therefore lies in its ability to inform system-level design.
                 </blockquote>
                 <p className="text-lg text-stone-400 leading-relaxed">
-                  This insight shifts the focus of ESG strategy from internal execution to external coordination. For Malaysia, this implies that the adoption of ESG frameworks cannot rely solely on firm-level transformation. Instead, it requires the development of localized systems that can mobilize participation across suppliers, communities, and supporting institutions.
-                </p>
-                <p className="text-lg text-stone-400 leading-relaxed">
-                  <span className="text-blue-400 font-semibold">Therefore, the value of the HUL benchmark lies in its transferability. The next section moves from analysis to application.</span> Section 3 translates these ESG mechanisms into a Malaysia-specific context, adapting key components—such as digital platforms, circular resource systems, and inclusive participation models—into a set of localized strategies aligned with national priorities and institutional structures.
+                  The next section moves from analysis to application, translating these mechanisms into a Malaysia-specific ESG transformation framework.
                 </p>
               </div>
             </div>

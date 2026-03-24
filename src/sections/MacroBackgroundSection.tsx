@@ -30,7 +30,7 @@ export default function MacroBackgroundSection() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -40,10 +40,10 @@ export default function MacroBackgroundSection() {
             <p className="text-stone-600 leading-relaxed text-lg">
               The economic relationship between Southeast Asia and South Asia reached a significant milestone on <span className="font-bold text-corporate-blue">9 February 2026</span>, marked by the signing of <span className="font-bold">11 agreements and memoranda of understanding (MoUs)</span> between Malaysia and India under the <span className="font-bold">Comprehensive Strategic Partnership (CSP)</span> framework.
             </p>
-            <p className="text-stone-600 leading-relaxed">
+            <p className="text-stone-600 leading-relaxed text-lg">
               This development represents more than diplomatic alignment. It reflects a strengthening of institutional trust and policy coordination, creating a rare window for deeper economic and industrial collaboration.
             </p>
-            <p className="text-stone-600 leading-relaxed">
+            <p className="text-stone-600 leading-relaxed text-lg">
               From an ESG perspective, this alignment is particularly consequential. It establishes the foundation for cross-border sustainability integration—enabling both countries to move beyond traditional trade linkages toward coordinated low-carbon and industrial transformation.
             </p>
           </motion.div>
@@ -235,7 +235,7 @@ export default function MacroBackgroundSection() {
       <section className="bg-corporate-blue py-20 text-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="space-y-16">
-            <div className="space-y-8 text-center">
+            <div className="space-y-8 text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 Section 1.3: <br />
                 The Case for HUL — Why this Benchmark Matters
@@ -250,7 +250,7 @@ export default function MacroBackgroundSection() {
               </div>
             </div>
             
-            <blockquote className="border-l-4 border-sustainability-green pl-6 py-2 text-left max-w-4xl mx-auto">
+            <blockquote className="border-l-4 border-sustainability-green pl-6 py-2 text-left max-w-4xl">
               <p className="text-lg text-white/90 leading-relaxed mb-4">
                 <span className="text-sustainability-green font-bold">Section 2 — Benchmark Audit</span> — therefore moves from strategic context to empirical analysis.
               </p>
