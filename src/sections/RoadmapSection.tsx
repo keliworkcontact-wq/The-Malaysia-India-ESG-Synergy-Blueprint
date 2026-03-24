@@ -500,12 +500,14 @@ export default function RoadmapSection() {
         >
           <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
             Section 3.0: <br />
-            From Benchmark to Blueprint: Translating ESG Systems for Malaysia
+            From Benchmark to Blueprint — <br />
+            Translating ESG Systems for Malaysia
           </h1>
           
           <div className="w-full space-y-8">
             <blockquote className="border-l-4 border-blue-500 pl-6 py-4 bg-stone-50 italic text-lg text-stone-600 leading-relaxed">
-              "Building on Section 2 findings, this section moves from insight to application."
+              The constraint is clear: ESG transformation cannot scale without ecosystem coordination.<br />
+              The question now shifts from “what works” to “how to redesign it for Malaysia.”
             </blockquote>
             
             <div className="space-y-6">
@@ -644,13 +646,13 @@ export default function RoadmapSection() {
         </motion.div>
       </section>
 
-      <div className="text-center mb-16">
+      <div className="text-left mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
           Section 3.2: <br />
           Malaysia ESG Transformation Strategies Blueprint
         </h1>
         
-        <div className="max-w-3xl mx-auto space-y-8 text-slate-600 leading-relaxed">
+        <div className="w-full space-y-8 text-slate-600 leading-relaxed">
           <div className="space-y-6">
             <h4 className="font-bold text-stone-900 text-xl">The ESG Ecosystem Loop</h4>
             <p className="text-lg">
