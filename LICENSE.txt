@@ -1,16 +1,14 @@
-## License
+This project is licensed under the:  
+Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International (CC BY-NC-ND 4.0).
 
-This project is licensed under the  
-**Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International (CC BY-NC-ND 4.0)**.
+Key Terms
+- Attribution: Proper credit must be given to THAM KE LI  
+- Non-Commercial: The material may not be used for commercial purposes  
+- No Derivatives: Modified or adapted versions may not be distributed  
 
-### Key Terms
-- **Attribution:** Proper credit must be given to THAM KE LI  
-- **Non-Commercial:** The material may not be used for commercial purposes  
-- **No Derivatives:** Modified or adapted versions may not be distributed  
-
-### Strategic IP Clarification
+Strategic IP Clarification:
 While this repository includes code and visual materials for demonstration,  
-the **strategic frameworks, system architecture, and localization methodologies**  
+the strategic frameworks, system architecture, and localization methodologies
 (e.g., RAP, Shakti 2.0, LC-SF, CaaS Platform) are the original intellectual property of the author.
 
 These elements may be:
@@ -22,6 +20,6 @@ But may NOT be:
 - Repackaged into derivative strategic solutions  
 - Used in client-facing or revenue-generating work  
 
-### Full License
+Full License:
 For the complete legal code, please visit:  
 https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
