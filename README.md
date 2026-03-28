@@ -62,7 +62,7 @@ This approach ensures the output is not just analytical—but **structurally val
 ## View the Full Blueprint
 * 🌐 **Interactive Web Report:** [Link to your AI Studio App]
 * 📄 **Full Report PDF:**
-  [Malaysia–India ESG Synergy Blueprint - THAM KE LI.pdf](https://github.com/keliworkcontact-wq/HUL-ESG-Malaysia-India-Strategic-Portfolio/blob/af185aacaae4b61d0920e992a635f091ea94ffda/Tham_Ke_Li_Strategic_Project_Log.pdf)
+  [Malaysia–India ESG Synergy Blueprint - THAM KE LI.pdf](https://github.com/keliworkcontact-wq/The-Malaysia-India-ESG-Synergy-Blueprint/blob/28e77c7681666a407344e6279cdd386953e9153a/public/Malaysia%E2%80%93India%20ESG%20Synergy%20Blueprint%20-%20THAM%20KE%20LI.pdf)
 * 📄 **Report Appendix & Log PDF:** [Appendix_The_Malaysia_India_ESG_Synergy_Blueprint.pdf](https://github.com/keliworkcontact-wq/The-Malaysia-India-ESG-Synergy-Blueprint/blob/9d62bc9996a566821250f23ad216b9be6fd80a68/public/Appendix_The_Malaysia_India_ESG_Synergy_Blueprint.pdf)
 ---
 
