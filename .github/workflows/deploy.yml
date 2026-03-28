@@ -4,6 +4,14 @@ on:
   push:
     branches: ["main"] 
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
 permissions:
   contents: read
   pages: write
