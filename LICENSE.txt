@@ -20,6 +20,5 @@ But may NOT be:
 - Repackaged into derivative strategic solutions  
 - Used in client-facing or revenue-generating work  
 
-Full License:
-For the complete legal code, please visit:  
+For the license's complete legal code, please visit:  
 https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
