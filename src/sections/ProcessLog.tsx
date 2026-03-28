@@ -78,7 +78,7 @@ const evidence = [
   {
     category: "Webpage & Repository",
     items: [
-      { label: "GitHub (Report Structure & Code)", url: "https://github.com/keliworkcontact-wq/HUL-ESG-Malaysia-India-Strategic-Portfolio" }
+      { label: "GitHub (Report Structure & Code)", url: "https://github.com/keliworkcontact-wq/The-Malaysia-India-ESG-Synergy-Blueprint" }
     ]
   },
   {
