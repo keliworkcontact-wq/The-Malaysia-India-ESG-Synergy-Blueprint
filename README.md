@@ -60,7 +60,7 @@ This approach ensures the output is not just analytical—but **structurally val
 ---
 
 ## View the Full Blueprint
-* 🌐 **Interactive Web Report:** (https://keliworkcontact-wq.github.io/The-Malaysia-India-ESG-Synergy-Blueprint/)
+* 🌐 **Interactive Web Report:** https://keliworkcontact-wq.github.io/The-Malaysia-India-ESG-Synergy-Blueprint/
 ---
 
 ## Visual Preview
