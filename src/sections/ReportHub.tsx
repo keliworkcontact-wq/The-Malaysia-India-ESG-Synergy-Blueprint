@@ -103,7 +103,7 @@ export default function ReportHub({ onSelectSection, onBackToHome }: ReportHubPr
             Back to Home
           </button>
           <a 
-            href="ESG_Blueprint_Full_Report.pdf"  
+            href="Full_Report.pdf"  
             download="Malaysia–India ESG Synergy Blueprint - THAM KE LI.pdf" 
             className="inline-flex items-center gap-3 bg-corporate-blue text-white px-8 py-4 rounded-2xl font-bold hover:bg-sustainability-green transition-all shadow-lg group"
           >
