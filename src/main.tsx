@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter as Router, Routes, Route } from 'react-router-dom' // 必须是 HashRouter
-import App from './App' // 或者是你的主页面组件
+import { HashRouter as Router, Routes, Route } from 'react-router-dom' 
+import App from './App' 
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
