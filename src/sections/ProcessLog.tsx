@@ -245,7 +245,7 @@ export default function ProcessLog() {
           
           <div className="pt-6">
             <a 
-              href="/Appendix_The_Malaysia_India_ESG_Synergy_Blueprint.pdf" 
+              href="Appendix.pdf"
               download
               className="inline-flex items-center gap-3 bg-white text-corporate-blue px-8 py-4 rounded-2xl font-bold hover:bg-sustainability-green hover:text-white transition-all shadow-lg group"
             >
