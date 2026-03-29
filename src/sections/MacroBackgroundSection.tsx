@@ -54,7 +54,7 @@ export default function MacroBackgroundSection() {
             className="relative"
           >
             <img 
-              src="/india-malaysia-flag.png" 
+              src="india-malaysia-flag.png" 
               alt="Strategic Partnership" 
               className="rounded-3xl shadow-2xl w-full h-80 object-cover"
               referrerPolicy="no-referrer"
