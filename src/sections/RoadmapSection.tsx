@@ -196,6 +196,21 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
           "Waste is delivered either to the B40 member’s home, or a designated community micro-collection point.",
           "This premise establishes the physical entry point of materials into the CaaS Platform ecosystem, forming the foundation of a decentralized circular network."
         ]},
+        { section: "Scenario 1: Community Collection and ESG Ambassador Function)", content: [
+          "**Digital Weighing & Verification:** B40 female members use Bluetooth-connected smart scales. Data is automatically recorded in the CaaS Platform App, ensuring transparency, traceability, and audit-ready ESG data.",
+          "**Household ESG Diagnostic Service:** The platform analyzes historical disposal data. When abnormal patterns are detected (e.g., excessive plastic usage), members provide data-informed 'Green Diagnostic Advice' (e.g., recommending bulk purchasing over small packaging).",
+          "**Value Interpretation:** Transforms B40 members from collectors into community ESG service providers, embedding behavioral change mechanisms directly into recycling flows."                  
+        ]},
+        { section: "Scenario 2: Logistics Integration and Value Creation", content: [
+          "**Inventory Trigger at Community Micro-Centers:** When stock reaches a predefined threshold (e.g., 50 kg of finely sorted plastics), the system automatically generates a pickup request and dispatches it to nearby contracted collectors.",
+          "**Efficient Collection:** Collectors no longer roam neighborhoods searching for waste; platform navigation directs them to precise micro-centers. Pre-sorted waste eliminates on-site sorting time.",
+          "**Premium Settlement:** Materials delivered to processors (e.g., HHI) are classified as high-purity recyclables, commanding higher resale prices. Incremental value is distributed across the platform, collectors, and B40 members."   
+        ]},
+        { section: "Scenario 3: Financial Incentives and Circular Benefits", content: [
+          "**Carbon Reduction Data Generation:** Emission reductions across the recycling lifecycle are recorded within the platform. Corporations utilize this data for ESG reporting and compliance.",
+          "**Dividend Injection via LC-SF Mechanism:** Under Malaysia–India agreements, bilateral trade adopts local currency settlement. Exchange-rate savings are channeled into the CaaS Platform Incentive Fund.",
+          "**End-User Benefits:** B40 members receive management commissions; Collectors receive efficiency-based subsidies; Residents earn recycling points redeemable for green products with dual-layer incentives."   
+        ]},
         { section: "Core Revenue Mechanisms", content: [
           "**B40 Female Members**: Management Commission (percentage fee based on total community recycling volume) and Digital Consulting Fee (small service fee for household ESG diagnostics).",
           "**Independent Collectors**: Efficiency Incentive (reduced fuel costs and higher hourly productivity), Compliance Subsidy (eligible for green financial rewards), and Backend Premium (pre-sorted waste commands significantly higher resale prices)."
