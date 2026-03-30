@@ -167,48 +167,63 @@ export default function ESGBenchmarkSection() {
 
   return (
     <div className="w-full">
-      {/* Section 2.0:Diagnosing ESG Systemse */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20">
+      {/* 2.0 Purpose of the Benchmark Audit */}
+      <section className="max-w-7xl mx-auto px-8 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h1 className="text-3xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight text-center">
             Section 2.0: <br />
             Diagnosing ESG Systems — <br />
-            <span className="text-2xl md:text-5xl">From Corporate Excellence to Scope 3 Constraint</span>
+            From Corporate Excellence to Scope 3 Constraint
           </h1>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <p className="text-base md:text-lg text-stone-500 leading-relaxed">
+              <p className="text-lg text-stone-500 leading-relaxed">
                 This section examines the ESG operational architecture of Hindustan Unilever Limited (HUL), one of the most advanced ESG-integrated corporations in emerging markets.
               </p>
-              <p className="text-base md:text-lg text-stone-500 leading-relaxed">
-                Its objective is to identify <span className="text-corporate-blue font-semibold">transferable sustainability mechanisms</span> that can inform Malaysia’s ESG transformation pathway.
+              <p className="text-lg text-stone-500 leading-relaxed">
+                Its objective is to identify <span className="text-corporate-blue font-semibold">transferable sustainability mechanisms</span> that can inform Malaysia’s ESG transformation pathway under the Malaysia–India Comprehensive Strategic Partnership (CSP).
               </p>
+              
+              <div className="pt-6">
+                <a 
+                  href="https://www.hul.co.in/sustainability/sustainability-reporting-centre/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-corporate-blue font-bold hover:underline group"
+                >
+                  <ExternalLink size={18} className="group-hover:scale-110 transition-transform" />
+                  Data Foundation: HUL Sustainability Reporting Centre
+                </a>
+                <p className="text-xs text-stone-400 mt-2 italic">
+                  Based on HUL disclosures (2023–2025) and three years of official datasets.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-stone-200 shadow-sm">
+            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm">
               <h3 className="text-lg font-bold text-corporate-blue mb-6 flex items-center gap-2">
                 <Info size={20} className="text-blue-500" />
-                Three Core Dimensions
+                Three Core Dimensions of Analysis
               </h3>
               <div className="space-y-4">
                 {[
-                  { title: 'Governance Architecture', desc: 'Structural integrity models.' },
-                  { title: 'Technology-enabled', desc: '4IR integration & R&D.' },
-                  { title: 'Inclusive Value Chain', desc: 'Social empowerment.' }
+                  { title: 'Governance Architecture', desc: 'The structural integrity and transparency models.' },
+                  { title: 'Technology-enabled Sustainability', desc: '4IR integration and R&D-driven efficiency.' },
+                  { title: 'Inclusive Value Chain Transformation', desc: 'Social empowerment and circular economy models.' }
                 ].map((dim, i) => (
-                  <div key={i} className="flex items-start gap-4 p-3 md:p-4 rounded-xl bg-stone-50 border border-stone-100">
-                    <div className="w-7 h-7 bg-corporate-blue text-white rounded-lg flex items-center justify-center font-bold shrink-0 text-sm">
+                  <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-stone-50 border border-stone-100">
+                    <div className="w-8 h-8 bg-corporate-blue text-white rounded-lg flex items-center justify-center font-bold shrink-0">
                       {i + 1}
                     </div>
                     <div>
-                      <h4 className="font-bold text-corporate-blue text-sm md:text-base">{dim.title}</h4>
-                      <p className="text-xs md:text-sm text-stone-500">{dim.desc}</p>
+                      <h4 className="font-bold text-corporate-blue">{dim.title}</h4>
+                      <p className="text-sm text-stone-500">{dim.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -219,21 +234,20 @@ export default function ESGBenchmarkSection() {
       </section>
 
       {/* 2.1 HUL ESG Operating Architecture */}
-      <section className="bg-stone-50 py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-12 md:mb-20">
-            <h1 className="text-3xl md:text-5xl font-bold text-corporate-blue mb-6">
-              Section 2.1: <br className="md:hidden" /> HUL ESG System Structure
+      <section className="bg-stone-50 py-20 overflow-x-auto">
+        <div className="max-w-[1400px] mx-auto px-8 min-w-[1000px]">
+          <div className="text-center mb-20">
+            <h1 className="text-4xl md:text-5xl font-bold text-corporate-blue mb-8 leading-tight">
+              Section 2.1: <br />
+              HUL ESG System Structure
             </h1>
-            <p className="text-base md:text-xl text-stone-600 max-w-4xl mx-auto leading-relaxed px-4">
-              <span className="md:hidden text-corporate-blue font-semibold">Tap on the strategy cards</span> below to explore the HUL integrated ESG system.
-              <span className="hidden md:inline">The diagram below illustrates HUL’s ESG practices as an integrated system. Select nodes to reveal insights.</span>
+            <p className="text-xl text-stone-600 max-w-4xl mx-auto leading-relaxed">
+              The diagram below illustrates HUL’s ESG practices functioning as an integrated and scalable system. Select the strategy nodes to reveal detailed insights into the underlying mechanisms.
             </p>
           </div>
 
           {/* Tree Diagram Implementation */}
-          <div className="hidden md:block overflow-x-auto pb-12">
-            <div className="min-w-[1000px] relative flex flex-col items-center">
+          <div className="relative flex flex-col items-center pb-12">
             {/* Root Node */}
             <motion.div 
               initial={{ opacity: 0, y: -20 }}
@@ -298,35 +312,11 @@ export default function ESGBenchmarkSection() {
             </div>
           </div>
         </div>
-          
-          {/* Mobile view: Stack Layout */}
-          <div className="md:hidden space-y-12 relative">
-             {/* Decorative centerline */}
-             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-stone-200 -z-0" />
-             
-             {[
-               { title: 'Corporate Strategy', color: 'bg-blue-600', cat: 'Governance' },
-               { title: 'Technology Layer', color: 'bg-emerald-600', cat: 'Technology' },
-               { title: 'Inclusive Value Chain', color: 'bg-amber-600', cat: 'Value Chain' }
-             ].map((layer, idx) => (
-               <div key={idx} className="relative z-10 flex flex-col items-center">
-                 <div className={`px-6 py-2 ${layer.color} text-white rounded-full text-xs font-bold shadow-md mb-6`}>
-                   {layer.title}
-                 </div>
-                 <div className="grid grid-cols-1 gap-4 w-full">
-                    {strategyNodes.filter(n => n.category === layer.cat).map(node => (
-                      <StrategyTreeNode key={node.id} node={node} onClick={() => setSelectedNode(node)} />
-                    ))}
-                 </div>
-               </div>
-             ))}
-          </div>
-        </div>
       </section>
 
       {/* 2.2 From Emission Reality to System-Level Constraint */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+      <section className="max-w-7xl mx-auto px-8 py-20">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -360,36 +350,31 @@ export default function ESGBenchmarkSection() {
               </ul>
             </div>
 
-            <div className="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-stone-200 shadow-sm">
-             <h3 className="text-lg font-bold text-corporate-blue mb-8 text-center flex items-center justify-center gap-2">
-               <Zap size={20} className="text-amber-500" />
-               Analysis Logic
-             </h3>
-             <p className="text-stone-600 leading-relaxed mb-8 text-center">
-               The analysis progresses from <span className="font-bold text-corporate-blue">emission reality → structural constraint → adoption-driven impact</span>, forming a sequential view of ESG transformation dynamics.
-             </p>
-
-              {/* Step bar: Horizontal on PC, vertical on mobile */}
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="bg-white p-8 rounded-[2rem] border border-stone-200 shadow-sm h-full flex flex-col justify-center">
+              <h3 className="text-lg font-bold text-corporate-blue mb-6 flex items-center justify-center gap-2">
+                <Zap size={20} className="text-amber-500" />
+                Analysis Logic
+              </h3>
+              <p className="text-stone-600 leading-relaxed mb-8 text-center">
+                The analysis progresses from <span className="font-bold text-corporate-blue">emission reality → structural constraint → adoption-driven impact</span>, forming a sequential view of ESG transformation dynamics.
+              </p>
+              
+              <div className="flex items-center justify-between gap-2">
                 {["What's going on", "What's the problem", "What's the key factor"].map((step, i) => (
                   <React.Fragment key={i}>
-                    <div className="w-full md:flex-1 text-center group">
-                      <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2">Step 0{i+1}</div>
-                      <div className="py-4 px-4 bg-stone-50 border border-stone-100 rounded-2xl text-sm font-bold text-corporate-blue shadow-sm min-h-[80px] flex items-center justify-center transition-all group-hover:bg-white group-hover:border-blue-200">
+                    <div className="flex-1 text-center">
+                      <div className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-3">Step 0{i+1}</div>
+                      <div className="py-3 px-4 bg-stone-50 border border-stone-100 rounded-2xl text-sm font-bold text-corporate-blue shadow-sm min-h-[72px] flex items-center justify-center leading-tight">
                         {step}
                       </div>
                     </div>
-                    {i < 2 && (
-                      <>
-                        <ArrowRight size={16} className="hidden md:block text-stone-300 mt-6" />
-                        <div className="md:hidden h-6 w-px bg-stone-200" /> {/* 手机端的垂直连接线 */}
-                      </>
-                    )}
+                    {i < 2 && <ArrowRight size={16} className="text-stone-300 shrink-0 mt-8" />}
                   </React.Fragment>
                 ))}
-             </div>
-           </div>
-        </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* System Diagnosis Dashboard Intro */}
@@ -461,7 +446,7 @@ export default function ESGBenchmarkSection() {
       {/* Modal Overlay */}
       <AnimatePresence>
         {selectedNode && (
-          <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center p-0 md:p-8">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -470,10 +455,10 @@ export default function ESGBenchmarkSection() {
               className="absolute inset-0 bg-corporate-blue/40 backdrop-blur-md"
             />
             <motion.div
-              initial={{ y: "100%" }} 
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              className="relative w-full md:max-w-4xl h-[90vh] md:h-auto md:max-h-[90vh] bg-white rounded-t-[2rem] md:rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col"
             >
               {/* Modal Header */}
               <div className={`p-8 ${selectedNode.color} text-white flex items-center justify-between`}>
