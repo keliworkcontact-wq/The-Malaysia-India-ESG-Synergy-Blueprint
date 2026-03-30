@@ -78,7 +78,7 @@ This repository is licensed under **CC BY-NC-ND 4.0**.
 
 **Important Notice:**  
 While the code serves as a functional demonstration layer, the **Strategic Concepts, System Architecture, and Localization Frameworks**  
-(e.g., RAP, Shakti 2.0, LC-SF Synergy) are original intellectual property of the author.
+(e.g., RAP, CaaS Platform, LC-SF Synergy) are original intellectual property of the author.
 
 - ✅ Personal / Educational Use: Encouraged  
 - ❌ Commercial Application / Redistribution: Not permitted without authorization  
