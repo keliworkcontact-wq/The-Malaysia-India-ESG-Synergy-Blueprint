@@ -170,7 +170,7 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
       ]
     },
     {
-      id: 'shakti',
+      id: 'CaaS',
       title: 'Circularity-as-a-Service Platform (CaaS Platform)',
       icon: Network,
       idea: "The CaaS Platform is a modular ecosystem built on community nodes and digital systems, providing on-demand circular economy services. Inspired by Project Shakti, it places B40 women and informal waste collectors at the core of operations, ensuring that environmental sustainability is achieved alongside grassroots economic empowerment and social inclusion.",
@@ -187,7 +187,7 @@ const roadmapData: Record<'E' | 'S' | 'G', RoadmapItem[]> = {
           "**Policy Overlap Risk**: Potential conflicts with state initiatives such as Negeri Sembilan’s KITARecycle program."
         ]
       },
-      type: 'shakti',
+      type: 'CaaS',
       fullBlueprint: [
         { section: "The Idea", content: "In Malaysia’s highly urbanized market, retail giants such as 99 Speedmart dominate distribution channels, leaving limited structural space for HUL’s original retail-based Shakti model to scale.\n\nTo address this constraint, this study integrates the inclusive entrepreneurship model of Project Shakti with the systemic circularity framework of Project Circular Bharat, redesigning them into a **Circularity-as-a-Service Platform (CaaS Platform)**—a digitally enabled, service-based infrastructure targeting Malaysia’s **last-mile recycling gap**.\n\nThe CaaS Platform is a modular ecosystem built on community nodes and digital systems, providing on-demand circular economy services. Inspired by Project Shakti, it places B40 women and informal waste collectors at the core of operations, ensuring that environmental sustainability is achieved alongside grassroots economic empowerment and social inclusion." },
         { section: "Context Premise", content: [
