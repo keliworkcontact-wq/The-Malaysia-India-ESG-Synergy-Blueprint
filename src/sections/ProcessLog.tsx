@@ -28,7 +28,7 @@ const phases = [
     title: "Phase 2 — Strategic Pivot",
     icon: <RefreshCw className="w-5 h-5" />,
     items: [
-      "Triggered by Malaysia–India bilateral MoCs (Feb 2026)",
+      "Triggered by Malaysia–India bilateral MoUs (Feb 2026)",
       "Identified a “Policy Window” linking HUL’s ESG maturity with Malaysia’s strategic alignment",
       "Repositioned the project from audit → cross-border ESG strategy blueprint"
     ]
