@@ -46,7 +46,7 @@ export default function LandingHero({ onStart, onViewLog }: LandingHeroProps) {
               Strategic Concept & Analysis by <span className="text-sustainability-green font-bold">THAM KE LI</span>
             </p>
             <p className="text-xs md:text-sm text-white/60 mt-1 uppercase tracking-widest">
-              Certified Data Analyst Associate | ESG Strategy Researcher
+              Strategic Consultant | Business Intelligence | Systems Architecture & ESG Strategy
             </p>
             <a 
               href="https://dinq.me/keli" 
