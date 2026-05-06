@@ -64,7 +64,7 @@ This approach ensures the output is not just analytical—but **structurally val
 ---
 
 ## Visual Preview
-<img width="1843" height="789" alt="Screenshot (150)" src="https://github.com/user-attachments/assets/6ac0c5f4-cba8-4de0-85b7-3bab22e7bace" />
+<img width="1877" height="899" alt="Screenshot (182)" src="https://github.com/user-attachments/assets/9d6195aa-59c4-4fe2-8982-26bf557179c5" />
 <img width="1842" height="807" alt="Screenshot (155)" src="https://github.com/user-attachments/assets/709291fa-f9c7-4dd9-88de-c7ae69ee3949" />
 <img width="1857" height="836" alt="Screenshot (154)" src="https://github.com/user-attachments/assets/156acc7d-659c-47d9-86c6-82b945185b23" />
 
