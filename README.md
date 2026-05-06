@@ -2,7 +2,7 @@
 ## A Digital Roadmap for Net Zero 2050
 
 ### Strategic Concept & Analysis by THAM KE LI  
-*Certified Data Analyst Associate | ESG Strategy Researcher*
+*Strategic Consultant | Business Intelligence | Systems Architecture & ESG Strategy*
 
 🔗 **[Connect with me via my Digital Business Card](https://dinq.me/keli)**
 
