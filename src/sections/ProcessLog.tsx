@@ -90,7 +90,7 @@ const evidence = [
   {
     category: "Reference Context",
     items: [
-      { label: "eNanyang (Malaysia–India MoCs)", url: "https://www.enanyang.my/news/20260209/Finance/1160873" }
+      { label: "eNanyang (Malaysia–India MoUs)", url: "https://www.enanyang.my/news/20260209/Finance/1160873" }
     ]
   },
   {
